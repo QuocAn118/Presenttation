@@ -4,22 +4,24 @@ Hướng dẫn cho trợ lý AI làm việc trong repo này, trên máy của th
 
 ## Dự án
 
-Bài môn Deep Learning: so sánh **mốc trung bình embedding, RNN, LSTM, Transformer** trên phân loại cảm xúc IMDB bằng PyTorch. Kết quả gồm số liệu, biểu đồ và phân tích lỗi trong `results/`. Chồng (trưởng nhóm) dùng các biểu đồ này để làm slide thuyết trình. Giảng viên làm ở doanh nghiệp, quan tâm hiệu năng, chi phí và độ trễ.
+Bài môn Deep Learning: **notebook demo self-attention** tự viết bằng PyTorch, nạp **trọng số đã huấn luyện của GPT-2**, vẽ heatmap attention **trước và sau causal mask**, đo thời gian và bộ nhớ trên GPU và CPU, kèm nhận xét ưu điểm, hạn chế và hướng dẫn chạy. Chồng (trưởng nhóm) thuyết trình ngày **14/11/2026**, chạy notebook trong VS Code trên chính máy này, và dùng hình trong `figures/` để làm slide. Giảng viên làm ở doanh nghiệp, quan tâm hiệu năng, chi phí và độ trễ.
+
+Bài so sánh Transformer với RNN, LSTM trên IMDB **đã bỏ**. Không làm lại.
 
 ## Đọc trước khi làm bất cứ việc gì
 
-1. `docs/superpowers/specs/2026-11-01-transformer-vs-rnn-lstm-design.md`: thiết kế (làm gì, vì sao, giới hạn). **Đây là nguồn quyết định cao nhất.**
-2. `docs/superpowers/plans/2026-11-01-transformer-vs-rnn-lstm.md`: kế hoạch 7 task. Làm **đúng thứ tự**, đúng tên hàm và tham số đã ghi. Phần "Global Constraints" áp dụng cho mọi task.
+1. `docs/superpowers/specs/2026-11-10-self-attention-demo-design.md`: thiết kế. **Đây là nguồn quyết định cao nhất.**
+2. `docs/superpowers/plans/2026-11-10-self-attention-demo.md`: kế hoạch 5 task. Làm **đúng thứ tự**, đúng tên hàm, tên file đã ghi. Phần "Global Constraints" áp dụng cho mọi task.
 
-Nếu kế hoạch mâu thuẫn với thiết kế thì làm theo thiết kế. Trong tài liệu, chữ "em" là người viết tài liệu. Các bước giao cho "em" hoặc "người thực hiện" là việc của bạn, trừ việc làm slide (của chồng).
+Nếu kế hoạch mâu thuẫn với thiết kế thì làm theo thiết kế. Trong tài liệu, chữ "em" là người viết tài liệu; các bước giao cho "người thực hiện" là việc của bạn, trừ việc làm slide (của chồng).
 
-Nếu có skill `superpowers:executing-plans` thì dùng nó. Nếu không có, tự làm theo kế hoạch từng task một.
+Nếu có skill `superpowers:executing-plans` thì dùng nó; không có thì tự làm từng task một theo kế hoạch.
 
 ## Cách làm mỗi task
 
-- **Test trước (TDD):** viết test, chạy và thấy nó fail, rồi viết code tối thiểu cho test pass.
-- Chạy toàn bộ test (`python -m pytest tests -v`) trước khi commit. Không commit khi còn test đỏ.
-- Commit sau mỗi task, đúng message trong kế hoạch (ví dụ `feat: models`), rồi push thẳng lên `main`.
+- Viết ô kiểm tra (`assert`) trước, chạy thấy lỗi, rồi mới viết hàm cho nó chạy đúng.
+- Trước khi commit, chạy lại **toàn bộ** notebook từ đầu: `jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb`. Không commit khi còn ô lỗi.
+- Commit sau mỗi task, đúng message trong kế hoạch, rồi push thẳng lên `main`.
 
 ## Lệnh
 
@@ -27,41 +29,35 @@ Nếu có skill `superpowers:executing-plans` thì dùng nó. Nếu không có, 
 nvidia-smi                                   # kiểm tra driver hỗ trợ CUDA 12.6
 python -m venv .venv                         # Windows: .venv\Scripts\activate
 pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126
-pip install -r requirements.txt
+pip install -r requirements.txt              # Task 1 tạo file này
 python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"  # phải in True và tên card
-
-python -m pytest tests -v                    # test, chạy trên CPU, không cần mạng
-python run.py --quick                        # chạy thử, ghi vào results_quick/
-python run.py                                # bản chính thức trên GPU, ghi vào results/
+jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
 ```
 
 Lưu ý: `pip install torch` mặc định trên Windows là bản CPU. Luôn cài bằng `--index-url` như trên.
 
 ## Quy tắc bắt buộc
 
-- **Không bịa hay chỉnh số liệu.** Mọi con số trong `results/` và README phải từ lần chạy `python run.py` trên máy RTX 4080 này.
-- **Không chỉnh thí nghiệm cho khớp giả thuyết.** Nếu kết quả lệch (ví dụ Transformer không nhanh hơn LSTM, RNN gần như không học), báo đúng thực tế và giải thích.
-- **Không đổi siêu tham số.** Embedding 128, dropout 0.1, Adam lr 1e-3, batch 64, 5 epoch, cắt gradient 1.0, seed 42, 1 seed là cố định và dùng chung cho mọi mô hình. Không tinh chỉnh riêng cho mô hình nào.
-- **Ngoài phạm vi:** bài toán tổng hợp, bộ dữ liệu khác, mô hình tiền huấn luyện, RNN hai chiều, notebook, slide.
-- **Không commit `results_quick/`** và số liệu chạy thử. Chỉ commit `results/` của bản chạy đầy đủ.
-- **Test không được tải mạng hay dùng GPU.** Dùng dữ liệu tổng hợp nhỏ, và `monkeypatch` như kế hoạch mô tả.
-- Tên hàm và biến bằng tiếng Anh. Thông báo in ra, nhãn biểu đồ và README bằng tiếng Việt.
-- Mỗi module một việc, theo cấu trúc trong thiết kế: `config`, `data`, `models`, `train`, `benchmark`, `analysis`, `report`, `run`, cùng `tests/`.
+- **Hàm self-attention phải tự viết** từng bước (Q, K, V, QKᵀ/√d, mask, softmax, nhân V). Không gọi `scaled_dot_product_attention`, `nn.MultiheadAttention` hay attention của GPT-2 trong hàm đó.
+- **Ghi rõ "trọng số đã huấn luyện của GPT-2"** ở đầu notebook và trên tiêu đề heatmap. Đây là tiêu chí chấm.
+- **Không bịa hay chỉnh số liệu, không viết nhận xét trước khi có hình.** Nhận xét heatmap và chi phí phải đúng với output thật trên máy này.
+- **Không chọn lớp, đầu attention lén lút cho đẹp.** Dùng tiêu chí trong kế hoạch và ghi rõ trong notebook.
+- **Ngoài phạm vi:** tự huấn luyện hay tinh chỉnh mô hình, thêm bản trọng số ngẫu nhiên, slide, giao diện tương tác, bài IMDB cũ.
+- Không đặt `pip install` trong notebook. Chữ giải thích và nhãn hình bằng tiếng Việt; tên hàm, biến bằng tiếng Anh.
+- Notebook commit **kèm output** của lần chạy trên máy RTX 4080, để mở trên GitHub thấy sẵn hình.
 
 ## Khi gặp vấn đề
 
-- **Hết bộ nhớ GPU:** phép đo theo độ dài phải ghi `OOM`, không dừng chương trình. Nếu lỗi hết bộ nhớ xảy ra lúc train chính, dừng lại và báo chồng, không tự giảm batch.
-- **Chạy đầy đủ quá 40 phút:** cắt theo thứ tự trong kế hoạch. Trước tiên giảm số mẫu đo thông lượng CPU; sau đó bỏ độ dài 512 trong phép train lại. Ghi rõ phần đã cắt vào README.
-- **Kế hoạch có chỗ không làm được, hoặc mâu thuẫn:** chọn cách nhỏ nhất vẫn đúng với thiết kế. Ghi quyết định vào commit message (dòng `Quyết định: ...`), rồi báo chồng.
-- **Phải đổi một điều trong mục "Quyết định của chồng" của thiết kế:** không tự đổi. Hỏi chồng trước.
+- **Hết bộ nhớ GPU khi đo:** ghi "OOM", đo tiếp, không dừng notebook.
+- **Hàm tự viết lệch GPT-2 gốc quá 1e-4:** đó là lỗi code, sửa cho tới khi khớp. Không nới ngưỡng.
+- **Kế hoạch có chỗ không làm được hoặc mâu thuẫn:** chọn cách nhỏ nhất vẫn đúng với thiết kế, ghi dòng `Quyết định: ...` vào commit message, rồi báo chồng.
+- **Phải đổi một điều chồng đã quyết** (GPT-2, câu ví dụ, VS Code, đo GPU và CPU, ngày 14/11): không tự đổi, hỏi chồng trước.
+- **Có nguy cơ trễ hạn 14/11:** báo chồng sớm, đừng cắt phần nào trong ba phần trọng tâm (code self-attention, hai heatmap, nhận xét ưu điểm và hạn chế).
 
 ## Bàn giao
 
-Sau khi xong 7 task và chạy bản chính thức:
+Sau khi xong 5 task:
 
-1. Điền mục "Cấu hình máy" trong README từ `results/results.json`.
-2. Viết mục "Kết quả và kết luận" trong README, gồm:
-   - bảng "khi nào chọn mô hình nào";
-   - nhận xét về hai chế độ attention (chuẩn và tối ưu);
-   - hai giới hạn: IMDB chủ yếu dựa vào từ khoá nên không chứng minh chắc chắn phụ thuộc xa; mỗi cấu hình chạy 1 lần nên chênh lệch dưới khoảng 1–2% chưa chắc có ý nghĩa.
-3. Commit `results/` và README, push lên `main`, rồi báo chồng.
+1. Kiểm tra chạy offline với `HF_HUB_OFFLINE=1` (Task 5).
+2. Mở notebook trong VS Code, chạy "Restart" rồi "Run All" một lần, xem mọi hình hiện đúng.
+3. Push lên `main`, báo chồng kèm link repo. Trước ngày 14/11, chạy notebook một lần nữa để GPT-2 nằm sẵn trong cache.
