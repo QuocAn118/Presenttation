@@ -1,0 +1,7 @@
+# torch 2.9.1 cài riêng bằng:
+# pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
+transformers==5.22.2
+matplotlib==3.11.2
+ipykernel==7.4.0
+nbconvert==7.17.2
+
