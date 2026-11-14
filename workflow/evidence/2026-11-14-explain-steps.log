@@ -1,0 +1,14 @@
+Date: 2026-11-14 (Asia/Bangkok)
+Mode: numbered-explanations, offline full notebook execution in an isolated copy
+Source: self_attention_demo.ipynb, only Markdown changed
+Command: python -m jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
+HF_HUB_OFFLINE=1
+Exit code: 0
+Elapsed seconds: 16.81
+Notebook errors: 0
+Executed code cells: 10
+Numbered main steps: 1 through 6, exactly once each
+Generated: 4 PNG files and demo_results.json
+Original code cells (including outputs and execution counts): verified identical to pre-change HEAD
+Original benchmark snapshot, PNG and JSON: preserved; no new timing substituted
+VS Code UI: not checked, per user request to avoid Computer Use

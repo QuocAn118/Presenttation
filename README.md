@@ -4,12 +4,14 @@ Dùng **trọng số đã huấn luyện của GPT-2**, tự viết phép attent
 
 ## Trình bày ngắn trên lớp
 
-Mở [self_attention_demo.ipynb](self_attention_demo.ipynb), chạy mục **1–4**:
+Mở [self_attention_demo.ipynb](self_attention_demo.ipynb), chạy lần lượt **Bước 1–6**. Mỗi bước có giải thích ngay trước ô code:
 
-1. **Implementation:** Q, K, V → QKᵀ/√64 → causal mask → softmax → nhân V.
-2. **Kiểm chứng:** sai số attention ở cả 12 lớp phải <`1e-4`.
-3. **Heatmap:** cùng Q/K trước/sau mask; sau mask không nhìn token tương lai. Đầu được chọn công khai bằng quét 144 đầu, không đại diện toàn bộ GPT-2.
-4. **So sánh Transformer/CNN/RNN:** bảng lý thuyết ngắn, ưu điểm và hạn chế.
+1. **Chuẩn bị:** tải GPT-2 đã huấn luyện, tách câu mẫu thành token.
+2. **Implementation:** giải thích từng phép Q/K/V → chia đầu → QKᵀ/√64 → mask → softmax → nhân V và ghép đầu, kèm kích thước tensor.
+3. **Kiểm chứng:** đối chiếu cả 12 lớp với GPT-2, sai số phải <`1e-4`.
+4. **Chọn đầu attention:** quét 144 đầu, in top 3 theo trọng số `it` → `animal`.
+5. **Vẽ và đọc heatmap:** so cùng Q/K trước/sau mask; đọc hàng `it`, cột `animal` và vùng tương lai bằng 0.
+6. **So sánh Transformer/CNN/RNN:** bảng lý thuyết ngắn, ưu điểm và hạn chế.
 
 Phép đo GPU/CPU và các assert bổ sung nằm ở **phụ lục**, có thể thu gọn khi trình bày. Đây là benchmark hàm attention trên tensor ngẫu nhiên, không phải huấn luyện hay đo toàn bộ ba mô hình.
 

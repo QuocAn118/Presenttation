@@ -38,7 +38,9 @@ Lượt mới dùng notebook đã sửa, với mã nguồn code SHA-256 `d833218
 
 ## Implementation và so sánh
 
-Notebook chính có 4 mục ngắn, Implementation hiển thị rõ QKV/√64/mask/softmax/V. [Bảng Transformer/CNN/RNN](../02-design/COMPARISON.md) là lý thuyết, không phải huấn luyện hoặc benchmark ba mô hình. Mốc 2048 là tensor nhân tạo, không phải context GPT-2 2048.
+Notebook chính giải thích theo Bước 1–6. Implementation ở Bước 2 tách sáu phép tính nhỏ 2.1–2.6, gồm QKV/chia đầu/√64/mask/softmax/V và kích thước tensor. [Bảng Transformer/CNN/RNN](../02-design/COMPARISON.md) là lý thuyết, không phải huấn luyện hoặc benchmark ba mô hình. Mốc 2048 là tensor nhân tạo, không phải context GPT-2 2048.
+
+Lượt thêm giải thích chỉ sửa Markdown; đã đối chiếu toàn bộ ô code, output và execution count với HEAD trước sửa, không thay đổi. [Lượt chạy offline bản sao](../evidence/2026-11-14-explain-steps.log) thực thi đủ 10 ô code, exit 0, không ô lỗi, 16.81s, xuất đủ bốn PNG và JSON. Không ghi đè số đo snapshot trong bảng trên.
 
 ## Kiểm tra tính toàn vẹn hồ sơ
 

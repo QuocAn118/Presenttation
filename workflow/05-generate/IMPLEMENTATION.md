@@ -4,7 +4,7 @@
 
 ## Sản phẩm đã có
 
-Code nằm trong [notebook](../../self_attention_demo.ipynb). Phần chính ngắn gồm 1. Implementation, 2. Kiểm chứng, 3. Heatmap/nhận xét, 4. So sánh Transformer/CNN/RNN; benchmark và assert bổ sung nằm trong phụ lục thu gọn. Không có module web, API nghiệp vụ hoặc vòng huấn luyện riêng.
+Code nằm trong [notebook](../../self_attention_demo.ipynb). Phần chính có 6 bước: chuẩn bị → Implementation → kiểm chứng → chọn đầu → vẽ/đọc heatmap → so sánh Transformer/CNN/RNN. Mỗi bước có lời giải thích trước ô code; riêng Implementation có sáu bước nhỏ 2.1–2.6, khớp sáu phép tính trong bảng dưới. Benchmark và assert bổ sung nằm trong phụ lục thu gọn. Không có module web, API nghiệp vụ hoặc vòng huấn luyện riêng.
 
 Đây là mô tả code hiện có, không nhận rằng mọi dòng được viết mới trong phiên hoàn thiện workflow. Lịch sử được ghi ở [COMMITS](../11-commit/COMMITS.md).
 
@@ -12,12 +12,12 @@ Code nằm trong [notebook](../../self_attention_demo.ipynb). Phần chính ng�
 
 | Bước | Phép tính trong hàm | Liên hệ lý thuyết |
 | --- | --- | --- |
-| 1 | `qkv = x @ w_qkv + b_qkv`, tách 3 phần | Chiếu Q/K/V, PDF trang 7/17 |
-| 2 | View `(T,12,64)`, transpose thành `(12,T,64)` | Multi-head, trang 9/17 |
-| 3 | `q @ k.transpose(-1,-2) / sqrt(64)` | Scaled dot-product |
-| 4 | Mask `triu(...,diagonal=1)`, gán `-inf` nếu causal | Trang 11/17; không chặn chính token |
-| 5 | Softmax theo chiều cuối | Tạo phân phối trên các Key, trang 8 |
-| 6 | `attn @ v`, transpose/ghép đầu | Context theo trọng số, trước Wᴼ/`c_proj` |
+| 2.1 | `(x @ w_qkv + b_qkv).chunk(3, dim=-1)` | Chiếu Q/K/V, PDF trang 7/17 |
+| 2.2 | View `(T,12,64)`, transpose thành `(12,T,64)` | Multi-head, trang 9/17 |
+| 2.3 | `q @ k.transpose(-1,-2) / sqrt(64)` | Scaled dot-product |
+| 2.4 | Mask `triu(...,diagonal=1)`, gán `-inf` nếu causal | Trang 11/17; không chặn chính token |
+| 2.5 | Softmax theo chiều cuối | Tạo phân phối trên các Key, trang 8 |
+| 2.6 | `attn @ v`, transpose/ghép đầu | Context theo trọng số, trước Wᴼ/`c_proj` |
 
 Hàm tự viết không gọi API attention dựng sẵn. Trọng số lấy từ GPT-2 đã huấn luyện; hidden state đầu vào lấy sau `ln_1`. Việc nạp trọng số không đồng nghĩa tự huấn luyện GPT-2 từ đầu.
 

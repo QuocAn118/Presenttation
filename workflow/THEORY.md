@@ -57,4 +57,4 @@ Attention cao giữa `it` và `animal` là quan sát của một đầu đã đ�
 
 ## Bổ sung so sánh CNN/RNN và trình bày Implementation
 
-Yêu cầu mới thêm bảng [Transformer/CNN/RNN](02-design/COMPARISON.md) dựa trên nguồn gốc được dẫn ở đó; không coi PDF đã có thí nghiệm CNN. Notebook trình bày Implementation và giải thích ngắn ở mục 1–4, phần chi phí ở phụ lục. Nhận xét được sinh từ output; API/máy/method đã đồng bộ. Số ghi theo PDF trang 19 là dữ liệu lịch sử đã đối chiếu; tệp trình chiếu và các ảnh dựng riêng đã được bỏ. Không dùng số lịch sử thay số đo mới.
+Yêu cầu mới thêm bảng [Transformer/CNN/RNN](02-design/COMPARISON.md) dựa trên nguồn gốc được dẫn ở đó; không coi PDF đã có thí nghiệm CNN. Notebook trình bày giải thích theo Bước 1–6; Implementation có sáu bước nhỏ 2.1–2.6, phần chi phí ở phụ lục. Nhận xét được sinh từ output; API/máy/method đã đồng bộ. Số ghi theo PDF trang 19 là dữ liệu lịch sử đã đối chiếu; tệp trình chiếu và các ảnh dựng riêng đã được bỏ. Không dùng số lịch sử thay số đo mới.

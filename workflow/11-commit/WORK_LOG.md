@@ -38,3 +38,7 @@ Viết test trước sửa và ghi log thất bại; sau đó sửa hàm chọn 
 Người dùng yêu cầu chỉ giữ code và tài liệu. Đã bỏ PDF trình chiếu và ảnh dựng riêng (nền tối/sơ đồ/tổng quan), giữ notebook, tài liệu kỹ thuật, log và bốn PNG/JSON kiểm chứng. Nguồn PDF chuyển thành ghi nhận lịch sử trong THEORY, không còn là phụ thuộc bắt buộc của checker.
 
 Xóa tệp được Git theo dõi bằng git rm thành công. Xóa hai thư mục ảnh tạm `scratch/slides_preview` và `scratch/theory-pdf-review-20261114` bị xét duyệt tự động chặn cả lệnh theo lô lẫn danh sách tệp cụ thể, chỉ trả blocked by policy; không lách chặn. Cache còn cục bộ và bị gitignore, không được push.
+
+## Giải thích demo theo từng bước
+
+Theo yêu cầu tiếp theo, chia notebook thành Bước 1–6; riêng Implementation giải thích sáu phép tính 2.1–2.6, nói rõ làm gì, kích thước tensor và kết quả. Đặt lời giải thích ngay trước ô code, đồng bộ README và CODE_EXPLANATION cùng các tham chiếu số bước. Chỉ sửa Markdown; toàn bộ ô code và output đã lưu giữ nguyên. Chạy lại bản sao notebook offline để kiểm tra toàn luồng, không ghi đè số đo/PNG/JSON của snapshot đã nghiệm thu.

@@ -4,7 +4,7 @@
 
 ## Đầu vào và cách thực thi
 
-Notebook mới chứa Implementation, kiểm chứng, heatmap và so sánh lý thuyết ở mục 1–4; benchmark và assert ở phụ lục. Mã nguồn code SHA-256 `d8332185e0a9a3d5769e5c0f8ba54615035429375374455ef1229f26382f3522` được ghi trong các log mới. Notebook/PNG/JSON gốc đang lưu là kết quả của lượt offline GPU/CPU.
+Notebook giải thích theo Bước 1–6: chuẩn bị, Implementation, kiểm chứng, chọn đầu, heatmap và so sánh lý thuyết; benchmark và assert ở phụ lục. Mã nguồn code SHA-256 `d8332185e0a9a3d5769e5c0f8ba54615035429375374455ef1229f26382f3522` được ghi trong các log mới. Notebook/PNG/JSON gốc đang lưu là kết quả của lượt offline GPU/CPU.
 
 ```powershell
 $env:PYTHONUTF8 = "1"
@@ -23,6 +23,8 @@ Chạy từ gốc repo; kernel trỏ về `.venv`, xem ENVIRONMENT. Tất cả n
 | Mọi row benchmark OOM, bản sao riêng | Exit 0, 0 ô lỗi, 11.32s | [Log OOM](../evidence/2026-11-14-demo-oom.log) |
 
 Hai bản sao kiểm thử nằm trong `scratch/demo-cpu/` và `scratch/demo-oom/`, không ghi đè output nộp. CPU ép `torch.cuda.is_available()` trả False. Luồng OOM thay tạm benchmark bằng row None, khôi phục hàm thật trước assert phụ lục; không gây OOM thật. Các test cấp phát riêng kiểm tra hàm benchmark thật.
+
+Sau khi thêm giải thích Bước 1–6, đã chạy lại toàn bộ bản sao offline: **exit 0, 0 ô lỗi, 10 ô code, 16.81s**; xuất đủ 4 PNG và JSON. [Log giải thích từng bước](../evidence/2026-11-14-explain-steps.log) ghi lượt kiểm tra này. Chỉ Markdown thay đổi; ô code/output, PNG và JSON gốc giữ nguyên snapshot đã nghiệm thu, không trộn timing của hai lượt.
 
 ## Output được xác nhận
 

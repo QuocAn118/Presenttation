@@ -10,8 +10,8 @@ Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi s�
 
 | Tiêu chí | Kết quả |
 | --- | --- |
-| Implementation từng phép tính, giải thích đơn giản | Có trong mục 1; không gọi attention dựng sẵn |
-| So sánh lý thuyết Transformer/CNN/RNN | Có bảng ngắn ở mục 4 và COMPARISON có nguồn gốc |
+| Implementation từng phép tính, giải thích đơn giản | Có ở Bước 2, gồm sáu bước nhỏ 2.1–2.6; không gọi attention dựng sẵn |
+| So sánh lý thuyết Transformer/CNN/RNN | Có bảng ngắn ở Bước 6 và COMPARISON có nguồn gốc |
 | Ma trận khớp GPT-2, tổng hàng/mask đúng cả 12 lớp | Đạt, sai số không nới ngưỡng 1e-4 |
 | Nhận xét đúng output | Sinh trực tiếp từ kết quả, không giữ số tĩnh |
 | API chọn đầu/vẽ, phương pháp và máy khớp tài liệu | Đã đồng bộ; REVIEW-001–005 được xử lý |
