@@ -6,7 +6,7 @@
 
 Đầu vào là `G4_Presentation_TRANSFORMER (1).pdf`, 20 trang, SHA-256 `a9cfc2e1d75a0c71828758ff3aa958416b1096ae52d4e17c8f8449248a898d25`. Số trang dưới đây là thứ tự trang vật lý của PDF, không phải số slide in ở góc. Đã đọc văn bản và xem các trang chứa sơ đồ; phần lớn trang 3–12 là ảnh nên trích xuất text riêng lẻ không đủ.
 
-PDF là tài liệu lý thuyết đầu vào, không phải log của lần kiểm tra mới. Giữ bản PDF người dùng cung cấp ở thư mục gốc khi chạy kiểm tra nguồn; bản này không được tự đưa vào commit workflow.
+PDF là nguồn đã đọc ở lượt trước, không phải log của lần kiểm tra mới. Người dùng yêu cầu bỏ tài sản thuyết trình ngày 14/11/2026 nên tệp PDF đã được xóa; tài liệu kỹ thuật này giữ lại các ý đã đối chiếu, tên/hash/trang nguồn để truy vết. Checker không yêu cầu PDF hiện diện nữa.
 
 ## Lý thuyết áp dụng vào bài
 
@@ -57,4 +57,4 @@ Attention cao giữa `it` và `animal` là quan sát của một đầu đã đ�
 
 ## Bổ sung so sánh CNN/RNN và trình bày Implementation
 
-Yêu cầu mới thêm bảng [Transformer/CNN/RNN](02-design/COMPARISON.md) dựa trên nguồn gốc được dẫn ở đó; không coi PDF đã có thí nghiệm CNN. Notebook trình bày Implementation và giải thích ngắn ở mục 1–4, phần chi phí ở phụ lục. Nhận xét được sinh từ output; API/máy/method đã đồng bộ. PDF trang 19 và ảnh slide cũ vẫn mang số lịch sử, không chỉnh để bằng lượt mới.
+Yêu cầu mới thêm bảng [Transformer/CNN/RNN](02-design/COMPARISON.md) dựa trên nguồn gốc được dẫn ở đó; không coi PDF đã có thí nghiệm CNN. Notebook trình bày Implementation và giải thích ngắn ở mục 1–4, phần chi phí ở phụ lục. Nhận xét được sinh từ output; API/máy/method đã đồng bộ. Số ghi theo PDF trang 19 là dữ liệu lịch sử đã đối chiếu; tệp trình chiếu và các ảnh dựng riêng đã được bỏ. Không dùng số lịch sử thay số đo mới.

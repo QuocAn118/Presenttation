@@ -8,7 +8,7 @@
       "path": "README.md",
       "role": "Mục lục và trạng thái hồ sơ",
       "status": "reviewed_record",
-      "sha256": "edb8c169bcf2738c6988c41c4b75cfa1dcfaa6f9e8e6e1c97641d396ecf4a0bb",
+      "sha256": "8f318045511e20a418628e14720524758263de64cfc63d322cbd3e0e38b73107",
       "pdf_pages": [],
       "sections": [
         "## Cách đọc",
@@ -21,7 +21,7 @@
       "path": "CONTROL.md",
       "role": "Kiểm soát nguồn, file và thay đổi",
       "status": "reviewed_record",
-      "sha256": "3997715dd5a61467f110cfdeb6b4e8909dbe879b3e09dc799fd19b6296129959",
+      "sha256": "52e8a97a1db8a4d12c7da87d374b9c49fccb20505f9a3aef51ecf9ceb317baba",
       "pdf_pages": [],
       "sections": [
         "## Phạm vi và thứ tự quyết định",
@@ -36,7 +36,7 @@
       "path": "THEORY.md",
       "role": "Đối chiếu từng trang lý thuyết với bài",
       "status": "reviewed_record",
-      "sha256": "57f14c2c3bcec2cad8af1a0af7eed4fa07dac9b39cb806f3f67cdd8a83dcbcbb",
+      "sha256": "e34934bb488e9ac1a66793ebecf12ea06ee582cc5f257f58fa9ef6c3d09bcdaa",
       "pdf_pages": [
         3,
         4,
@@ -130,7 +130,7 @@
       "path": "02-design/DESIGN.md",
       "role": "Kiến trúc và API thật",
       "status": "reviewed_record",
-      "sha256": "f0d74904203aec1c5f488da52fecae22f2eff542307107019b656cd76d634e33",
+      "sha256": "8ee06621cfaa4beff511c730a8698b62be6595e46c511ed393687f86d6fb7da2",
       "pdf_pages": [
         5,
         6,
@@ -177,7 +177,7 @@
       "path": "04-describe/TASK_BRIEFS.md",
       "role": "Phạm vi cụ thể từng nhiệm vụ",
       "status": "reviewed_record",
-      "sha256": "d7421fc3a544e2695dc2607e764925455e84859fc4d28ba308959d1344abb60d",
+      "sha256": "a4b504044f9d11d8173874684a6a6769e1811415a99819e2d4b23571f1a374b4",
       "pdf_pages": [
         17,
         18,
@@ -198,7 +198,7 @@
       "path": "05-generate/IMPLEMENTATION.md",
       "role": "Phép tính và code đã có",
       "status": "reviewed_record",
-      "sha256": "0c9439f4d995235d26e75211d2663286323c8c226ea22926acdc4a840d33ac4e",
+      "sha256": "af9ac30e98f7b45b71805be065d5d324d5f65b86f65a6f080b9ff15278b11e86",
       "pdf_pages": [
         7,
         9,
@@ -220,7 +220,7 @@
       "path": "06-review/REVIEW.md",
       "role": "Phát hiện, bản sửa và giới hạn còn lại",
       "status": "reviewed_record",
-      "sha256": "933e08af7d69550afb317ff23bed6bd8291adeba054d1611840676aca9ee5ae2",
+      "sha256": "327ebdb83048ec00342f009ebce9c35b67c8f37627784bf01fc035d9089a76e9",
       "pdf_pages": [
         7,
         9,
@@ -261,7 +261,7 @@
       "path": "07-run/RUN.md",
       "role": "Cách chạy và lịch sử runtime",
       "status": "reviewed_record",
-      "sha256": "7f88e9c6d678d46e152a7704b46040c71dbb655369cfa67bbd28325aab19a6c2",
+      "sha256": "e0ab127f356450d8301e9ae2c0b9a5ed8cca3bfa702210afe26f5b543c0e4a26",
       "pdf_pages": [
         17,
         18,
@@ -316,7 +316,7 @@
       "path": "10-refactor/REFACTOR.md",
       "role": "Quyết định cấu trúc tài liệu và giới hạn code",
       "status": "reviewed_record",
-      "sha256": "2faa8dfadedd432ecde186dc8660ee2f49e6d6705b502ffcd811c7b5f0b99303",
+      "sha256": "3878f17cb63bb3e1b006a9afadf1e44ff3548e430e46667fa659ed100aaf9b22",
       "pdf_pages": [
         9,
         17
@@ -347,7 +347,7 @@
       "path": "11-commit/WORK_LOG.md",
       "role": "Nhật ký và quyết định",
       "status": "reviewed_record",
-      "sha256": "034a49ba1b6b94403d87b1b987b8ad584347dbaad08a508874bddea92965be45",
+      "sha256": "daafb0572d18fb68e90a8cf102b1b162d38de785fdee436c30945e804d83ce89",
       "pdf_pages": [
         17,
         18,
@@ -358,7 +358,8 @@
         "## Công việc của lượt viết lại theo PDF",
         "## Quyết định phạm vi của lượt hồ sơ trước",
         "## Công việc sản phẩm được giao sau lượt hồ sơ",
-        "## Lượt sửa demo và bổ sung yêu cầu giảng viên"
+        "## Lượt sửa demo và bổ sung yêu cầu giảng viên",
+        "## Dọn tài sản thuyết trình theo yêu cầu"
       ]
     },
     {
@@ -392,7 +393,7 @@
       "path": "13-documentation/DOCUMENTATION.md",
       "role": "Hồ sơ tài liệu bàn giao",
       "status": "reviewed_record",
-      "sha256": "f592d658441e0bf5c109c3a5818740366e77503a51c8d6dbe8a200bab6ad7e00",
+      "sha256": "ce92fd85954cb2fa4b7efdaeacc2c2c4c2eb732d8adfa4c2bce205e8e2b99629",
       "pdf_pages": [
         3,
         4,
@@ -425,7 +426,7 @@
       "path": "13-documentation/AI_USAGE.md",
       "role": "Đóng góp AI đã xác định",
       "status": "reviewed_record",
-      "sha256": "9a61f19a767797fda7b67debe33d4c168693f84aea1e527fc33fbcbc821a24eb",
+      "sha256": "cd0ba8b4f502d348117d5e41a04a57a9041dff3f0a35ffe618032b07b51d8790",
       "pdf_pages": [],
       "sections": [
         "## Phần đóng góp quan sát được",
@@ -438,7 +439,7 @@
       "path": "14-definition-of-done/ACCEPTANCE.md",
       "role": "Nghiệm thu hồ sơ và sản phẩm",
       "status": "reviewed_record",
-      "sha256": "2ac4be8676265f7c4dd7bc150e6d53008806782ec442cd8d82fdd7bd5872512d",
+      "sha256": "1516405618269233297da86f327225a129f9cb16dba5a97d8eca0f69ce3b7e34",
       "pdf_pages": [
         17,
         18,
@@ -613,16 +614,10 @@
   ],
   "sources": [
     {
-      "id": "SOURCE_PDF",
-      "path": "../G4_Presentation_TRANSFORMER (1).pdf",
-      "role": "PDF 20 trang do người dùng cung cấp; phải có cục bộ để kiểm nguồn",
-      "sha256": "a9cfc2e1d75a0c71828758ff3aa958416b1096ae52d4e17c8f8449248a898d25"
-    },
-    {
       "id": "SOURCE_NOTEBOOK",
       "path": "../self_attention_demo.ipynb",
       "role": "Demo ngắn đã sửa, gồm code và output kiểm chứng",
-      "sha256": "b83355336fec2b045ceb29e8b8c43919ee0f167bcf3823dfe404d5eceab83634"
+      "sha256": "8c3d92e3b53b2d8309774875fbb231f424e81cbca13d032a4ac30cafbfc99c72"
     },
     {
       "id": "SOURCE_REQUIREMENTS",
@@ -634,25 +629,25 @@
       "id": "SOURCE_SPEC",
       "path": "../docs/superpowers/specs/2026-11-10-self-attention-demo-design.md",
       "role": "Nguồn thiết kế/kế hoạch đã đồng bộ phần cứng và yêu cầu bổ sung",
-      "sha256": "a3f84856e8c0427237964b1f454de3091b52ede93632f00a330bfc9238e77b64"
+      "sha256": "8f7b48a1ea5dbb6d2b552d22f547f88805d269030bedc4711d11db64b22b9001"
     },
     {
       "id": "SOURCE_PLAN",
       "path": "../docs/superpowers/plans/2026-11-10-self-attention-demo.md",
       "role": "Nguồn thiết kế/kế hoạch đã đồng bộ phần cứng và yêu cầu bổ sung",
-      "sha256": "32e580352616822005fada7f99aab54d9ac43c064f810062e9d6441f2a268577"
+      "sha256": "dcc91d43adc5975bea7495f649f5dd64fdfbe30f2baf0664caca33c90aa263c3"
     },
     {
       "id": "SOURCE_README",
       "path": "../README.md",
       "role": "Hướng dẫn demo ngắn và cách chạy",
-      "sha256": "1ae74e2048384f8993955d46d84a92be26f8c71047154d98cfa131cb2aa63ef9"
+      "sha256": "d2a193cda6a5f0debacac86a8cae177f578a2294c0083db1892764c57c3c2989"
     },
     {
       "id": "SOURCE_AGENTS",
       "path": "../AGENTS.md",
       "role": "Quy tắc repo đã đồng bộ máy và yêu cầu bổ sung",
-      "sha256": "162aa5ad621063ec76a5122e33c5f47217c36d56629091d7be89bbaaff9b9465"
+      "sha256": "7e2052062b832a44b265e2f53f6a8cf7df82460ab9bd51b39ab2c41e84c4584c"
     },
     {
       "id": "SOURCE_DEMO_RESULTS",

@@ -4,7 +4,7 @@ Hướng dẫn cho trợ lý AI làm việc trong repo này, trên máy của th
 
 ## Dự án
 
-Bài môn Deep Learning: **notebook demo self-attention** tự viết bằng PyTorch, nạp **trọng số đã huấn luyện của GPT-2**, vẽ heatmap attention **trước và sau causal mask**, đo thời gian và bộ nhớ trên GPU và CPU, kèm nhận xét ưu điểm, hạn chế và hướng dẫn chạy. Chồng (trưởng nhóm) thuyết trình ngày **14/11/2026**, chạy notebook trong VS Code trên chính máy này, và dùng hình trong `figures/` để làm slide. Giảng viên làm ở doanh nghiệp, quan tâm hiệu năng, chi phí và độ trễ.
+Bài môn Deep Learning: **notebook demo self-attention** tự viết bằng PyTorch, nạp **trọng số đã huấn luyện của GPT-2**, vẽ heatmap attention **trước và sau causal mask**, đo thời gian và bộ nhớ trên GPU và CPU, kèm nhận xét ưu điểm, hạn chế và hướng dẫn chạy. Chồng (trưởng nhóm) thuyết trình ngày **14/11/2026**, chạy notebook trong VS Code trên chính máy này, và lưu output kiểm chứng trong `figures/`. Giảng viên làm ở doanh nghiệp, quan tâm hiệu năng, chi phí và độ trễ.
 
 Bài so sánh Transformer với RNN, LSTM trên IMDB **đã bỏ**. Không làm lại.
 
@@ -69,4 +69,4 @@ Sau khi xong 5 task:
 - Bổ sung bảng so sánh **lý thuyết Transformer/CNN/RNN**, không huấn luyện ba mô hình hay làm lại bài IMDB.
 - `pick_head(src, tgt)` nhận chỉ số và trả `(layer, head, value)`, tự in top 3; `plot_attention` đúng tên/API trong kế hoạch.
 - Nhận xét số liệu được tạo từ kết quả lúc chạy. CPU đếm ma trận attention thật (cùng kích thước/kiểu với scores); GPU ghi đỉnh tensor gồm cả mô hình. Cả hai thiết bị warm-up 3, đo trung vị 20 lần.
-- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. PDF/ảnh slide cũ giữ nguyên lượt đo của chúng; không ép số mới bằng số slide.
+- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. Tệp PDF thuyết trình và ảnh dựng riêng cho slide đã được bỏ theo yêu cầu mới; giữ code, tài liệu kỹ thuật và output notebook.

@@ -27,7 +27,7 @@ Nội dung được viết theo PDF lý thuyết người dùng cung cấp và b
 
 ## Bằng chứng và kiểm soát
 
-Log runtime ở [evidence](evidence/README.md). [manifest.json](manifest.json) quản lý từng file và khóa fingerprint nguồn PDF/notebook/spec/plan/requirements. [check.py](check.py) phát hiện file thiếu/lạ, ID trùng, hash/nguồn đổi, mục bắt buộc thiếu, liên kết hỏng, dấu giữ chỗ và số đo lệch log. Bộ kiểm tra dùng thư viện chuẩn Python.
+Log runtime ở [evidence](evidence/README.md). [manifest.json](manifest.json) quản lý từng file và khóa fingerprint notebook/spec/plan/requirements và output được giữ. [check.py](check.py) phát hiện file thiếu/lạ, ID trùng, hash/nguồn đổi, mục bắt buộc thiếu, liên kết hỏng, dấu giữ chỗ và số đo lệch log. Bộ kiểm tra dùng thư viện chuẩn Python.
 
 ```powershell
 $env:PYTHONUTF8 = "1"
@@ -35,10 +35,10 @@ $env:PYTHONUTF8 = "1"
 .\.venv\Scripts\python.exe workflow/check.py
 ```
 
-Giữ PDF đúng tên ở gốc theo manifest để đối chiếu nguồn; thiếu PDF sẽ báo lỗi nguồn chưa đủ. Công cụ không tự sửa hash/file hoặc tuyên bố nội dung đúng chỉ nhờ checksum. Khi sửa nguồn hoặc hồ sơ, làm theo CONTROL.
+PDF thuyết trình đã được bỏ theo yêu cầu. THEORY giữ bản đối chiếu kỹ thuật, tên/hash nguồn lịch sử; checker không còn yêu cầu có PDF cục bộ. Công cụ không tự sửa hash/file hoặc tuyên bố nội dung đúng chỉ nhờ checksum. Khi sửa nguồn hoặc hồ sơ, làm theo CONTROL.
 
 ## Trạng thái và ranh giới
 
 Máy được duyệt lại là **RTX 5060 Laptop GPU, torch 2.9.1+cu128**. Đã có log notebook gốc chạy offline/CPU giả lập; REVIEW-001–006 đã được xử lý/kiểm chứng; còn bước UI tự chạy trong VS Code chưa xác nhận theo yêu cầu không dùng Computer Use, xem ACCEPTANCE. Không lấy tỷ lệ benchmark trên PDF làm số của lần chạy khác.
 
-Lượt mới đã làm lại demo ngắn mục 1–4, có Implementation và so sánh lý thuyết Transformer/CNN/RNN; benchmark/kiểm tra nằm ở phụ lục. Notebook, hình gốc, README, AGENTS và đặc tả/kế hoạch đã đồng bộ với máy được duyệt. PDF/ảnh slide cũ giữ nguyên lịch sử. Các hồ sơ cũ trong workflow/docs đã chuyển về các file ở bảng trên, không giữ hai bản song song.
+Lượt mới đã làm lại demo ngắn mục 1–4, có Implementation và so sánh lý thuyết Transformer/CNN/RNN; benchmark/kiểm tra nằm ở phụ lục. Notebook, hình gốc, README, AGENTS và đặc tả/kế hoạch đã đồng bộ với máy được duyệt. PDF thuyết trình và các ảnh dựng riêng cho slide đã được bỏ; giữ tài liệu kỹ thuật và output notebook. Các hồ sơ cũ trong workflow/docs đã chuyển về các file ở bảng trên, không giữ hai bản song song.

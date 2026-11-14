@@ -49,4 +49,4 @@ Các brief dưới đây cụ thể hóa [PLAN](../03-plan/PLAN.md), không ph�
 
 ## Nhiệm vụ tài liệu đang được giao
 
-Người dùng đã mở phạm vi sửa demo: giữ phần chính ngắn, Implementation rõ từng phép tính và thêm bảng so sánh lý thuyết Transformer/CNN/RNN. Phụ lục giữ benchmark/kiểm tra. Notebook, PNG, JSON kết quả, README/AGENTS/spec/plan và workflow được đồng bộ; không sửa slide/PDF hay huấn luyện ba mô hình.
+Người dùng đã mở phạm vi sửa demo: giữ phần chính ngắn, Implementation rõ từng phép tính và thêm bảng so sánh lý thuyết Transformer/CNN/RNN. Phụ lục giữ benchmark/kiểm tra. Notebook, PNG, JSON kết quả, README/AGENTS/spec/plan và workflow được đồng bộ; không huấn luyện ba mô hình. Theo yêu cầu dọn repo sau đó, PDF/ảnh dựng riêng cho slide được bỏ; code, tài liệu và output vẫn giữ.

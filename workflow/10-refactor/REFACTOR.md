@@ -15,7 +15,7 @@ Trong tài liệu cũ, GUIDE là hướng dẫn thao tác chung còn hồ sơ d�
 - Giữ log và tách dữ liệu đo máy đọc được; THEORY là nơi đối chiếu PDF, TEST_RESULTS là nơi chính cho bảng đo.
 - Dùng manifest/hash, kiểm tra liên kết và đối chiếu số với log để phát hiện chỉnh sửa chưa được rà soát.
 
-Bảng chuyển vị trí và quy trình đổi file ở [CONTROL](../CONTROL.md). Lượt hồ sơ ban đầu giữ nguyên code; lượt yêu cầu mới đã sửa notebook/PNG và nguồn hướng dẫn, PDF/slide giữ nguyên lịch sử.
+Bảng chuyển vị trí và quy trình đổi file ở [CONTROL](../CONTROL.md). Lượt hồ sơ ban đầu giữ nguyên code; lượt yêu cầu mới đã sửa notebook/PNG và nguồn hướng dẫn, lượt dọn repo sau đó bỏ các tệp trình chiếu và giữ nội dung kỹ thuật đã đối chiếu.
 
 ## Các refactor code đã chọn
 

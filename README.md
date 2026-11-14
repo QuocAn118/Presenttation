@@ -48,7 +48,7 @@ $env:HF_HUB_OFFLINE = "1"
 
 Nhận xét trong notebook tính trực tiếp từ kết quả, không chép các con số tĩnh. Bộ nhớ dùng MiB: CPU là một ma trận attention thật; GPU là đỉnh tensor PyTorch gồm cả mô hình. Hai đường không có cùng phạm vi đo. Mốc 2048 là độ dài tensor nhân tạo, không phải context GPT-2 2048.
 
-PDF và các ảnh `_dark`/ảnh slide cũ thuộc lượt trước, không tự cập nhật theo Run All; dùng các PNG gốc và JSON mới nếu cần số liệu hiện tại.
+Repo giữ code, tài liệu kỹ thuật và output của notebook. PDF thuyết trình, ảnh nền tối và ảnh tổng quan slide đã được bỏ theo yêu cầu; bốn PNG gốc và JSON kết quả vẫn được giữ để kiểm chứng code.
 
 ## Hồ sơ và kiểm tra
 

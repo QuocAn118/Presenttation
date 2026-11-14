@@ -68,6 +68,6 @@ GPU báo `max_memory_allocated()/2**20` sau reset peak, bao gồm tensor còn s�
 | DEC-004 | Chọn đầu theo `it` → `animal` lớn nhất | Công khai tiêu chí, không coi mẫu được chọn là đại diện toàn model |
 | DEC-005 | OOM có ghi nhận, không nới ngưỡng đối chứng | Đã thử mô phỏng ở weight/bias/input và attention, gồm tình huống toàn bộ mốc OOM |
 | DEC-006 | RTX 5060 Laptop/cu128 | Người dùng duyệt ngày 14/11/2026; nguồn hướng dẫn đã được đồng bộ |
-| DEC-007 | Rút gọn demo theo yêu cầu mới | Implementation + giải thích ngắn, so sánh lý thuyết; benchmark ở phụ lục, PDF/slide cũ giữ lịch sử |
+| DEC-007 | Rút gọn demo theo yêu cầu mới | Implementation + giải thích ngắn, so sánh lý thuyết; benchmark ở phụ lục, tệp trình chiếu đã được bỏ ở lượt dọn repo; tài liệu kỹ thuật và output vẫn giữ |
 
 Lý thuyết và các điểm cần phân biệt được kiểm soát ở [THEORY](../THEORY.md); kết quả thiết kế được kiểm tra ở [TEST_RESULTS](../08-test/TEST_RESULTS.md).

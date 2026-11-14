@@ -27,7 +27,7 @@ Hàm tự viết không gọi API attention dựng sẵn. Trọng số lấy t�
 
 `benchmark` tạo dữ liệu ngẫu nhiên theo thiết bị, warm-up và đo trung vị trong inference mode. GPU có synchronize, reset peak và max memory allocated; CPU đếm ma trận attention thực trả về (cùng shape/dtype với scores), không dùng dummy. CPU/GPU đều đo trung vị 20 lần. Ô đo chạy CPU và GPU nếu có, in bảng bằng f-string và vẽ hai panel log-scale.
 
-Nguồn PNG gốc là code trong notebook; bản `_dark`, sơ đồ và ảnh tổng quan slide được thêm ở commit riêng. Không coi các ảnh bổ sung là output tự tái tạo của Run All.
+Bốn PNG gốc do code notebook tạo và được giữ cùng JSON kết quả để kiểm chứng. Các bản nền tối, sơ đồ và ảnh tổng quan slide thêm ở lượt trước đã được bỏ theo yêu cầu mới.
 
 ## Kiểm chứng và giới hạn hiện có
 
@@ -37,4 +37,4 @@ Nhận xét heatmap/chi phí được tính trực tiếp từ tensor và số �
 
 ## Thay đổi của nhiệm vụ này
 
-Đã làm lại demo theo yêu cầu mới, sửa API/đường lỗi/nhận xét và tái tạo PNG cùng `figures/demo_results.json` từ lượt thật. Giữ GPT-2, câu mẫu và chức năng đo GPU/CPU; so sánh CNN/RNN chỉ ở mức lý thuyết. PDF/ảnh slide cũ giữ nguyên lịch sử.
+Đã làm lại demo theo yêu cầu mới, sửa API/đường lỗi/nhận xét và tái tạo PNG cùng `figures/demo_results.json` từ lượt thật. Giữ GPT-2, câu mẫu và chức năng đo GPU/CPU; so sánh CNN/RNN chỉ ở mức lý thuyết. Tệp trình chiếu đã được bỏ, chỉ giữ code, hồ sơ kỹ thuật và output notebook.

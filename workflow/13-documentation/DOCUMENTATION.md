@@ -17,13 +17,13 @@ Mục lục ở [README](../README.md), quyền sở hữu thông tin ở [CONTR
 | Notebook/requirements | Hành vi, API và dependency thực tế | Không giả định code khớp toàn bộ kế hoạch nếu chưa kiểm tra |
 | Log kiểm tra | Bằng chứng chạy offline, CPU giả lập và lỗi mô phỏng | Chỉ có giá trị cho đúng source được khóa; không thay UI review |
 
-Manifest khóa fingerprint các nguồn và file tài liệu. PDF là input cục bộ của người dùng, được giữ nguyên tên/hash; không tự công bố lại PDF trong commit tài liệu.
+Manifest khóa fingerprint các nguồn và file tài liệu. Tệp PDF trình chiếu đã được bỏ theo yêu cầu mới; THEORY giữ tên/hash và phần đối chiếu kỹ thuật lịch sử. Manifest chỉ kiểm tra các nguồn/code/output đang giữ trong repo.
 
 ## Nội dung bàn giao theo yêu cầu giảng viên
 
 Code self-attention, hai heatmap và phần ưu/nhược điểm nằm trong notebook đã có. Tài liệu workflow giải thích rõ nguồn trọng số, công thức, cách đọc hình, benchmark và các giới hạn của kết luận. Hướng dẫn môi trường/chạy được ghi trong ENVIRONMENT/RUN; README đã đồng bộ với Implementation, bảng so sánh và cách trình bày ngắn; benchmark đặt ở phụ lục.
 
-Nguồn PNG được xác định: Matplotlib trong notebook tạo heatmap/bảng chi phí; các bản nền tối và tổng quan slide thêm riêng qua Git. Không gọi ảnh slide là số đo mới hoặc cho rằng chúng tự được cập nhật khi Run All.
+Giữ bốn PNG kết quả từ Matplotlib trong notebook và JSON của lượt chạy. Các bản nền tối, sơ đồ và ảnh tổng quan slide đã được bỏ; không giữ một bộ ảnh trình chiếu song song.
 
 ## Quy tắc nội dung đã áp dụng
 

@@ -32,3 +32,9 @@ Lượt hồ sơ chưa sửa notebook. Sau đó người dùng đã giao sửa d
 Người dùng yêu cầu demo khớp lý thuyết, thêm Implementation và bảng so sánh Transformer/CNN/RNN, giải thích ngắn. Đã rút phần chính còn mục 1–4; benchmark/kiểm tra ở phụ lục. Giữ GPT-2/câu mẫu và đo GPU/CPU; không làm lại bài huấn luyện IMDB.
 
 Viết test trước sửa và ghi log thất bại; sau đó sửa hàm chọn đầu/vẽ, bộ nhớ CPU, OOM cấp phát và nhận xét động. Chạy offline, CPU giả lập, all-OOM và xem trực tiếp các PNG. Đồng bộ nguồn hướng dẫn với máy đã duyệt. Người dùng yêu cầu không dùng Computer Use, nên không tiếp tục UI và không nhận đã kiểm tra Run All trong VS Code.
+
+## Dọn tài sản thuyết trình theo yêu cầu
+
+Người dùng yêu cầu chỉ giữ code và tài liệu. Đã bỏ PDF trình chiếu và ảnh dựng riêng (nền tối/sơ đồ/tổng quan), giữ notebook, tài liệu kỹ thuật, log và bốn PNG/JSON kiểm chứng. Nguồn PDF chuyển thành ghi nhận lịch sử trong THEORY, không còn là phụ thuộc bắt buộc của checker.
+
+Xóa tệp được Git theo dõi bằng git rm thành công. Xóa hai thư mục ảnh tạm `scratch/slides_preview` và `scratch/theory-pdf-review-20261114` bị xét duyệt tự động chặn cả lệnh theo lô lẫn danh sách tệp cụ thể, chỉ trả blocked by policy; không lách chặn. Cache còn cục bộ và bị gitignore, không được push.

@@ -4,7 +4,7 @@
 
 ## Phạm vi và thứ tự quyết định
 
-Lượt trước đã hoàn thiện hồ sơ và thay GUIDE. Yêu cầu mới mở phạm vi sửa demo: Implementation ngắn, hai heatmap, nhận xét theo output, bảng lý thuyết Transformer/CNN/RNN; benchmark và kiểm tra ở phụ lục. Notebook, PNG, README và nguồn hướng dẫn được đồng bộ; PDF/slide cũ giữ nguyên lượt lịch sử. Không đổi trạng thái sản phẩm thành “đã nghiệm thu” chỉ vì đã viết xong tài liệu.
+Lượt trước đã hoàn thiện hồ sơ và thay GUIDE. Yêu cầu mới mở phạm vi sửa demo: Implementation ngắn, hai heatmap, nhận xét theo output, bảng lý thuyết Transformer/CNN/RNN; benchmark và kiểm tra ở phụ lục. Notebook, PNG, README và nguồn hướng dẫn được đồng bộ; PDF/ảnh dựng riêng cho slide được bỏ theo yêu cầu mới, giữ bản đối chiếu lý thuyết trong tài liệu. Không đổi trạng thái sản phẩm thành “đã nghiệm thu” chỉ vì đã viết xong tài liệu.
 
 Thứ tự áp dụng: yêu cầu người dùng mới nhất → đặc tả gốc → kế hoạch gốc → PDF lý thuyết → triển khai và bằng chứng để xác định trạng thái thực tế. PDF giải thích lý thuyết, không tự mở rộng phạm vi thành huấn luyện mô hình/encoder–decoder/IMDB. Quyết định người dùng ngày 14/11/2026 đã thay máy mục tiêu thành RTX 5060 Laptop/cu128; nguồn gốc còn ghi RTX 4080 được đánh dấu khác biệt, không âm thầm sửa.
 
@@ -44,7 +44,7 @@ $env:PYTHONUTF8 = "1"
 .\.venv\Scripts\python.exe workflow/check.py
 ```
 
-PDF đúng tên trong manifest cần có ở gốc để kiểm tra nguồn; không có PDF thì checker báo thiếu nguồn, không nhận là đã đối chiếu được. Chương trình không tải nguồn, cài dependency, sửa file hoặc tự cập nhật hash.
+PDF đã xóa theo yêu cầu nên không còn là phụ thuộc phải có trong manifest. Tên, hash và trang đã đọc được giữ tại THEORY như nguồn gốc lịch sử, không nhận là đã kiểm tra lại tệp không còn tồn tại. Chương trình không tải nguồn, cài dependency, sửa file hoặc tự cập nhật hash.
 
 ## Quy trình kiểm soát thay đổi
 

@@ -230,4 +230,4 @@ assert abs(r[1]["mem_mb"] / r[0]["mem_mb"] - 4) < 0.01   # độ dài gấp đô
 - Bổ sung bảng so sánh **lý thuyết Transformer/CNN/RNN**, không huấn luyện ba mô hình hay làm lại bài IMDB.
 - `pick_head(src, tgt)` nhận chỉ số và trả `(layer, head, value)`, tự in top 3; `plot_attention` đúng tên/API trong kế hoạch.
 - Nhận xét số liệu được tạo từ kết quả lúc chạy. CPU đếm ma trận attention thật (cùng kích thước/kiểu với scores); GPU ghi đỉnh tensor gồm cả mô hình. Cả hai thiết bị warm-up 3, đo trung vị 20 lần.
-- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. PDF/ảnh slide cũ giữ nguyên lượt đo của chúng; không ép số mới bằng số slide.
+- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. Theo yêu cầu mới, tệp thuyết trình và ảnh dựng riêng đã được bỏ; giữ code, tài liệu kỹ thuật và bốn PNG/JSON output của notebook.

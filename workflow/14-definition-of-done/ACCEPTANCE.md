@@ -4,7 +4,7 @@
 
 ## Phạm vi đã được giao
 
-Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi sửa demo cho khớp, thêm Implementation và so sánh Transformer/CNN/RNN, code/giải thích ngắn. Giữ GPT-2, câu mẫu và phép đo GPU/CPU đã chốt; chuyển phần đo/kiểm tra ra phụ lục. Không huấn luyện lại hay sửa PDF/slide.
+Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi sửa demo cho khớp, thêm Implementation và so sánh Transformer/CNN/RNN, code/giải thích ngắn. Giữ GPT-2, câu mẫu và phép đo GPU/CPU đã chốt; chuyển phần đo/kiểm tra ra phụ lục. Không huấn luyện lại. Yêu cầu dọn repo sau đó bỏ các tệp trình chiếu, giữ code và tài liệu kỹ thuật.
 
 ## Tiêu chí đã kiểm chứng
 
@@ -25,10 +25,10 @@ Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi s�
 - Chưa xác nhận Restart/Run All trong VS Code: người dùng đã yêu cầu không dùng Computer Use. Không thay chứng cứ UI bằng CLI.
 - Không benchmark chất lượng hoặc huấn luyện CNN/RNN; bảng so sánh là lý thuyết theo yêu cầu được hiểu và thông báo.
 - Không cố gây OOM thật; chỉ mô phỏng các điểm cấp phát/attention và luồng báo OOM.
-- PDF và ảnh slide/nền tối cũ giữ số của lượt lịch sử, không tự cập nhật. Để trình bày số mới, dùng PNG gốc và JSON của notebook.
+- PDF thuyết trình và ảnh nền tối/ảnh tổng quan đã được bỏ. Bốn PNG gốc và JSON được giữ làm output kiểm chứng. Hai thư mục cache ảnh trong scratch chưa xóa được do xét duyệt tự động chặn thao tác xóa, không nằm trong Git.
 
 **Kết luận:** bản demo ngắn và các kiểm tra dòng lệnh đã đạt; còn bước người trình bày tự xác nhận thao tác/hiển thị trong VS Code. Không gán bước này đã đạt.
 
 ## Bàn giao và kiểm soát thay đổi
 
-TEST_RESULTS chứa nguồn/log của lượt mới; CONTROL quy định một nơi chính cho từng thông tin. Manifest khóa snapshot gồm notebook, JSON, hình và nguồn hướng dẫn. Run All sau này có thể đổi timing/output nên cần review/cập nhật log/hash tương ứng, không đặt số bằng lượt cũ. Chỉ stage thay đổi được giao; giữ nguyên PDF mới và việc xóa PDF cũ của người dùng. Chỉ báo push main sau khi xác nhận ref remote.
+TEST_RESULTS chứa nguồn/log của lượt mới; CONTROL quy định một nơi chính cho từng thông tin. Manifest khóa snapshot gồm notebook, JSON, hình và nguồn hướng dẫn. Run All sau này có thể đổi timing/output nên cần review/cập nhật log/hash tương ứng, không đặt số bằng lượt cũ. Chỉ stage thay đổi được giao; bao gồm việc bỏ các tệp trình chiếu đã được người dùng yêu cầu; không đụng tới code/nguồn khác ngoài phạm vi. Chỉ báo push main sau khi xác nhận ref remote.

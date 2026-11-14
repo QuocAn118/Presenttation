@@ -30,4 +30,4 @@ Mỗi lượt xuất 4 PNG và `demo_results.json`. PNG gốc đã được xem 
 
 ## Kiểm tra hiển thị và giới hạn
 
-Người dùng đã dừng Computer Use và yêu cầu tiếp tục không dùng nó. Không thao tác UI nữa, không nhận đã Restart/Run All trong VS Code. Kết quả hiện tại là CLI và kiểm tra PNG; người trình bày có thể tự Run All bằng kernel `.venv`. PDF/ảnh slide cũ không tự cập nhật theo benchmark mới.
+Người dùng đã dừng Computer Use và yêu cầu tiếp tục không dùng nó. Không thao tác UI nữa, không nhận đã Restart/Run All trong VS Code. Kết quả hiện tại là CLI và kiểm tra PNG; người trình bày có thể tự Run All bằng kernel `.venv`. Tệp trình chiếu đã được bỏ; bốn PNG và JSON kết quả do notebook tạo vẫn được giữ.
