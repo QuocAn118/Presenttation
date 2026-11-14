@@ -8,7 +8,7 @@
       "path": "README.md",
       "role": "Mục lục và trạng thái hồ sơ",
       "status": "reviewed_record",
-      "sha256": "956194cd124d66c56d89b0e02fcc54445815d14c49323365ed3c2de671723d7a",
+      "sha256": "4dd0fe904d2e3e382bd28a39243616cb1e87c8fd33c73594ef6ae623d5b89d71",
       "pdf_pages": [],
       "sections": [
         "## Cách đọc",
@@ -21,7 +21,7 @@
       "path": "CONTROL.md",
       "role": "Kiểm soát nguồn, file và thay đổi",
       "status": "reviewed_record",
-      "sha256": "52e8a97a1db8a4d12c7da87d374b9c49fccb20505f9a3aef51ecf9ceb317baba",
+      "sha256": "ab885fff44cb3f474f46e03f7e13df969451861fd1f0d029bb04da1e7a101af7",
       "pdf_pages": [],
       "sections": [
         "## Phạm vi và thứ tự quyết định",
@@ -36,7 +36,7 @@
       "path": "THEORY.md",
       "role": "Đối chiếu từng trang lý thuyết với bài",
       "status": "reviewed_record",
-      "sha256": "aecf347424b29f0796ddb182b391e08e8e413ab3e46964d0f6a0aac7c1df2cf3",
+      "sha256": "ad85934d6af77cbc86a7a339748f02c310f6a7dcb1e969bc106273b2d03c485e",
       "pdf_pages": [
         3,
         4,
@@ -58,6 +58,8 @@
       ],
       "sections": [
         "## Nguồn đã đọc",
+        "## Tài liệu gốc và phạm vi sử dụng",
+        "## Nguồn hình, số liệu và code",
         "## Lý thuyết áp dụng vào bài",
         "## Công thức và quy ước chính xác",
         "## Phân biệt lý thuyết tổng quát với GPT-2",
@@ -70,7 +72,7 @@
       "path": "PROCESS.md",
       "role": "Luồng thực hiện của dự án",
       "status": "reviewed_record",
-      "sha256": "008c7c07c71c314c7e26676b53e24b61650cbe3c51280b9257eb81fff3656b89",
+      "sha256": "9de0eab70f87813a348d10526fae8918acca3c50039da243d4d0cb435e63aeb1",
       "pdf_pages": [
         17,
         18,
@@ -86,7 +88,7 @@
       "path": "01-define/DEFINE.md",
       "role": "Bài toán và phạm vi",
       "status": "reviewed_record",
-      "sha256": "6f67daf3932115ec2af0cb07699a0520a33515d8bdb3f28c88942f24ec73ab98",
+      "sha256": "824574b6df17a31c58da150e4e5102896f07257b647f7a81761087ec503cd563",
       "pdf_pages": [
         3,
         4,
@@ -108,7 +110,7 @@
       "path": "01-define/REQUIREMENTS.md",
       "role": "FR và AC có truy vết",
       "status": "reviewed_record",
-      "sha256": "3d1416dbb4098a880df8d3d98712747ed5b0ecde950ec0f2fcb240333808e816",
+      "sha256": "26727d02f4cb237447f4c1250d0780c03a0232ebf71b804f7fb5113d36af6bc2",
       "pdf_pages": [
         7,
         8,
@@ -198,7 +200,7 @@
       "path": "05-generate/IMPLEMENTATION.md",
       "role": "Phép tính và code đã có",
       "status": "reviewed_record",
-      "sha256": "e921a8e1eec88c2e2df1d41328b3d1bfc928b09f3cdc4ec48b966cdcbee80bdd",
+      "sha256": "9ea2710f68e3aac7c8ca547e43d3545be5c6326db54079c2dc1f7ca01aebf17c",
       "pdf_pages": [
         7,
         9,
@@ -220,7 +222,7 @@
       "path": "06-review/REVIEW.md",
       "role": "Phát hiện, bản sửa và giới hạn còn lại",
       "status": "reviewed_record",
-      "sha256": "327ebdb83048ec00342f009ebce9c35b67c8f37627784bf01fc035d9089a76e9",
+      "sha256": "ae39f47454e3a1b4a4cd5c1bebca54c97c8da3cfc2c13f0dfd639e7fff3a2ba4",
       "pdf_pages": [
         7,
         9,
@@ -236,7 +238,8 @@
         "## Phạm vi và cách đối chiếu",
         "## Phát hiện và trạng thái xử lý",
         "## Phần đã có bằng chứng phù hợp",
-        "## Giới hạn còn lại"
+        "## Giới hạn còn lại",
+        "## Rà soát lý thuyết, tính thống nhất và nguồn"
       ]
     },
     {
@@ -279,7 +282,7 @@
       "path": "08-test/TEST_RESULTS.md",
       "role": "Kết quả kiểm thử và bảng đo chính",
       "status": "reviewed_record",
-      "sha256": "e181f828a2eb312930d5247a94bab498330d13572fa73b4c0f02ea803d037019",
+      "sha256": "0e655188c6072c6000c4fc8603d53a88b1ebe8966c72dc65550d4e4a1a04d254",
       "pdf_pages": [
         17,
         18,
@@ -333,7 +336,7 @@
       "path": "11-commit/COMMITS.md",
       "role": "Lịch sử Git và phạm vi bàn giao",
       "status": "reviewed_record",
-      "sha256": "19d6a2f45b9921ffaa5ae078ad276e6bead3e0fed57d4416b17de9eb1cf2032f",
+      "sha256": "10b29fb7e197ba91dafcc4c7f90fa5fe9f2762f677b6213a01a7d019782b3980",
       "pdf_pages": [],
       "sections": [
         "## Lịch sử được xác nhận",
@@ -347,7 +350,7 @@
       "path": "11-commit/WORK_LOG.md",
       "role": "Nhật ký và quyết định",
       "status": "reviewed_record",
-      "sha256": "a345671a9fc384926177986a001d1f0c51f3b82bfa95bcad90d9580e31669940",
+      "sha256": "8bebfd4850d8fd57c642b56a2ba22e1c2310967fa753055bc27b0f917d7b0ffd",
       "pdf_pages": [
         17,
         18,
@@ -360,7 +363,8 @@
         "## Công việc sản phẩm được giao sau lượt hồ sơ",
         "## Lượt sửa demo và bổ sung yêu cầu giảng viên",
         "## Dọn tài sản thuyết trình theo yêu cầu",
-        "## Giải thích demo theo từng bước"
+        "## Giải thích demo theo từng bước",
+        "## Rà soát lý thuyết, tính thống nhất và nguồn"
       ]
     },
     {
@@ -368,7 +372,7 @@
       "path": "12-explain-code/CODE_EXPLANATION.md",
       "role": "Giải thích code trên câu thật",
       "status": "reviewed_record",
-      "sha256": "920848b88746979ffab7aa4d498aed2403afd48fa5e1aeb07cc180e9126fdc52",
+      "sha256": "3b0397705ce65cb124d0ac242d88ececec75b549e4eacd28d95e9fec5f720402",
       "pdf_pages": [
         6,
         7,
@@ -395,7 +399,7 @@
       "path": "13-documentation/DOCUMENTATION.md",
       "role": "Hồ sơ tài liệu bàn giao",
       "status": "reviewed_record",
-      "sha256": "ce92fd85954cb2fa4b7efdaeacc2c2c4c2eb732d8adfa4c2bce205e8e2b99629",
+      "sha256": "256a2ce01abaf7cc4e56a93e49043c715ce5548fd8dc7556efe363fe48b1b191",
       "pdf_pages": [
         3,
         4,
@@ -428,7 +432,7 @@
       "path": "13-documentation/AI_USAGE.md",
       "role": "Đóng góp AI đã xác định",
       "status": "reviewed_record",
-      "sha256": "cd0ba8b4f502d348117d5e41a04a57a9041dff3f0a35ffe618032b07b51d8790",
+      "sha256": "a3ebbe443b2c49a16cbe7cc7fc02b74aea34abb05cd23cd6743f2a9c60abaab8",
       "pdf_pages": [],
       "sections": [
         "## Phần đóng góp quan sát được",
@@ -441,7 +445,7 @@
       "path": "14-definition-of-done/ACCEPTANCE.md",
       "role": "Nghiệm thu hồ sơ và sản phẩm",
       "status": "reviewed_record",
-      "sha256": "c4b07fabb62614bbc9343f13c474e84e817faab15288a37d1f58fcf9528dd97d",
+      "sha256": "e56fd4148d0b2975d9722cecfca36dc024e4959f287907fc09e43d8ead150de1",
       "pdf_pages": [
         17,
         18,
@@ -459,7 +463,7 @@
       "path": "evidence/README.md",
       "role": "Nguồn log và cách thử nhánh lỗi",
       "status": "reviewed_record",
-      "sha256": "10e6747bbcbe4d40d93c57e0aa13e61ed8cd137f4c3f452973e91b73484ac7d4",
+      "sha256": "202a307834a2f948e6d886e7137f77ce0b017a6c589c5ff382ca87dbb1fe3197",
       "pdf_pages": [
         17,
         18,
@@ -540,7 +544,7 @@
         3,
         4
       ],
-      "sha256": "6dada9eef7b6499483df99657cb8f3b7970d875cff647426b98181a6a0977935",
+      "sha256": "ae4f65cf62249e502c9043d8f8bc043be28544fae9c86d18189f1d772360be21",
       "sections": [
         "## Bảng dùng khi trình bày",
         "## Liên hệ demo",
@@ -621,6 +625,15 @@
       "sha256": "7b9b45a9550bcd24701ed38b2944525e5c7cf8f4852e623f6f213ffac46a1ea3",
       "pdf_pages": [],
       "sections": []
+    },
+    {
+      "id": "SOURCE_AUDIT_LOG",
+      "path": "evidence/2026-11-14-source-audit.log",
+      "role": "Rà soát lý thuyết/nguồn và chạy lại notebook offline, giữ snapshot gốc",
+      "status": "observed_evidence",
+      "sha256": "248046c1fd4f1d74e4184968d8a7a00aab2e75ec1149d6cac5b33fe61aa01567",
+      "pdf_pages": [],
+      "sections": []
     }
   ],
   "sources": [
@@ -628,7 +641,7 @@
       "id": "SOURCE_NOTEBOOK",
       "path": "../self_attention_demo.ipynb",
       "role": "Demo ngắn đã sửa, gồm code và output kiểm chứng",
-      "sha256": "afb7142b3ff040b8c1e025066e2f2609d1f369526b44b7e279271b1683f13b67"
+      "sha256": "ddfefb23198e9b44a9081bc1b801a0a0d9398b3067aa5aa816a6117965093eae"
     },
     {
       "id": "SOURCE_REQUIREMENTS",
@@ -652,7 +665,7 @@
       "id": "SOURCE_README",
       "path": "../README.md",
       "role": "Hướng dẫn demo ngắn và cách chạy",
-      "sha256": "64e1598cd7147c2e03ed95e6b162d05e7eddf8b8c12eda9635486fae0111795c"
+      "sha256": "353c0393ff06a72ef476c4351e67623c399f1e312d3d039a2676ae7a36032a82"
     },
     {
       "id": "SOURCE_AGENTS",

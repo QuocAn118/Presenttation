@@ -42,6 +42,8 @@ Notebook chính giải thích theo Bước 1–6. Implementation ở Bước 2 t
 
 Lượt thêm giải thích chỉ sửa Markdown; đã đối chiếu toàn bộ ô code, output và execution count với HEAD trước sửa, không thay đổi. [Lượt chạy offline bản sao](../evidence/2026-11-14-explain-steps.log) thực thi đủ 10 ô code, exit 0, không ô lỗi, 16.81s, xuất đủ bốn PNG và JSON. Không ghi đè số đo snapshot trong bảng trên.
 
+Lượt rà soát lý thuyết/nguồn tiếp theo: ô code/output tiếp tục giữ nguyên; bảng stream trong notebook khớp `measurements.json`, số JSON đầy đủ làm tròn khớp bảng, sai số/head/phương pháp khớp hồ sơ. Tám test demo và 11 test checker đều đạt. [Log rà soát nguồn](../evidence/2026-11-14-source-audit.log) ghi lần chạy lại offline toàn bộ: 10 ô code, exit 0, 0 lỗi, 14.66s, đủ 4 PNG và JSON trên bản sao; snapshot nộp giữ nguyên.
+
 ## Kiểm tra tính toàn vẹn hồ sơ
 
 [test_demo.py](test_demo.py) có 8 regression tests về phép tính tay, lỗi input, API, PNG, bộ nhớ CPU thực, OOM và token thiếu. [test_check.py](../test_check.py) có 11 tests về file/link/hash/nguồn/số liệu, gồm cả file nhị phân. [check.py](../check.py) kiểm tra danh mục thực tế và bảng đo với log. Hash không thay cho đánh giá nội dung; kết quả kiểm tra cuối được xác nhận khi bàn giao.

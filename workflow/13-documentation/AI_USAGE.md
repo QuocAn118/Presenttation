@@ -24,3 +24,5 @@ Trang thành viên PDF có tỷ lệ hoàn thành, nhưng không dùng tỷ lệ
 ## Ranh giới của phiên này
 
 Lượt hồ sơ ban đầu chỉ sửa workflow; lượt mới được người dùng giao sửa demo và thêm Implementation/so sánh lý thuyết ngắn. AI sửa notebook/hình/nguồn hướng dẫn, thêm test và chạy CLI. Giữ GPT-2 và câu mẫu. Lượt dọn repo sau đó bỏ tệp trình chiếu, giữ tài liệu kỹ thuật đã đối chiếu. Người dùng dừng Computer Use và yêu cầu không dùng nó; không nhận có kiểm tra UI hoàn chỉnh.
+
+Lượt rà soát nguồn tiếp theo dùng `ponytail-review` để đối chiếu tài liệu, đọc nguồn công khai chính thức/bài báo gốc và ghi danh mục tại THEORY; sửa các tham chiếu/lặp nội dung trong tài liệu. Không dùng nguồn trích dẫn để tuyên bố tác giả của phần code đã có trước hoặc xác nhận tác giả PDF nhóm chưa được kiểm chứng.

@@ -42,3 +42,7 @@ Xóa tệp được Git theo dõi bằng git rm thành công. Xóa hai thư mụ
 ## Giải thích demo theo từng bước
 
 Theo yêu cầu tiếp theo, chia notebook thành Bước 1–6; riêng Implementation giải thích sáu phép tính 2.1–2.6, nói rõ làm gì, kích thước tensor và kết quả. Đặt lời giải thích ngay trước ô code, đồng bộ README và CODE_EXPLANATION cùng các tham chiếu số bước. Chỉ sửa Markdown; toàn bộ ô code và output đã lưu giữ nguyên. Chạy lại bản sao notebook offline để kiểm tra toàn luồng, không ghi đè số đo/PNG/JSON của snapshot đã nghiệm thu.
+
+## Rà soát lý thuyết, tính thống nhất và nguồn
+
+Người dùng yêu cầu kiểm tra toàn bộ tài liệu có lý thuyết, thống nhất và truy được nguồn. Đã đối chiếu hồ sơ với code/output, đọc bài báo và tài liệu chính thức; tập trung nguồn tại THEORY, làm rõ nguồn trọng số/hình/số liệu/AI, bỏ nội dung lặp và trạng thái Git cũ. Chỉ sửa tài liệu/Markdown notebook; giữ ô code và snapshot kết quả. Không tái tạo tài sản trình chiếu, không dùng Computer Use; không nhận đã xác minh tác giả PDF đã xóa hoặc ghim revision model khi code chưa làm điều đó.

@@ -21,6 +21,8 @@ Code nằm trong [notebook](../../self_attention_demo.ipynb). Phần chính có 
 
 Hàm tự viết không gọi API attention dựng sẵn. Trọng số lấy từ GPT-2 đã huấn luyện; hidden state đầu vào lấy sau `ln_1`. Việc nạp trọng số không đồng nghĩa tự huấn luyện GPT-2 từ đầu.
 
+Công thức được dẫn tới LT-01, checkpoint/mã đối chứng tới MH-01/MH-02 trong [danh mục nguồn THEORY](../THEORY.md). Trang PDF trong bảng là đối chiếu lịch sử của bản đã xóa.
+
 ## Triển khai hình và benchmark
 
 `find_token` kiểm tra token và báo lỗi tiếng Việt. `pick_head` quét 144 đầu, sắp giảm theo attention `it` → `animal`, trả tuple đầu tốt nhất, in top 3. Hàm `plot_attention` được định nghĩa đúng API kế hoạch; ô vẽ gọi hàm attention hai lần trên cùng lớp, một lần có mask, một lần không mask; dùng Matplotlib ghi ba PNG.

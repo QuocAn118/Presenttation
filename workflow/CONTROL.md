@@ -12,7 +12,7 @@ Thứ tự áp dụng: yêu cầu người dùng mới nhất → đặc tả g�
 
 | Thông tin | File chịu trách nhiệm |
 | --- | --- |
-| Nguồn PDF, số trang, cách diễn giải lý thuyết | [THEORY](THEORY.md) |
+| Nguồn PDF lịch sử, bài báo gốc, checkpoint, nguồn hình và diễn giải lý thuyết | [THEORY](THEORY.md) |
 | Phạm vi bài và yêu cầu | [DEFINE](01-define/DEFINE.md), [REQUIREMENTS](01-define/REQUIREMENTS.md) |
 | Kiến trúc và API thực tế | [DESIGN](02-design/DESIGN.md) |
 | Kế hoạch và tiến độ | [PLAN](03-plan/PLAN.md) |
@@ -49,7 +49,7 @@ PDF đã xóa theo yêu cầu nên không còn là phụ thuộc phải có tron
 ## Quy trình kiểm soát thay đổi
 
 1. Chọn đúng file chịu trách nhiệm ở bảng trên; ghi thay đổi yêu cầu/nguồn vào nhật ký trước khi đổi kết luận.
-2. Đối chiếu trang PDF, code và log liên quan. Nếu code/đầu vào đổi, kết quả cũ chỉ còn là lịch sử.
+2. Đối chiếu nguồn công khai được dẫn trong THEORY, code và log liên quan; bảng trang PDF là ghi nhận lịch sử vì tệp đã xóa. Nếu code/đầu vào đổi, kết quả cũ chỉ còn là lịch sử.
 3. Sửa file và các liên kết/bên tham chiếu bị ảnh hưởng; chỉ ghi “đạt” khi có bằng chứng tương ứng.
 4. Chạy test cho checker nếu sửa logic kiểm soát; kiểm tra lại nội dung và cập nhật hash **chỉ các file đã rà soát** trong manifest. Không làm mới toàn bộ hash để che lỗi.
 5. Chạy `workflow/check.py`; review diff cả tài liệu lẫn manifest. Ghi giới hạn còn lại trong ACCEPTANCE.

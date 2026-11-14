@@ -1,0 +1,24 @@
+Date: 2026-11-14 (Asia/Bangkok)
+Mode: source-and-consistency audit, offline full notebook execution in an isolated copy
+Source: self_attention_demo.ipynb, only Markdown changed
+Command: python -m jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
+HF_HUB_OFFLINE=1
+Exit code: 0
+Elapsed seconds: 14.66
+Notebook errors: 0
+Executed code cells: 10
+Numbered main steps: 1 through 6, exactly once each
+Generated: 4 PNG files and demo_results.json
+Original code cells (including outputs and execution counts): verified identical to pre-change HEAD
+Original benchmark snapshot, PNG and JSON: preserved; no new timing substituted
+VS Code UI: not checked, per user request to avoid Computer Use
+Demo regression tests: 8 passed
+Workflow checker tests: 11 passed
+Snapshot consistency: saved notebook table = measurements.json; rounded demo_results.json = table
+Saved max_diff, selected layer/head and benchmark method: matched with records
+Referenced main commits: 23d41e7, b4b1759, 5a74198 verified as ancestors of origin/main
+GPT-2 cache revision: 607a30d783dfa663caf39e06633721c8d4cfcd7e
+model.safetensors SHA256: 248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707
+config.json SHA256: 0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4
+Source list: THEORY.md, public papers/model card/versioned source/docs opened on 2026-11-14
+Limits: deleted group PDF not re-opened; its authorship not independently verified; model revision not pinned in code

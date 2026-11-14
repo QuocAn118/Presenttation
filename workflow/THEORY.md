@@ -8,6 +8,29 @@
 
 PDF là nguồn đã đọc ở lượt trước, không phải log của lần kiểm tra mới. Người dùng yêu cầu bỏ tài sản thuyết trình ngày 14/11/2026 nên tệp PDF đã được xóa; tài liệu kỹ thuật này giữ lại các ý đã đối chiếu, tên/hash/trang nguồn để truy vết. Checker không yêu cầu PDF hiện diện nữa.
 
+Chưa xác minh độc lập tác giả hoặc nguồn xuất bản của PDF nhóm; tên file và hash chỉ nhận diện bản từng được cung cấp. Các nguồn công khai bên dưới hỗ trợ kiểm tra lại nội dung cốt lõi khi PDF không còn trong repo.
+
+## Tài liệu gốc và phạm vi sử dụng
+
+Các nguồn công khai được mở và đối chiếu ngày **14/11/2026**. Bảng này là danh mục nguồn chính; các hồ sơ khác dẫn về đây.
+
+| Mã | Nguồn | Nội dung được dùng |
+| --- | --- | --- |
+| LT-01 | Vaswani et al. (2017), [Attention Is All You Need](https://arxiv.org/html/1706.03762v7) | Mục 3.2.1, công thức (1): QKᵀ/√d_k, softmax, nhân V; mục 3.2.2: multi-head và Wᴼ; mục 3.2.3: mask; mục 3.5: vị trí; mục 4/bảng 1: so sánh attention, CNN, RNN. |
+| LT-02 | Radford et al. (2019), [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) | Mục 2.2–2.3: byte-level BPE, kiến trúc GPT-2, LayerNorm trước khối con và context 1024. Báo cáo cũ ghi bản nhỏ là 117M; [repo OpenAI](https://github.com/openai/gpt-2) đã đính chính lỗi đếm tham số. Demo dùng tên bản phát hành 124M. |
+| LT-03 | Gehring et al. (2017), [Convolutional Sequence to Sequence Learning](https://arxiv.org/abs/1705.03122) | Bổ sung CNN trên chuỗi và khả năng tính song song khi huấn luyện; không dùng kết quả của bài báo như benchmark của repo. |
+| MH-01 | [Model card GPT-2 trên Hugging Face](https://huggingface.co/openai-community/gpt2), [config](https://huggingface.co/openai-community/gpt2/raw/main/config.json) | Nguồn checkpoint/tokenizer của lệnh `from_pretrained("gpt2")`; model card ghi giấy phép MIT. Cấu hình 12 lớp/12 đầu/768 chiều, `gelu_new`, context 1024 được đối chiếu thêm với cache cục bộ. |
+| MH-02 | Hugging Face, [mã GPT-2 trong Transformers v5.22.2](https://github.com/huggingface/transformers/blob/v5.22.2/src/transformers/models/gpt2/modeling_gpt2.py) | Đối chiếu `GPT2Block.forward`, `ln_1`, phép chiếu `c_attn`, attention eager và `c_proj` với bản thư viện đang cài. Hàm trong notebook tự viết các phép tensor theo công thức, không gọi attention này. |
+| DO-01 | PyTorch 2.9, [CUDA synchronize](https://docs.pytorch.org/docs/2.9/generated/torch.cuda.synchronize.html), [max memory allocated](https://docs.pytorch.org/docs/2.9/generated/torch.cuda.memory.max_memory_allocated.html) | Đồng bộ GPU trước/sau đo thời gian; đỉnh bộ nhớ tensor PyTorch kể từ lần reset. Không coi đây là toàn VRAM hệ thống hoặc peak RAM CPU. |
+
+Nguồn trọng số đã kiểm tra trên máy: cache `models--gpt2`, ref `main` trỏ snapshot `607a30d783dfa663caf39e06633721c8d4cfcd7e`. SHA-256 của `model.safetensors`: `248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707`; `config.json`: `0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4`. Đây là định danh cache quan sát được, không phải tuyên bố notebook đã ghim `revision`: code hiện dùng tên `gpt2`; lần tải mới có thể trỏ bản khác. Chạy offline trên cache này giữ đúng bản đã kiểm tra.
+
+## Nguồn hình, số liệu và code
+
+- Bốn PNG trong `figures/` được **Matplotlib vẽ từ code notebook**, không lấy hình minh họa trên Internet hay dùng ảnh AI. Heatmap lấy attention từ trọng số GPT-2 đã huấn luyện; biểu đồ chi phí lấy phép đo tensor ngẫu nhiên trên máy. Các output này được khóa hash trong manifest.
+- Số đo, sai số và tiêu chí chọn đầu của bản đang lưu nằm trong [JSON kết quả](../figures/demo_results.json) và [TEST_RESULTS](08-test/TEST_RESULTS.md), đối chiếu [log offline](evidence/2026-11-14-demo-offline.log). Chúng là kết quả repo, không trích số hiệu năng từ các bài báo trên.
+- Công thức thuật toán dẫn LT-01; checkpoint và code đối chứng dẫn MH-01/MH-02. Phần hỗ trợ của AI và giới hạn xác nhận quyền tác giả từng dòng được ghi trong [AI_USAGE](13-documentation/AI_USAGE.md); không nhận toàn bộ code là do sinh viên tự viết độc lập.
+
 ## Lý thuyết áp dụng vào bài
 
 | Trang PDF | Nội dung | Áp dụng cụ thể |

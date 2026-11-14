@@ -2,7 +2,7 @@
 
 **Mã hồ sơ: CODE_EXPLANATION. Cập nhật: 14/11/2026.**
 
-Các bước dưới khớp tiêu đề trong [notebook](../../self_attention_demo.ipynb). Đọc lời giải thích rồi chạy ô code ngay bên dưới.
+Các bước dưới khớp tiêu đề trong [notebook](../../self_attention_demo.ipynb). Đọc lời giải thích rồi chạy ô code ngay bên dưới. Công thức, nguồn trọng số và mã đối chứng được dẫn tại [THEORY](../THEORY.md); các số trang PDF là đối chiếu lịch sử của bản đã xóa.
 
 ## Bước 1 - Chuẩn bị mô hình và câu đầu vào
 

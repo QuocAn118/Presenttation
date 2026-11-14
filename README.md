@@ -56,7 +56,10 @@ Repo giữ code, tài liệu kỹ thuật và output của notebook. PDF thuyế
 
 [workflow/README.md](workflow/README.md) là mục lục 14 bước; [Implementation](workflow/05-generate/IMPLEMENTATION.md), [bảng so sánh](workflow/02-design/COMPARISON.md), [kết quả kiểm chứng](workflow/08-test/TEST_RESULTS.md).
 
+Phần [lý thuyết và danh mục nguồn](workflow/THEORY.md) có công thức attention, mask, multi-head và đối chiếu GPT-2. Nguồn chính là [Vaswani et al. (2017)](https://arxiv.org/html/1706.03762v7), [báo cáo GPT-2 của Radford et al. (2019)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) và [checkpoint GPT-2](https://huggingface.co/openai-community/gpt2). Hình do notebook vẽ, số đo lấy từ lượt chạy thật; [AI_USAGE](workflow/13-documentation/AI_USAGE.md) ghi phần hỗ trợ AI. PDF nhóm đã xóa theo yêu cầu, chỉ còn tên/hash và đối chiếu lịch sử.
+
 ```powershell
+$env:PYTHONUTF8 = "1"
 .\.venv\Scripts\python.exe workflow/test_check.py
 .\.venv\Scripts\python.exe workflow/check.py
 ```

@@ -13,11 +13,14 @@ Mục lục ở [README](../README.md), quyền sở hữu thông tin ở [CONTR
 | Nguồn | Cách dùng | Giới hạn |
 | --- | --- | --- |
 | PDF 20 trang người dùng cung cấp | Cơ sở lý thuyết và nối slide 17–19 với demo | Có biểu diễn tổng quát khác GPT-2 và số của lượt đo cũ; đọc theo THEORY |
+| Bài báo gốc, model card, mã Transformers và tài liệu PyTorch | Công thức, so sánh kiến trúc, nguồn checkpoint và cách đo | Tên tác giả/năm, mục dùng và liên kết tập trung tại THEORY; không lấy số hiệu năng bài báo làm kết quả repo |
 | Spec/plan gốc | Phạm vi, tên hàm dự kiến, 5 task và điều kiện nghiệm thu | Đã đồng bộ RTX 5060/cu128, giữ ghi chú lịch sử quyết định |
 | Notebook/requirements | Hành vi, API và dependency thực tế | Không giả định code khớp toàn bộ kế hoạch nếu chưa kiểm tra |
 | Log kiểm tra | Bằng chứng chạy offline, CPU giả lập và lỗi mô phỏng | Chỉ có giá trị cho đúng source được khóa; không thay UI review |
 
 Manifest khóa fingerprint các nguồn và file tài liệu. Tệp PDF trình chiếu đã được bỏ theo yêu cầu mới; THEORY giữ tên/hash và phần đối chiếu kỹ thuật lịch sử. Manifest chỉ kiểm tra các nguồn/code/output đang giữ trong repo.
+
+[THEORY](../THEORY.md) ghi thêm revision/hash checkpoint trong cache và nguồn của bốn PNG/JSON. Notebook dùng tên `gpt2` chưa ghim revision; cache đã kiểm tra hỗ trợ chạy offline, còn lần tải mới cần đối chiếu lại. Chưa xác minh độc lập tác giả PDF nhóm đã xóa.
 
 ## Nội dung bàn giao theo yêu cầu giảng viên
 

@@ -9,6 +9,8 @@
 | [demo-oom](2026-11-14-demo-oom.log) | Bản sao có toàn bộ row OOM, vẫn xuất hình/JSON và chạy hết |
 | [demo-red](2026-11-14-demo-red.log) | Regression trước sửa: thất bại như dự kiến, bằng chứng TDD |
 | [demo-tests](2026-11-14-demo-tests.log) | Regression sau sửa, mã nguồn mới |
+| [explain-steps](2026-11-14-explain-steps.log) | Chạy lại offline sau khi giải thích Bước 1–6, giữ snapshot số đo gốc |
+| [source-audit](2026-11-14-source-audit.log) | Rà soát lý thuyết/nguồn, đối chiếu snapshot và chạy lại offline sau khi bổ sung trích dẫn |
 | [measurements](measurements.json) | Bảng số đã làm tròn, đối chiếu demo-offline và TEST_RESULTS |
 
 [figures/demo_results.json](../../figures/demo_results.json) giữ số chưa làm tròn, phương pháp, cấu hình và sai số của lượt chính. Log ghi mã nguồn code SHA-256 để phân biệt các bản; mã nguồn của bản sao CPU/OOM được sửa tạm như RUN mô tả.

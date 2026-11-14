@@ -25,3 +25,11 @@ Sai số, tổng hàng và tam giác trên được assert ở từng lớp tron
 ## Giới hạn còn lại
 
 Không huấn luyện/benchmark CNN hay RNN; chỉ so sánh lý thuyết theo nguồn gốc. Chưa cố gây OOM thật. Người dùng dừng Computer Use và yêu cầu tiếp tục không dùng nó, nên chưa xác nhận Restart/Run All trong VS Code bằng UI; kết quả CLI không được nhận là kết quả UI. Tệp PDF/ảnh dựng cho slide đã được bỏ; không còn là phụ thuộc của code hoặc checker.
+
+## Rà soát lý thuyết, tính thống nhất và nguồn
+
+Đã đọc hồ sơ Markdown hiện tại, code notebook, JSON/log và config cache; đối chiếu công thức và các khác biệt GPT-2 với nguồn công khai chính thức ngày 14/11/2026. Có nền lý thuyết Q/K/V, scaled dot-product, mask, multi-head, vị trí, ranh giới FFN/LayerNorm và so sánh Transformer/CNN/RNN. Không phát hiện mâu thuẫn ở các phép tính, shape, ngưỡng, tiêu chí chọn đầu hoặc phương pháp đo của bản hiện tại.
+
+Các điểm tài liệu đã sửa: gộp danh mục nguồn/tác giả/năm/phạm vi sử dụng vào THEORY; thêm link nguồn trong notebook/README; ghi revision/hash cache và nguồn PNG/JSON; bỏ hai dòng lặp trong DEFINE; thay mô tả working tree/PDF cũ trong COMMITS; thêm UTF-8 vào lệnh kiểm tra README. Năm task phát triển, 14 bước workflow và 6 bước giải thích được phân biệt rõ trong PROCESS.
+
+Không kết luận mọi nguồn đều có chứng cứ ngang nhau: bài báo/model card/mã thư viện có link công khai; PDF nhóm chỉ còn tên/hash/trang, tác giả chưa xác minh; số đo repo có JSON/log riêng. Notebook chưa ghim revision model và bước UI vẫn chưa xác nhận, ghi tại ACCEPTANCE. Kết quả kiểm tra thực thi của lượt rà soát nằm trong TEST_RESULTS.

@@ -17,4 +17,4 @@ Hàm tự viết minh họa cơ chế attention của Transformer và causal mas
 
 ## Nguồn
 
-PDF của nhóm trang 3–4 giới thiệu RNN và động cơ self-attention. Phần CNN được bổ sung theo yêu cầu người dùng: [Vaswani et al., mục 4](https://arxiv.org/html/1706.03762v7#S4), [Gehring et al.](https://arxiv.org/abs/1705.03122). Không phục hồi bài huấn luyện IMDB đã bỏ.
+PDF của nhóm trang 3–4 giới thiệu RNN và động cơ self-attention. Phần CNN được bổ sung theo yêu cầu người dùng: [Vaswani et al. (2017), mục 4/bảng 1](https://arxiv.org/html/1706.03762v7#S4), [Gehring et al. (2017), Convolutional Sequence to Sequence Learning](https://arxiv.org/abs/1705.03122). Danh mục nguồn, phạm vi sử dụng và nguồn trọng số nằm trong [THEORY](../THEORY.md). Không phục hồi bài huấn luyện IMDB đã bỏ.

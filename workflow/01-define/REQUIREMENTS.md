@@ -10,7 +10,7 @@
 | FR-002 | Dùng trọng số đã huấn luyện GPT-2 và so attention với mô hình gốc | Trang 17 | Sai số mỗi lớp <`1e-4`, không nới ngưỡng |
 | FR-003 | Hai heatmap cùng Q/K, cùng lớp/đầu, trước và sau causal mask | Trang 8, 11, 18 | Hai panel thang 0–1, cùng nhãn token và thanh màu |
 | FR-004 | Đo attention trên GPU và CPU với dữ liệu ngẫu nhiên | Trang 19 | Bảng ms/bộ nhớ, hình hai panel theo độ dài 128–2048 |
-| FR-005 | Implementation/giải thích ngắn, so sánh lý thuyết Transformer/CNN/RNN và cách chạy | Trang 3–16, 19 | Nhận xét khớp output, README, hướng dẫn offline |
+| FR-005 | Implementation/giải thích ngắn, so sánh lý thuyết Transformer/CNN/RNN và cách chạy | Trang 3–16, 19; CNN bổ sung theo LT-01/LT-03 trong THEORY | Nhận xét khớp output, README, hướng dẫn offline |
 
 ## Ràng buộc bắt buộc
 

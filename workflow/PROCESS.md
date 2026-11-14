@@ -25,7 +25,7 @@ flowchart TD
     DOC --> END["14 Nghiệm thu theo bằng chứng"]
 ```
 
-Debug/refactor không phải việc phải làm để đủ số bước. Lần viết lại hiện tại áp dụng vòng Review/Test vào chính hồ sơ và bộ kiểm soát tài liệu; không làm lại code 5 task đã có. Tài liệu lý thuyết liên quan được truy vết ở THEORY, trạng thái thực nghiệm ở TEST_RESULTS và trạng thái kết thúc ở ACCEPTANCE.
+Debug/refactor không phải việc phải làm để đủ số bước. Lượt viết lại hồ sơ ban đầu áp dụng vòng Review/Test vào tài liệu và bộ kiểm soát; lượt yêu cầu sau đó đã sửa demo. Năm task phát triển, 14 bước workflow và 6 bước giải thích trong notebook là ba cách chia khác nhau, không phải số phần mâu thuẫn. Tài liệu lý thuyết và nguồn được truy vết ở THEORY, trạng thái thực nghiệm ở TEST_RESULTS và trạng thái kết thúc ở ACCEPTANCE.
 
 ## Vòng kiểm soát file
 

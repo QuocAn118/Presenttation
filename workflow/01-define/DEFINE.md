@@ -15,8 +15,6 @@ PDF trang 3–4 đặt vấn đề về xử lý tuần tự và phụ thuộc x
 - Ba PNG heatmap gồm hình so sánh và hai panel riêng; một biểu đồ thời gian/bộ nhớ GPU/CPU.
 - Hướng dẫn cài môi trường, chạy trong VS Code và kiểm tra offline.
 - Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
-- Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
-- Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
 
 ## Why - Giá trị của bài
 

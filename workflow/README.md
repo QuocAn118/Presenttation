@@ -6,7 +6,7 @@ Nội dung được viết theo PDF lý thuyết người dùng cung cấp và b
 
 ## Cách đọc
 
-Đọc [THEORY](THEORY.md) để thấy từng trang PDF nối với phép tính/code và các điểm phải phân biệt. [CONTROL](CONTROL.md) quy định nơi chính của từng loại thông tin, danh mục file, nguồn/hash và quy trình thay đổi. [PROCESS](PROCESS.md) thể hiện luồng làm bài.
+Đọc [THEORY](THEORY.md) để thấy công thức, đối chiếu trang PDF lịch sử, danh mục bài báo gốc/model card, nguồn checkpoint và hình/số liệu. [CONTROL](CONTROL.md) quy định nơi chính của từng loại thông tin, danh mục file, nguồn/hash và quy trình thay đổi. [PROCESS](PROCESS.md) thể hiện luồng làm bài.
 
 | Bước | Hồ sơ đã viết |
 | --- | --- |

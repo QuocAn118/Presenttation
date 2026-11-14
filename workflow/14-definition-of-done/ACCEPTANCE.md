@@ -25,6 +25,8 @@ Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi s�
 - Chưa xác nhận Restart/Run All trong VS Code: người dùng đã yêu cầu không dùng Computer Use. Không thay chứng cứ UI bằng CLI.
 - Không benchmark chất lượng hoặc huấn luyện CNN/RNN; bảng so sánh là lý thuyết theo yêu cầu được hiểu và thông báo.
 - Không cố gây OOM thật; chỉ mô phỏng các điểm cấp phát/attention và luồng báo OOM.
+- PDF nhóm đã xóa nên không kiểm tra lại tệp hoặc xác minh độc lập tác giả PDF trong lượt rà soát nguồn. THEORY giữ nguồn công khai thay thế để đối chiếu các ý cốt lõi.
+- Notebook chưa ghim revision của `gpt2`; THEORY ghi revision/hash cache đã kiểm tra. Lần tải mới cần kiểm tra lại, không nhận tái lập tuyệt đối chỉ từ tên model.
 - PDF thuyết trình và ảnh nền tối/ảnh tổng quan đã được bỏ. Bốn PNG gốc và JSON được giữ làm output kiểm chứng. Hai thư mục cache ảnh trong scratch chưa xóa được do xét duyệt tự động chặn thao tác xóa, không nằm trong Git.
 
 **Kết luận:** bản demo ngắn và các kiểm tra dòng lệnh đã đạt; còn bước người trình bày tự xác nhận thao tác/hiển thị trong VS Code. Không gán bước này đã đạt.
