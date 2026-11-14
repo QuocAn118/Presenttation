@@ -1,40 +1,44 @@
-# Workflow dự án demo self-attention
+# Hồ sơ bài demo self-attention theo lý thuyết Transformer
 
-Đây là hồ sơ thực hiện bài Deep Learning: tự viết self-attention bằng PyTorch, dùng **trọng số đã huấn luyện của GPT-2**, vẽ heatmap trước/sau causal mask và đo GPU/CPU.
+**Mã hồ sơ: INDEX. Cập nhật: 14/11/2026.**
 
-**Cập nhật 14/11/2026:** phần tài liệu workflow đã hoàn thiện; toàn bộ bài còn các mục nghiệm thu mở. Notebook gốc đã được kiểm tra trên bản sao, không bị sửa trong lần bàn giao này. Máy được người dùng chốt lại là **RTX 5060 Laptop GPU / torch 2.9.1+cu128**.
+Nội dung được viết theo PDF lý thuyết người dùng cung cấp và bài tự viết attention/GPT-2. Các thư mục bước chứa kết quả cụ thể của bài, không còn khung GUIDE hay prompt chờ điền.
 
-## Đọc hồ sơ theo thứ tự
+## Cách đọc
 
-| File | Nội dung |
+Đọc [THEORY](THEORY.md) để thấy từng trang PDF nối với phép tính/code và các điểm phải phân biệt. [CONTROL](CONTROL.md) quy định nơi chính của từng loại thông tin, danh mục file, nguồn/hash và quy trình thay đổi. [PROCESS](PROCESS.md) thể hiện luồng làm bài.
+
+| Bước | Hồ sơ đã viết |
 | --- | --- |
-| [00_MINDMAP](docs/00_MINDMAP.md) | Luồng làm việc và vòng lặp kiểm chứng |
-| [01_DEFINE](docs/01_DEFINE.md) | Bài toán, đối tượng, phạm vi, giới hạn |
-| [02_REQUIREMENTS](docs/02_REQUIREMENTS.md) | Yêu cầu và tiêu chí nghiệm thu |
-| [03_DESIGN](docs/03_DESIGN.md) | Kiến trúc, công thức, API thực tế và quyết định phần cứng |
-| [04_BREAKDOWN](docs/04_BREAKDOWN.md) | Trạng thái 5 task và bằng chứng commit |
-| [05_TOOLS](docs/05_TOOLS.md) | Môi trường thực tế và cách tái lập kiểm tra |
-| [06_VERIFICATION](docs/06_VERIFICATION.md) | Kết quả chạy, log và các phát hiện còn mở |
-| [07_WORK_LOG](docs/07_WORK_LOG.md) | Nhật ký, phạm vi cuối cùng và quyết định |
-| [08_RELEASE](docs/08_RELEASE.md) | Bàn giao workflow và checklist nghiệm thu bài |
-| [09_AI_USAGE](docs/09_AI_USAGE.md) | Công cụ AI, đóng góp đã biết và phần chưa xác nhận |
+| 01 - Define | [Bài toán/phạm vi](01-define/DEFINE.md), [yêu cầu/nghiệm thu](01-define/REQUIREMENTS.md) |
+| 02 - Design | [Kiến trúc, tensor, công thức và API](02-design/DESIGN.md) |
+| 03 - Plan | [5 task, phụ thuộc, tiến độ](03-plan/PLAN.md) |
+| 04 - Describe | [Brief cụ thể từng task](04-describe/TASK_BRIEFS.md) |
+| 05 - Generate | [Triển khai thực tế](05-generate/IMPLEMENTATION.md) |
+| 06 - Review | [Phát hiện có bằng chứng và trạng thái](06-review/REVIEW.md) |
+| 07 - Run | [Môi trường](07-run/ENVIRONMENT.md), [lần chạy và cách tái lập](07-run/RUN.md) |
+| 08 - Test | [Kết quả kiểm thử và bảng đo](08-test/TEST_RESULTS.md) |
+| 09 - Debug | [Tái hiện, nguyên nhân đã biết và phương án kiểm tra](09-debug/DEBUG.md) |
+| 10 - Refactor | [Quyết định cấu trúc và phần chưa làm](10-refactor/REFACTOR.md) |
+| 11 - Commit | [Lịch sử/quản lý Git](11-commit/COMMITS.md), [nhật ký](11-commit/WORK_LOG.md) |
+| 12 - Explain code | [Giải thích câu demo từ token tới output](12-explain-code/CODE_EXPLANATION.md) |
+| 13 - Documentation | [Hồ sơ tài liệu](13-documentation/DOCUMENTATION.md), [ghi nhận AI](13-documentation/AI_USAGE.md) |
+| 14 - Definition of Done | [Nghiệm thu tài liệu và sản phẩm](14-definition-of-done/ACCEPTANCE.md) |
 
-Define/Design/Breakdown là mô tả dự án tương đương `Project_description.md`; không tạo thêm bản sao cùng nội dung. Ghi nhận AI nằm trong `09_AI_USAGE.md`.
+## Bằng chứng và kiểm soát
 
-## 14 hướng dẫn thao tác
+Log runtime ở [evidence](evidence/README.md). [manifest.json](manifest.json) quản lý từng file và khóa fingerprint nguồn PDF/notebook/spec/plan/requirements. [check.py](check.py) phát hiện file thiếu/lạ, ID trùng, hash/nguồn đổi, mục bắt buộc thiếu, liên kết hỏng, dấu giữ chỗ và số đo lệch log. Bộ kiểm tra dùng thư viện chuẩn Python.
 
-| Giai đoạn | Hướng dẫn |
-| --- | --- |
-| Xác định | [01 Define](01-define/GUIDE.md), [02 Design](02-design/GUIDE.md), [03 Plan](03-plan/GUIDE.md) |
-| Triển khai | [04 Describe](04-describe/GUIDE.md), [05 Generate](05-generate/GUIDE.md), [06 Review](06-review/GUIDE.md) |
-| Kiểm chứng | [07 Run](07-run/GUIDE.md), [08 Test](08-test/GUIDE.md), [09 Debug](09-debug/GUIDE.md) |
-| Chốt thay đổi | [10 Refactor](10-refactor/GUIDE.md), [11 Commit](11-commit/GUIDE.md), [12 Explain Code](12-explain-code/GUIDE.md) |
-| Bàn giao | [13 Documentation](13-documentation/GUIDE.md), [14 Definition of Done](14-definition-of-done/GUIDE.md) |
+```powershell
+$env:PYTHONUTF8 = "1"
+.\.venv\Scripts\python.exe workflow/test_check.py
+.\.venv\Scripts\python.exe workflow/check.py
+```
 
-Các GUIDE là hướng dẫn, không phải bằng chứng từng bước lịch sử đã được làm. Debug/refactor chỉ dùng khi cần; trạng thái nghiệm thu xem 06_VERIFICATION và 08_RELEASE.
+Giữ PDF đúng tên ở gốc theo manifest để đối chiếu nguồn; thiếu PDF sẽ báo lỗi nguồn chưa đủ. Công cụ không tự sửa hash/file hoặc tuyên bố nội dung đúng chỉ nhờ checksum. Khi sửa nguồn hoặc hồ sơ, làm theo CONTROL.
 
-## Nguồn quyết định và cách dùng
+## Trạng thái và ranh giới
 
-Đặc tả gốc ở [docs/superpowers/specs](../docs/superpowers/specs/2026-11-10-self-attention-demo-design.md), kế hoạch gốc ở [docs/superpowers/plans](../docs/superpowers/plans/2026-11-10-self-attention-demo.md). Tuân theo yêu cầu người dùng mới nhất; workflow ghi rõ quyết định đổi phần cứng, đồng thời giữ nguyên nguồn ngoài phạm vi được giao. Không đánh dấu nghiệm thu RTX 4080 từ một lần chạy RTX 5060.
+Máy được duyệt lại là **RTX 5060 Laptop GPU, torch 2.9.1+cu128**. Đã có log notebook gốc chạy offline/CPU giả lập; sản phẩm vẫn còn các mục review và kiểm tra UI chưa xác nhận, xem ACCEPTANCE. Không lấy tỷ lệ benchmark trên PDF làm số của lần chạy khác.
 
-Khi code hoặc số đo thay đổi, cập nhật Verification → Breakdown/Work Log → Release theo kết quả mới. Không đánh dấu “đạt” chỉ vì đã có file hoặc commit.
+Lượt này chỉ viết lại workflow và kiểm soát tài liệu. Notebook, ảnh, PDF, requirements, AGENTS và đặc tả/kế hoạch gốc giữ nguyên; khác biệt phần cứng ở nguồn cũ được ghi công khai. Các hồ sơ cũ trong workflow/docs đã chuyển về các file ở bảng trên, không giữ hai bản song song.

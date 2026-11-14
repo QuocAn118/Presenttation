@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-14",
+  "timezone": "Asia/Bangkok",
+  "files": [
+    {
+      "id": "INDEX",
+      "path": "README.md",
+      "role": "Mục lục và trạng thái hồ sơ",
+      "status": "reviewed_record",
+      "sha256": "4c7398cf3073506d061fde8d29e8cf41329928632a2be84ad13034d204871667",
+      "pdf_pages": [],
+      "sections": [
+        "## Cách đọc",
+        "## Bằng chứng và kiểm soát",
+        "## Trạng thái và ranh giới"
+      ]
+    },
+    {
+      "id": "CONTROL",
+      "path": "CONTROL.md",
+      "role": "Kiểm soát nguồn, file và thay đổi",
+      "status": "reviewed_record",
+      "sha256": "bac34154922294856b75b33b891f717939ece067fc92a5c0d8e6b17781996a50",
+      "pdf_pages": [],
+      "sections": [
+        "## Phạm vi và thứ tự quyết định",
+        "## Một nơi chính cho mỗi loại thông tin",
+        "## Danh mục và kiểm tra tự động",
+        "## Quy trình kiểm soát thay đổi",
+        "## Chuyển vị trí hồ sơ cũ"
+      ]
+    },
+    {
+      "id": "THEORY",
+      "path": "THEORY.md",
+      "role": "Đối chiếu từng trang lý thuyết với bài",
+      "status": "reviewed_record",
+      "sha256": "9da929ec616866eb0a3a8a9608b364c30b204ac7dd5315dda1eae50c291498c1",
+      "pdf_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Nguồn đã đọc",
+        "## Lý thuyết áp dụng vào bài",
+        "## Công thức và quy ước chính xác",
+        "## Phân biệt lý thuyết tổng quát với GPT-2",
+        "## Giới hạn kết luận"
+      ]
+    },
+    {
+      "id": "PROCESS",
+      "path": "PROCESS.md",
+      "role": "Luồng thực hiện của dự án",
+      "status": "reviewed_record",
+      "sha256": "008c7c07c71c314c7e26676b53e24b61650cbe3c51280b9257eb81fff3656b89",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Quy trình áp dụng",
+        "## Vòng kiểm soát file"
+      ]
+    },
+    {
+      "id": "DEFINE",
+      "path": "01-define/DEFINE.md",
+      "role": "Bài toán và phạm vi",
+      "status": "reviewed_record",
+      "sha256": "15091c0ba8c22929dd9f7ee74420e37080561bb00fb0c63c5841358a08cb6326",
+      "pdf_pages": [
+        3,
+        4,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Bài toán và người sử dụng",
+        "## What - Sản phẩm cụ thể",
+        "## Why - Giá trị của bài",
+        "## When, Where, Which",
+        "## Phạm vi và giới hạn",
+        "## Tiêu chí thành công và trạng thái"
+      ]
+    },
+    {
+      "id": "REQUIREMENTS",
+      "path": "01-define/REQUIREMENTS.md",
+      "role": "FR và AC có truy vết",
+      "status": "reviewed_record",
+      "sha256": "7cdb9db34a0ec30a1edf5220fad6fb9144349645066326bf099507c8a5010a11",
+      "pdf_pages": [
+        7,
+        8,
+        9,
+        11,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Yêu cầu chức năng",
+        "## Ràng buộc bắt buộc",
+        "## Tiêu chí có thể kiểm tra",
+        "## Truy vết từ yêu cầu đến hồ sơ"
+      ]
+    },
+    {
+      "id": "DESIGN",
+      "path": "02-design/DESIGN.md",
+      "role": "Kiến trúc và API thật",
+      "status": "reviewed_record",
+      "sha256": "69b455863a7bd225fe0a4c35d51bbee0f55ff21b8be44bdec4c061cd1101fcfe",
+      "pdf_pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Kiến trúc đã chọn",
+        "## Luồng dữ liệu và kích thước",
+        "## Hợp đồng hàm thực tế",
+        "## Thiết kế đối chứng và trực quan hóa",
+        "## Thiết kế benchmark và giới hạn",
+        "## Quyết định và trạng thái"
+      ]
+    },
+    {
+      "id": "PLAN",
+      "path": "03-plan/PLAN.md",
+      "role": "Năm task và tiến độ",
+      "status": "reviewed_record",
+      "sha256": "f296c708854286ff57ad26fcc4f04e7fadd58d884409ec281991771be6a68638",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Thứ tự và phụ thuộc",
+        "## Mốc công việc và trạng thái thực tế",
+        "## Bản hoàn thiện workflow theo yêu cầu mới",
+        "## Công việc còn lại của sản phẩm"
+      ]
+    },
+    {
+      "id": "TASK_BRIEFS",
+      "path": "04-describe/TASK_BRIEFS.md",
+      "role": "Phạm vi cụ thể từng nhiệm vụ",
+      "status": "reviewed_record",
+      "sha256": "f63b898f23b9f47d067fd3eb700b86f6167eea7418943a6b201a59e3af1f27b6",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Bối cảnh chung",
+        "## TASK-001 - Môi trường và mô hình",
+        "## TASK-002 - Tự viết attention và đối chiếu",
+        "## TASK-003 - Heatmap và chọn đầu",
+        "## TASK-004 - Hiệu năng và bộ nhớ",
+        "## TASK-005 - Nhận xét và bàn giao",
+        "## Nhiệm vụ tài liệu đang được giao"
+      ]
+    },
+    {
+      "id": "IMPLEMENTATION",
+      "path": "05-generate/IMPLEMENTATION.md",
+      "role": "Phép tính và code đã có",
+      "status": "reviewed_record",
+      "sha256": "138de269101b754226f491d4e00789a1f798dc43822f158e7a98b36d2605adfc",
+      "pdf_pages": [
+        7,
+        9,
+        11,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Sản phẩm đã có",
+        "## Các phép tính đã hiện thực",
+        "## Triển khai hình và benchmark",
+        "## Kiểm chứng và giới hạn hiện có",
+        "## Thay đổi của nhiệm vụ này"
+      ]
+    },
+    {
+      "id": "REVIEW",
+      "path": "06-review/REVIEW.md",
+      "role": "Phát hiện chưa đóng",
+      "status": "reviewed_record",
+      "sha256": "a9fadcfcf8282b06aaeff787084e2b8a11fb878b8f7c9c3a22e2d949cd1fe814",
+      "pdf_pages": [
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Phạm vi và cách đối chiếu",
+        "## Phần đã có bằng chứng phù hợp",
+        "## Phát hiện còn mở",
+        "## Mức độ và hướng giải quyết"
+      ]
+    },
+    {
+      "id": "ENVIRONMENT",
+      "path": "07-run/ENVIRONMENT.md",
+      "role": "Môi trường thực tế",
+      "status": "reviewed_record",
+      "sha256": "9237800b0a26488560816a16b4cc730ad07b61e1276f4c304731e477dfb4727c",
+      "pdf_pages": [
+        14,
+        17
+      ],
+      "sections": [
+        "## Cấu hình thực tế",
+        "## Lệnh chuẩn bị khi cần tạo lại môi trường",
+        "## Kiểm tra đúng môi trường trước demo",
+        "## Quyết định phần cứng và nguồn số liệu"
+      ]
+    },
+    {
+      "id": "RUN",
+      "path": "07-run/RUN.md",
+      "role": "Cách chạy và lịch sử runtime",
+      "status": "reviewed_record",
+      "sha256": "b3fa49e8a6af4748f969c7206f387da472e43aaeb4cafa83c9a6e624985c8f06",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Đầu vào và cách thực thi",
+        "## Lần chạy đã quan sát",
+        "## Output được xác nhận",
+        "## Kiểm tra hiển thị và giới hạn"
+      ]
+    },
+    {
+      "id": "TEST_RESULTS",
+      "path": "08-test/TEST_RESULTS.md",
+      "role": "Kết quả kiểm thử và bảng đo chính",
+      "status": "reviewed_record",
+      "sha256": "0d7d11c3ce15448445a779f95a8225892e070f17d5ec8d59b1bdebd57e851507",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Nguồn bằng chứng",
+        "## Ma trận kiểm thử",
+        "## Bảng đo của lượt offline",
+        "## Phép đo này chứng minh được gì",
+        "## Kiểm tra tính toàn vẹn hồ sơ"
+      ]
+    },
+    {
+      "id": "DEBUG",
+      "path": "09-debug/DEBUG.md",
+      "role": "Tái hiện và hướng xử lý chưa triển khai",
+      "status": "reviewed_record",
+      "sha256": "835986b0c6f92d317eaef194f224e0106c123f7d400e14f1ab5113a82ab53c08",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Hiện trạng",
+        "## Lệch số liệu nhận xét",
+        "## Kết luận heatmap vượt bằng chứng",
+        "## OOM chưa được bắt ở mọi cấp phát",
+        "## Khi sai số GPT-2 không đạt",
+        "## Điều kiện đóng lỗi"
+      ]
+    },
+    {
+      "id": "REFACTOR",
+      "path": "10-refactor/REFACTOR.md",
+      "role": "Quyết định cấu trúc tài liệu và giới hạn code",
+      "status": "reviewed_record",
+      "sha256": "6cf667e91b0c487d7214b7dacfdffa71da9652fc77fd6404d6248b7f6d269edd",
+      "pdf_pages": [
+        9,
+        17
+      ],
+      "sections": [
+        "## Vấn đề cấu trúc đã xác định",
+        "## Thay đổi tài liệu đã chọn",
+        "## Các refactor code chưa làm",
+        "## Bất biến phải giữ khi sửa code sau này"
+      ]
+    },
+    {
+      "id": "COMMITS",
+      "path": "11-commit/COMMITS.md",
+      "role": "Lịch sử Git và phạm vi bàn giao",
+      "status": "reviewed_record",
+      "sha256": "f239f8ff74be4674899948a9ab7dfad1555e837edf3aeb5fcb5bd8d1065d9c83",
+      "pdf_pages": [],
+      "sections": [
+        "## Lịch sử được xác nhận",
+        "## Quyền và kiểm soát phạm vi",
+        "## Commit và push khi nhánh khác main",
+        "## Trạng thái đối với lượt viết lại hiện tại"
+      ]
+    },
+    {
+      "id": "WORK_LOG",
+      "path": "11-commit/WORK_LOG.md",
+      "role": "Nhật ký và quyết định",
+      "status": "reviewed_record",
+      "sha256": "0a58f1a383b0e29c6be3bcad2260db9b2186a8f7f2d1072437b16ebef380181e",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Các mốc có bằng chứng",
+        "## Công việc của lượt viết lại theo PDF",
+        "## Quyết định phạm vi",
+        "## Việc tiếp theo của sản phẩm"
+      ]
+    },
+    {
+      "id": "CODE_EXPLANATION",
+      "path": "12-explain-code/CODE_EXPLANATION.md",
+      "role": "Giải thích code trên câu thật",
+      "status": "reviewed_record",
+      "sha256": "5ea1ed08f7c780d089078d4d156efd787774a3c55b95236ab5ee34976437122c",
+      "pdf_pages": [
+        6,
+        7,
+        8,
+        9,
+        11,
+        14,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Từ câu chữ tới tensor",
+        "## Q, K và V làm gì trong code",
+        "## Causal mask và softmax",
+        "## Nhân V và ghép đầu",
+        "## Vì sao chọn lớp 4, đầu 3",
+        "## Benchmark nói lên điều gì"
+      ]
+    },
+    {
+      "id": "DOCUMENTATION",
+      "path": "13-documentation/DOCUMENTATION.md",
+      "role": "Hồ sơ tài liệu bàn giao",
+      "status": "reviewed_record",
+      "sha256": "fe9cd13fb5f62635421832e3b1ec8772a2769e4e6ead9b67f7ce3dd5ac1cf67f",
+      "pdf_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Sản phẩm tài liệu",
+        "## Liên hệ với các nguồn đầu vào",
+        "## Nội dung bàn giao theo yêu cầu giảng viên",
+        "## Quy tắc nội dung đã áp dụng",
+        "## Kiểm soát và cập nhật"
+      ]
+    },
+    {
+      "id": "AI_USAGE",
+      "path": "13-documentation/AI_USAGE.md",
+      "role": "Đóng góp AI đã xác định",
+      "status": "reviewed_record",
+      "sha256": "9415c03cee36106fdffee601f25b2d19c7e978ffa03dc411d9a93040f0fd9940",
+      "pdf_pages": [],
+      "sections": [
+        "## Phần đóng góp quan sát được",
+        "## Điều chưa được xác nhận",
+        "## Ranh giới của phiên này"
+      ]
+    },
+    {
+      "id": "ACCEPTANCE",
+      "path": "14-definition-of-done/ACCEPTANCE.md",
+      "role": "Nghiệm thu hồ sơ và sản phẩm",
+      "status": "reviewed_record",
+      "sha256": "cad8f10418978e7d6186c3ad3986219ea8708c5b7a74fa5ed15ee73fb7863923",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Phạm vi hồ sơ được giao",
+        "## Tiêu chí hoàn tất bộ workflow",
+        "## Trạng thái toàn bộ bài",
+        "## Bàn giao và điều kiện đóng các mục mở"
+      ]
+    },
+    {
+      "id": "EVIDENCE_INDEX",
+      "path": "evidence/README.md",
+      "role": "Nguồn log và cách thử nhánh lỗi",
+      "status": "reviewed_record",
+      "sha256": "d3aa4f9b52854396644e5948527b22dcbbdf7ce802c715f728ba9e8e778e3985",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sections": [
+        "## Tái lập nhánh lỗi"
+      ]
+    },
+    {
+      "id": "GPU_OFFLINE_LOG",
+      "path": "evidence/2026-11-14-offline.log",
+      "role": "Log notebook gốc offline GPU/CPU",
+      "status": "reviewed_record",
+      "sha256": "819dadd756edc69b0144b84063bb197f7b8898b2c721c8efb6f92902ac0fe63f",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "id": "CPU_LOG",
+      "path": "evidence/2026-11-14-cpu.log",
+      "role": "Log notebook giả lập không GPU",
+      "status": "reviewed_record",
+      "sha256": "2ecc4135668df4b53e0d3d2b6d5797a73ff400f4e19e0254196739ddb22697a8",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "id": "BRANCH_LOG",
+      "path": "evidence/2026-11-14-branches.log",
+      "role": "Log token thiếu và OOM giả lập",
+      "status": "reviewed_record",
+      "sha256": "2d7aa0cd076c0423d190cf15b433857727e8ea456371019e4f5cb2ca462baace",
+      "pdf_pages": [
+        17
+      ]
+    },
+    {
+      "id": "MEASUREMENTS",
+      "path": "evidence/measurements.json",
+      "role": "Số đo trích từ log cùng lượt",
+      "status": "reviewed_record",
+      "sha256": "eaf79767ecaaf3e8ef85cd4a1c08e2f4b6590dcd69c9038f0476a305632b7018",
+      "pdf_pages": [
+        19
+      ]
+    },
+    {
+      "id": "CHECKER",
+      "path": "check.py",
+      "role": "Kiểm tra chỉ đọc danh mục và bằng chứng",
+      "status": "reviewed_record",
+      "sha256": "1e1a566d16d9251277e2f0c00c6f388fdda8b6120c70c7ae773663078fa0dd80",
+      "pdf_pages": []
+    },
+    {
+      "id": "CHECKER_TESTS",
+      "path": "test_check.py",
+      "role": "Regression tests của bộ kiểm soát",
+      "status": "reviewed_record",
+      "sha256": "57b33d4a3b05d2113de2182a61954c2873f55d65db210db4fae8f388d2b9d26d",
+      "pdf_pages": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "SOURCE_PDF",
+      "path": "../G4_Presentation_TRANSFORMER (1).pdf",
+      "role": "PDF 20 trang do người dùng cung cấp; phải có cục bộ để kiểm nguồn",
+      "sha256": "a9cfc2e1d75a0c71828758ff3aa958416b1096ae52d4e17c8f8449248a898d25"
+    },
+    {
+      "id": "SOURCE_NOTEBOOK",
+      "path": "../self_attention_demo.ipynb",
+      "role": "Code và output gốc, giữ nguyên trong nhiệm vụ workflow",
+      "sha256": "bb47b8e9e929f9c36ac62dd2e37a38370ac8aa2481eb951b17d27848bb6a94c7"
+    },
+    {
+      "id": "SOURCE_REQUIREMENTS",
+      "path": "../requirements.txt",
+      "role": "Dependency sản phẩm",
+      "sha256": "6a66f64fa9803b1762c82fb5ecb2a912ff6abd7ae30ff2a4dc41080f0d0e1e33"
+    },
+    {
+      "id": "SOURCE_SPEC",
+      "path": "../docs/superpowers/specs/2026-11-10-self-attention-demo-design.md",
+      "role": "Đặc tả gốc; phần cứng cũ được ghi khác biệt",
+      "sha256": "aa761192d68c6a9b288eaa470ad9b8e7723e18655d6d4e9179eb366e608fe40f"
+    },
+    {
+      "id": "SOURCE_PLAN",
+      "path": "../docs/superpowers/plans/2026-11-10-self-attention-demo.md",
+      "role": "Kế hoạch 5 task gốc",
+      "sha256": "18151dbd61b75484bda41e91ca981052d4d44fd66780b51d83b974e7000071d5"
+    }
+  ],
+  "steps": [
+    {
+      "number": 1,
+      "path": "01-define/DEFINE.md"
+    },
+    {
+      "number": 2,
+      "path": "02-design/DESIGN.md"
+    },
+    {
+      "number": 3,
+      "path": "03-plan/PLAN.md"
+    },
+    {
+      "number": 4,
+      "path": "04-describe/TASK_BRIEFS.md"
+    },
+    {
+      "number": 5,
+      "path": "05-generate/IMPLEMENTATION.md"
+    },
+    {
+      "number": 6,
+      "path": "06-review/REVIEW.md"
+    },
+    {
+      "number": 7,
+      "path": "07-run/ENVIRONMENT.md"
+    },
+    {
+      "number": 8,
+      "path": "08-test/TEST_RESULTS.md"
+    },
+    {
+      "number": 9,
+      "path": "09-debug/DEBUG.md"
+    },
+    {
+      "number": 10,
+      "path": "10-refactor/REFACTOR.md"
+    },
+    {
+      "number": 11,
+      "path": "11-commit/COMMITS.md"
+    },
+    {
+      "number": 12,
+      "path": "12-explain-code/CODE_EXPLANATION.md"
+    },
+    {
+      "number": 13,
+      "path": "13-documentation/DOCUMENTATION.md"
+    },
+    {
+      "number": 14,
+      "path": "14-definition-of-done/ACCEPTANCE.md"
+    }
+  ],
+  "benchmark": {
+    "log": "evidence/2026-11-14-offline.log",
+    "data": "evidence/measurements.json",
+    "table": "08-test/TEST_RESULTS.md"
+  }
+}
