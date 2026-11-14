@@ -23,7 +23,9 @@ flowchart TD
 | Chọn phương án | 03_DESIGN; 05_TOOLS |
 | Chuẩn bị triển khai | AGENTS.md; 04_BREAKDOWN |
 | Code, debug, kiểm tra | 04_BREAKDOWN; 06_VERIFICATION |
-| Kết thúc buổi | 07_WORK_LOG |
+| Kết thúc buổi | 07_WORK_LOG; 09_AI_USAGE |
 | Phát hành | 08_RELEASE |
 
 Nếu kiểm tra cho thấy yêu cầu hoặc thiết kế sai, quay lại cập nhật phần đó; không chỉ sửa code.
+
+Mục lục đầy đủ và trạng thái bàn giao nằm ở [workflow/README](../README.md). Kết quả kiểm chứng thật xem [06_VERIFICATION](06_VERIFICATION.md); hồ sơ workflow hoàn tất không đồng nghĩa toàn bộ bài đã nghiệm thu.

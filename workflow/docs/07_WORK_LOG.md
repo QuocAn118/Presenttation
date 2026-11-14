@@ -1,32 +1,38 @@
-# Nhật ký công việc và tiến độ (Work Log)
+# Nhật ký công việc và quyết định
 
-Tài liệu này lưu lại nhật ký làm việc qua các buổi và các mốc chuyển giao.
+Nhật ký dùng ngày commit có trong Git và kết quả quan sát được; không gán lại người viết hoặc quy trình chưa có bằng chứng.
 
----
+## 10/11/2026 — Chốt phạm vi mới
 
-## Nhật ký các phiên làm việc
+- `6fb733c`: bỏ tài liệu bài Transformer/RNN/LSTM trên IMDB cũ.
+- `091ca78`: cập nhật AGENTS, thiết kế và kế hoạch demo self-attention/GPT-2.
 
-### Phiên 1: Khởi tạo và thiết kế kỹ thuật (2026-11-10)
-- **Người thực hiện**: Trưởng nhóm / Soạn thảo đặc tả.
-- **Nội dung thực hiện**:
-  - Hủy bỏ bài so sánh Transformer vs RNN/LSTM trên IMDB theo định hướng mới của giảng viên.
-  - Thiết kế bài toán Demo Self-Attention với trọng số đã huấn luyện của GPT-2 (`docs/superpowers/specs/2026-11-10-self-attention-demo-design.md`).
-  - Lập kế hoạch chi tiết 5 Task (`docs/superpowers/plans/2026-11-10-self-attention-demo.md`).
-  - Viết hướng dẫn `AGENTS.md` cố định các nguyên tắc bất di bất dịch cho AI trợ lý.
+## 13/11/2026 — Triển khai đã có trong repo
 
-### Phiên 2: Tích hợp Workflow Vibe Coding chuẩn mực (2026-11-13)
-- **Người thực hiện**: Thành viên thực hiện + AI Assistant.
-- **Nội dung thực hiện**:
-  - Tiếp nhận phản hồi từ trưởng nhóm: bổ sung bộ tài liệu quy trình 10 bước/mục theo đề bài của cô.
-  - Đồng bộ cấu trúc thư mục `workflow/` và bộ tài liệu `workflow/docs/` (`00_MINDMAP` đến `08_RELEASE`) từ khung Vibe Coding vào repo.
-  - Điền đầy đủ thông tin kỹ thuật, tiêu chí nghiệm thu (AC) và kế hoạch kiểm chứng (Verification) cho từng tài liệu.
-- **Bước tiếp theo**: Bắt đầu triển khai Task 1 (tạo môi trường venv CUDA 12.6, cấu trúc repo, file notebook khung).
+| Commit | Kết quả |
+| --- | --- |
+| `55a1ad7` | Môi trường và notebook khung |
+| `43d7c10` | Self-attention tự viết và đối chiếu GPT-2 |
+| `89a2b15` | Heatmap trước/sau causal mask |
+| `7961be7` | Benchmark GPU/CPU |
+| `19f3203` | Nhận xét, README và output |
+| `2d15b4c` | Bổ sung các ảnh nền tối |
+| `47246be` | Bổ sung ảnh tổng quan slide 18 |
 
----
+Những commit này chứng minh sản phẩm đã được lưu, không chứng minh mọi bước TDD/Run All/offline lịch sử đã được làm. Không khôi phục trạng thái “Chưa bắt đầu” cho các phần đã có code.
 
-## Chu kỳ kiểm tra sau mỗi Task
-Trước khi chuyển trạng thái Task sang "Hoàn thành" và commit lên Git:
-1. Đã chạy thử ô kiểm tra `assert` thành công chưa?
-2. Toàn bộ notebook đã được chạy lại trơn tru bằng `jupyter nbconvert` chưa?
-3. Output lưu trong notebook có khớp với kết quả thực tế trên GPU RTX 4080 không?
-4. Commit message có tuân thủ đúng định dạng quy định không?
+## 14/11/2026 — Hoàn thiện riêng hồ sơ workflow
+
+- Người dùng yêu cầu kiểm tra rồi hoàn thiện docs/workflow; sau đó thu hẹp rõ: **“hoàn thiện cái wf cho tui thôi”**.
+- Người dùng chốt **RTX 5060 Laptop hiện tại** thay RTX 4080. Ghi DEC-006 trong 03_DESIGN; tài liệu ngoài workflow được giữ nguyên theo phạm vi cuối cùng.
+- Các chỉnh sửa thử ở notebook/hình trong phiên đã được hoàn tác; hồ sơ xác minh cuối dùng **notebook gốc**, không dùng bản chỉnh thử để nhận là sản phẩm gốc đã đạt.
+- Chạy bản sao gốc với `HF_HUB_OFFLINE=1`: GPU/CPU cùng chạy, exit code 0, 0 ô lỗi, 4 PNG; thời gian 13.41 giây.
+- Chạy bản sao riêng, thêm ô ép `torch.cuda.is_available()` trả `False`: toàn notebook chạy CPU, exit code 0, 0 ô lỗi, 4 PNG; thời gian 12.33 giây.
+- Kiểm tra riêng lỗi thiếu token và mô phỏng OOM trong attention: đạt. Không chủ động gây OOM thật.
+- Đồng bộ Define, Requirements, Design, Breakdown, Tools, Verification, Work Log, Release; bổ sung mục lục và ghi nhận sử dụng AI.
+- Người dùng dừng Computer Use bằng Escape; kiểm tra Restart/Run All và toàn bộ hình trong VS Code chưa được xác nhận.
+- Giữ nguyên việc xóa PDF đã có sẵn trong working tree; không đưa thay đổi đó vào phạm vi workflow.
+
+## Việc cần làm tiếp cho toàn bộ bài
+
+Xử lý REVIEW-001–006 theo [06_VERIFICATION](06_VERIFICATION.md), chạy lại notebook từ kernel mới sau sửa, kiểm tra trực quan trong VS Code rồi mới đóng checklist nghiệm thu bài. Bản thân hồ sơ workflow đã ghi đầy đủ trạng thái và bằng chứng hiện có.

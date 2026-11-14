@@ -39,14 +39,30 @@ flowchart TD
 
 | Mã | Quyết định | Vì sao | Đánh đổi / Lựa chọn thay thế | Trạng thái |
 | --- | --- | --- | --- | --- |
-| **DEC-001** | Nạp trọng số đã huấn luyện của GPT-2 | Giảng viên doanh nghiệp yêu cầu chứng minh mô hình thực tế; heatmap có ý nghĩa ngôn ngữ thay vì nhiễu ngẫu nhiên. | Tốn ~500MB tải mô hình từ HF (khắc phục bằng offline cache). | Đã chốt |
+| **DEC-001** | Nạp trọng số đã huấn luyện của GPT-2 | Nhóm chọn trọng số đã huấn luyện để minh họa cấu trúc attention; giảng viên yêu cầu nêu rõ nguồn trọng số, không bắt buộc GPT-2. | Tốn ~500MB tải mô hình từ HF (khắc phục bằng offline cache). | Đã chốt |
 | **DEC-002** | Toàn bộ code nằm trong 1 file notebook `self_attention_demo.ipynb` | Người thuyết trình dễ dàng trình diễn từng bước trong VS Code; người chấm xem được liền mạch. | Khó viết pytest truyền thống (khắc phục bằng các ô `assert` và `nbconvert`). | Đã chốt |
-| **DEC-003** | Tự code từng phép toán, cấm dùng `scaled_dot_product_attention` | Mục tiêu cốt lõi của môn học là hiểu sâu cơ chế toán học bên dưới. | Tốc độ chậm hơn kernel FlashAttention được compile sẵn (nhưng mục đích là demo giáo dục). | Đã chốt |
-| **DEC-004** | Tự động quét chọn layer/head có liên kết "it" $\rightarrow$ "animal" mạnh nhất | Tránh việc chọn lén lút thiếu khách quan; đảm bảo tính minh bạch học thuật. | Thêm ô code quét 144 heads (chạy rất nhanh, chỉ mất < 0.5s). | Đã chốt |
+| **DEC-003** | Tự code từng phép toán, cấm dùng `scaled_dot_product_attention` | Mục tiêu cốt lõi của môn học là hiểu sâu cơ chế toán học bên dưới. | Chưa benchmark với kernel tối ưu; demo tập trung vào từng phép tính. | Đã chốt |
+| **DEC-004** | Tự động quét chọn layer/head có liên kết "it" $\rightarrow$ "animal" mạnh nhất | Công khai tiêu chí chọn và top 3; kết quả là đầu được chọn theo liên kết mục tiêu, không đại diện cho mọi đầu. | Thêm ô code quét 144 heads; chưa đo riêng thời gian của ô này. | Đã chốt |
 | **DEC-005** | Bắt lỗi OOM trong benchmark và tiếp tục chạy | Giữ notebook không bị crash giữa chừng khi đo chuỗi độ dài lớn. | Cần xử lý hiển thị giá trị `None` trên đồ thị và bảng biểu. | Đã chốt |
 
 ## Điểm cần kiểm tra trước khi hoàn thiện
-- [x] Thiết kế đáp ứng toàn bộ yêu cầu trong phạm vi của giảng viên.
-- [x] Luồng xử lý lỗi và tính toán tensor nhất quán.
+- [x] Thiết kế bao gồm ba phần trọng tâm: code attention, hai heatmap, ưu điểm và hạn chế.
+- [ ] Bao phủ OOM ở mọi điểm cấp phát; hiện còn REVIEW-006.
 - [x] Sai số tuyệt đối với mô hình gốc được khống chế dưới $10^{-4}$.
 - [x] Các hình ảnh được xuất ra file PNG độ phân giải cao phục vụ thuyết trình.
+
+## Thiết kế và triển khai thực tế
+
+| Interface | Thực tế trong notebook |
+| --- | --- |
+| `get_layer_input(model, input_ids, layer)` | Hidden state sau `ln_1`, dạng `(T, 768)` |
+| `get_qkv_weights(model, layer)` | Lấy trọng số và bias `c_attn` của GPT-2 đã huấn luyện |
+| `self_attention(x, w_qkv, b_qkv, n_head=12, causal=True)` | Trả đầu ra ghép các đầu trước `c_proj`, và ma trận `(12, T, T)` |
+| `find_token(token_list, word)` | Trả chỉ số hoặc báo `ValueError` bằng tiếng Việt |
+| `pick_head(src_word="it", tgt_word="animal")` | Nhận từ thay vì chỉ số; trả `(best, top3)`, mỗi phần tử `(layer, head, value)` |
+| Ô vẽ heatmap | Code trực tiếp; chưa có hàm `plot_attention` như kế hoạch ban đầu |
+| `benchmark(lengths, device, n_rep=20)` | CPU được gọi với 10 lần lặp, GPU 20 lần; trả danh sách `len`, `ms`, `mem_mb` |
+
+**DEC-006 — Môi trường được duyệt lại:** ngày 14/11/2026, người dùng chọn “Dùng RTX 5060 Laptop hiện tại và cập nhật thiết kế”. Hồ sơ workflow ghi nhận RTX 5060 Laptop GPU và CUDA runtime 12.8. Đặc tả/AGENTS ngoài `workflow/` chưa được sửa theo yêu cầu giới hạn phạm vi mới nhất.
+
+**DEC-007 — Phạm vi lần hoàn thiện:** chỉ đồng bộ tài liệu workflow và lưu bằng chứng kiểm tra. Giữ nguyên API/code/ảnh hiện có, ghi rõ khác biệt với kế hoạch thay vì tự refactor để khớp tên hàm. Sai lệch về đo bộ nhớ và nhận xét được giữ trong danh sách cần xử lý ở [06_VERIFICATION](06_VERIFICATION.md).

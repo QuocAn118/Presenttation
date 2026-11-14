@@ -1,0 +1,5 @@
+Date: 2026-11-14 (Asia/Bangkok)
+Source: original notebook code, unmodified.
+PASS: simulated attention OOM records ms=None, mem_mb=None and continues to next length.
+PASS: missing token raises the expected Vietnamese ValueError.
+No real OOM triggered. Allocation failures before the try block are not covered.
