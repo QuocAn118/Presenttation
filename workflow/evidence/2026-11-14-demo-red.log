@@ -1,0 +1,106 @@
+Expected failure BEFORE demo implementation changes.
+Baseline commit: 6c9bd9f2e1f1b990939dce3d4c7851da2b539087
+..FE.EEEFF
+======================================================================
+ERROR: test_invalid_head_count_is_clear (__main__.DemoContracts.test_invalid_head_count_is_clear)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 38, in test_invalid_head_count_is_clear
+    scope['self_attention'](torch.eye(2), torch.zeros(2, 6), torch.zeros(6), n_head=0)
+  File "<notebook>", line 23, in self_attention
+ZeroDivisionError: integer division or modulo by zero
+
+======================================================================
+ERROR: test_oom_during_each_allocation_continues (__main__.DemoContracts.test_oom_during_each_allocation_continues) (allocation=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 69, in test_oom_during_each_allocation_continues
+    rows = scope['benchmark']([2, 3], 'cpu', n_rep=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<notebook>", line 12, in benchmark
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 66, in fail_once
+    raise torch.OutOfMemoryError('simulated allocation OOM')
+torch.OutOfMemoryError: simulated allocation OOM
+
+======================================================================
+ERROR: test_oom_during_each_allocation_continues (__main__.DemoContracts.test_oom_during_each_allocation_continues) (allocation=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 69, in test_oom_during_each_allocation_continues
+    rows = scope['benchmark']([2, 3], 'cpu', n_rep=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<notebook>", line 13, in benchmark
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 66, in fail_once
+    raise torch.OutOfMemoryError('simulated allocation OOM')
+torch.OutOfMemoryError: simulated allocation OOM
+
+======================================================================
+ERROR: test_oom_during_each_allocation_continues (__main__.DemoContracts.test_oom_during_each_allocation_continues) (allocation=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 69, in test_oom_during_each_allocation_continues
+    rows = scope['benchmark']([2, 3], 'cpu', n_rep=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<notebook>", line 16, in benchmark
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 66, in fail_once
+    raise torch.OutOfMemoryError('simulated allocation OOM')
+torch.OutOfMemoryError: simulated allocation OOM
+
+======================================================================
+FAIL: test_cpu_measures_actual_returned_matrix (__main__.DemoContracts.test_cpu_measures_actual_returned_matrix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 56, in test_cpu_measures_actual_returned_matrix
+    assert result[0]['mem_mb'] == 12 * 2 * 2 * 8 / 2**20
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_pick_head_contract (__main__.DemoContracts.test_pick_head_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 41, in test_pick_head_contract
+    assert list(inspect.signature(scope['pick_head']).parameters) == ['src', 'tgt']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_plot_attention_exports_and_titles (__main__.DemoContracts.test_plot_attention_exports_and_titles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo_regression.py", line 44, in test_plot_attention_exports_and_titles
+    assert 'plot_attention' in scope, 'Missing plot_attention API required by the plan'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing plot_attention API required by the plan
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.040s
+
+FAILED (failures=3, errors=4)

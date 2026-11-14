@@ -8,7 +8,7 @@
       "path": "README.md",
       "role": "Mục lục và trạng thái hồ sơ",
       "status": "reviewed_record",
-      "sha256": "4c7398cf3073506d061fde8d29e8cf41329928632a2be84ad13034d204871667",
+      "sha256": "edb8c169bcf2738c6988c41c4b75cfa1dcfaa6f9e8e6e1c97641d396ecf4a0bb",
       "pdf_pages": [],
       "sections": [
         "## Cách đọc",
@@ -21,7 +21,7 @@
       "path": "CONTROL.md",
       "role": "Kiểm soát nguồn, file và thay đổi",
       "status": "reviewed_record",
-      "sha256": "bac34154922294856b75b33b891f717939ece067fc92a5c0d8e6b17781996a50",
+      "sha256": "3997715dd5a61467f110cfdeb6b4e8909dbe879b3e09dc799fd19b6296129959",
       "pdf_pages": [],
       "sections": [
         "## Phạm vi và thứ tự quyết định",
@@ -36,7 +36,7 @@
       "path": "THEORY.md",
       "role": "Đối chiếu từng trang lý thuyết với bài",
       "status": "reviewed_record",
-      "sha256": "9da929ec616866eb0a3a8a9608b364c30b204ac7dd5315dda1eae50c291498c1",
+      "sha256": "57f14c2c3bcec2cad8af1a0af7eed4fa07dac9b39cb806f3f67cdd8a83dcbcbb",
       "pdf_pages": [
         3,
         4,
@@ -61,7 +61,8 @@
         "## Lý thuyết áp dụng vào bài",
         "## Công thức và quy ước chính xác",
         "## Phân biệt lý thuyết tổng quát với GPT-2",
-        "## Giới hạn kết luận"
+        "## Giới hạn kết luận",
+        "## Bổ sung so sánh CNN/RNN và trình bày Implementation"
       ]
     },
     {
@@ -85,7 +86,7 @@
       "path": "01-define/DEFINE.md",
       "role": "Bài toán và phạm vi",
       "status": "reviewed_record",
-      "sha256": "15091c0ba8c22929dd9f7ee74420e37080561bb00fb0c63c5841358a08cb6326",
+      "sha256": "6f67daf3932115ec2af0cb07699a0520a33515d8bdb3f28c88942f24ec73ab98",
       "pdf_pages": [
         3,
         4,
@@ -107,7 +108,7 @@
       "path": "01-define/REQUIREMENTS.md",
       "role": "FR và AC có truy vết",
       "status": "reviewed_record",
-      "sha256": "7cdb9db34a0ec30a1edf5220fad6fb9144349645066326bf099507c8a5010a11",
+      "sha256": "3d1416dbb4098a880df8d3d98712747ed5b0ecde950ec0f2fcb240333808e816",
       "pdf_pages": [
         7,
         8,
@@ -129,7 +130,7 @@
       "path": "02-design/DESIGN.md",
       "role": "Kiến trúc và API thật",
       "status": "reviewed_record",
-      "sha256": "69b455863a7bd225fe0a4c35d51bbee0f55ff21b8be44bdec4c061cd1101fcfe",
+      "sha256": "f0d74904203aec1c5f488da52fecae22f2eff542307107019b656cd76d634e33",
       "pdf_pages": [
         5,
         6,
@@ -158,7 +159,7 @@
       "path": "03-plan/PLAN.md",
       "role": "Năm task và tiến độ",
       "status": "reviewed_record",
-      "sha256": "f296c708854286ff57ad26fcc4f04e7fadd58d884409ec281991771be6a68638",
+      "sha256": "84051b5f1c546e57c97064df8f8e96264b732acd05efc117a8a1e32e30fb4634",
       "pdf_pages": [
         17,
         18,
@@ -168,7 +169,7 @@
         "## Thứ tự và phụ thuộc",
         "## Mốc công việc và trạng thái thực tế",
         "## Bản hoàn thiện workflow theo yêu cầu mới",
-        "## Công việc còn lại của sản phẩm"
+        "## Bổ sung và trạng thái sản phẩm"
       ]
     },
     {
@@ -176,7 +177,7 @@
       "path": "04-describe/TASK_BRIEFS.md",
       "role": "Phạm vi cụ thể từng nhiệm vụ",
       "status": "reviewed_record",
-      "sha256": "f63b898f23b9f47d067fd3eb700b86f6167eea7418943a6b201a59e3af1f27b6",
+      "sha256": "d7421fc3a544e2695dc2607e764925455e84859fc4d28ba308959d1344abb60d",
       "pdf_pages": [
         17,
         18,
@@ -197,7 +198,7 @@
       "path": "05-generate/IMPLEMENTATION.md",
       "role": "Phép tính và code đã có",
       "status": "reviewed_record",
-      "sha256": "138de269101b754226f491d4e00789a1f798dc43822f158e7a98b36d2605adfc",
+      "sha256": "0c9439f4d995235d26e75211d2663286323c8c226ea22926acdc4a840d33ac4e",
       "pdf_pages": [
         7,
         9,
@@ -217,9 +218,9 @@
     {
       "id": "REVIEW",
       "path": "06-review/REVIEW.md",
-      "role": "Phát hiện chưa đóng",
+      "role": "Phát hiện, bản sửa và giới hạn còn lại",
       "status": "reviewed_record",
-      "sha256": "a9fadcfcf8282b06aaeff787084e2b8a11fb878b8f7c9c3a22e2d949cd1fe814",
+      "sha256": "933e08af7d69550afb317ff23bed6bd8291adeba054d1611840676aca9ee5ae2",
       "pdf_pages": [
         7,
         9,
@@ -233,9 +234,9 @@
       ],
       "sections": [
         "## Phạm vi và cách đối chiếu",
+        "## Phát hiện và trạng thái xử lý",
         "## Phần đã có bằng chứng phù hợp",
-        "## Phát hiện còn mở",
-        "## Mức độ và hướng giải quyết"
+        "## Giới hạn còn lại"
       ]
     },
     {
@@ -243,7 +244,7 @@
       "path": "07-run/ENVIRONMENT.md",
       "role": "Môi trường thực tế",
       "status": "reviewed_record",
-      "sha256": "9237800b0a26488560816a16b4cc730ad07b61e1276f4c304731e477dfb4727c",
+      "sha256": "b2081162763d0b4bcd71b3d1ba4d51c71c15fe87bcb82c05f01064002e9fbb9f",
       "pdf_pages": [
         14,
         17
@@ -260,7 +261,7 @@
       "path": "07-run/RUN.md",
       "role": "Cách chạy và lịch sử runtime",
       "status": "reviewed_record",
-      "sha256": "b3fa49e8a6af4748f969c7206f387da472e43aaeb4cafa83c9a6e624985c8f06",
+      "sha256": "7f88e9c6d678d46e152a7704b46040c71dbb655369cfa67bbd28325aab19a6c2",
       "pdf_pages": [
         17,
         18,
@@ -278,7 +279,7 @@
       "path": "08-test/TEST_RESULTS.md",
       "role": "Kết quả kiểm thử và bảng đo chính",
       "status": "reviewed_record",
-      "sha256": "0d7d11c3ce15448445a779f95a8225892e070f17d5ec8d59b1bdebd57e851507",
+      "sha256": "44bbacb38f14f9f34741626d1e11661efc2173e40204b3ba7d46e0906aa61718",
       "pdf_pages": [
         17,
         18,
@@ -287,29 +288,27 @@
       "sections": [
         "## Nguồn bằng chứng",
         "## Ma trận kiểm thử",
-        "## Bảng đo của lượt offline",
-        "## Phép đo này chứng minh được gì",
+        "## Bảng đo của lượt offline hiện tại",
+        "## Implementation và so sánh",
         "## Kiểm tra tính toàn vẹn hồ sơ"
       ]
     },
     {
       "id": "DEBUG",
       "path": "09-debug/DEBUG.md",
-      "role": "Tái hiện và hướng xử lý chưa triển khai",
+      "role": "Tái hiện trước sửa, phương án và bằng chứng sau sửa",
       "status": "reviewed_record",
-      "sha256": "835986b0c6f92d317eaef194f224e0106c123f7d400e14f1ab5113a82ab53c08",
+      "sha256": "e1da751c03af9706979fa06e7a523ef7ead740b16097c6eef4c1b20a39dbc642",
       "pdf_pages": [
         17,
         18,
         19
       ],
       "sections": [
-        "## Hiện trạng",
-        "## Lệch số liệu nhận xét",
-        "## Kết luận heatmap vượt bằng chứng",
-        "## OOM chưa được bắt ở mọi cấp phát",
-        "## Khi sai số GPT-2 không đạt",
-        "## Điều kiện đóng lỗi"
+        "## Tái hiện trước sửa",
+        "## Nguyên nhân và bản sửa",
+        "## Bằng chứng sau sửa",
+        "## Trường hợp tương lai"
       ]
     },
     {
@@ -317,7 +316,7 @@
       "path": "10-refactor/REFACTOR.md",
       "role": "Quyết định cấu trúc tài liệu và giới hạn code",
       "status": "reviewed_record",
-      "sha256": "6cf667e91b0c487d7214b7dacfdffa71da9652fc77fd6404d6248b7f6d269edd",
+      "sha256": "2faa8dfadedd432ecde186dc8660ee2f49e6d6705b502ffcd811c7b5f0b99303",
       "pdf_pages": [
         9,
         17
@@ -325,7 +324,7 @@
       "sections": [
         "## Vấn đề cấu trúc đã xác định",
         "## Thay đổi tài liệu đã chọn",
-        "## Các refactor code chưa làm",
+        "## Các refactor code đã chọn",
         "## Bất biến phải giữ khi sửa code sau này"
       ]
     },
@@ -334,7 +333,7 @@
       "path": "11-commit/COMMITS.md",
       "role": "Lịch sử Git và phạm vi bàn giao",
       "status": "reviewed_record",
-      "sha256": "f239f8ff74be4674899948a9ab7dfad1555e837edf3aeb5fcb5bd8d1065d9c83",
+      "sha256": "19d6a2f45b9921ffaa5ae078ad276e6bead3e0fed57d4416b17de9eb1cf2032f",
       "pdf_pages": [],
       "sections": [
         "## Lịch sử được xác nhận",
@@ -348,7 +347,7 @@
       "path": "11-commit/WORK_LOG.md",
       "role": "Nhật ký và quyết định",
       "status": "reviewed_record",
-      "sha256": "0a58f1a383b0e29c6be3bcad2260db9b2186a8f7f2d1072437b16ebef380181e",
+      "sha256": "034a49ba1b6b94403d87b1b987b8ad584347dbaad08a508874bddea92965be45",
       "pdf_pages": [
         17,
         18,
@@ -357,8 +356,9 @@
       "sections": [
         "## Các mốc có bằng chứng",
         "## Công việc của lượt viết lại theo PDF",
-        "## Quyết định phạm vi",
-        "## Việc tiếp theo của sản phẩm"
+        "## Quyết định phạm vi của lượt hồ sơ trước",
+        "## Công việc sản phẩm được giao sau lượt hồ sơ",
+        "## Lượt sửa demo và bổ sung yêu cầu giảng viên"
       ]
     },
     {
@@ -366,7 +366,7 @@
       "path": "12-explain-code/CODE_EXPLANATION.md",
       "role": "Giải thích code trên câu thật",
       "status": "reviewed_record",
-      "sha256": "5ea1ed08f7c780d089078d4d156efd787774a3c55b95236ab5ee34976437122c",
+      "sha256": "334249bd4f7d49bb35fdaeac7c6d4f1e1f369b682eac77b6c4d9ba53831b5b63",
       "pdf_pages": [
         6,
         7,
@@ -392,7 +392,7 @@
       "path": "13-documentation/DOCUMENTATION.md",
       "role": "Hồ sơ tài liệu bàn giao",
       "status": "reviewed_record",
-      "sha256": "fe9cd13fb5f62635421832e3b1ec8772a2769e4e6ead9b67f7ce3dd5ac1cf67f",
+      "sha256": "f592d658441e0bf5c109c3a5818740366e77503a51c8d6dbe8a200bab6ad7e00",
       "pdf_pages": [
         3,
         4,
@@ -425,7 +425,7 @@
       "path": "13-documentation/AI_USAGE.md",
       "role": "Đóng góp AI đã xác định",
       "status": "reviewed_record",
-      "sha256": "9415c03cee36106fdffee601f25b2d19c7e978ffa03dc411d9a93040f0fd9940",
+      "sha256": "9a61f19a767797fda7b67debe33d4c168693f84aea1e527fc33fbcbc821a24eb",
       "pdf_pages": [],
       "sections": [
         "## Phần đóng góp quan sát được",
@@ -438,17 +438,17 @@
       "path": "14-definition-of-done/ACCEPTANCE.md",
       "role": "Nghiệm thu hồ sơ và sản phẩm",
       "status": "reviewed_record",
-      "sha256": "cad8f10418978e7d6186c3ad3986219ea8708c5b7a74fa5ed15ee73fb7863923",
+      "sha256": "2ac4be8676265f7c4dd7bc150e6d53008806782ec442cd8d82fdd7bd5872512d",
       "pdf_pages": [
         17,
         18,
         19
       ],
       "sections": [
-        "## Phạm vi hồ sơ được giao",
-        "## Tiêu chí hoàn tất bộ workflow",
-        "## Trạng thái toàn bộ bài",
-        "## Bàn giao và điều kiện đóng các mục mở"
+        "## Phạm vi đã được giao",
+        "## Tiêu chí đã kiểm chứng",
+        "## Các điều chưa nhận là hoàn thành",
+        "## Bàn giao và kiểm soát thay đổi"
       ]
     },
     {
@@ -456,14 +456,16 @@
       "path": "evidence/README.md",
       "role": "Nguồn log và cách thử nhánh lỗi",
       "status": "reviewed_record",
-      "sha256": "d3aa4f9b52854396644e5948527b22dcbbdf7ce802c715f728ba9e8e778e3985",
+      "sha256": "10e6747bbcbe4d40d93c57e0aa13e61ed8cd137f4c3f452973e91b73484ac7d4",
       "pdf_pages": [
         17,
         18,
         19
       ],
       "sections": [
-        "## Tái lập nhánh lỗi"
+        "## Lượt demo ngắn hiện tại",
+        "## Lịch sử trước khi sửa demo",
+        "## Tái lập kiểm tra"
       ]
     },
     {
@@ -505,7 +507,7 @@
       "path": "evidence/measurements.json",
       "role": "Số đo trích từ log cùng lượt",
       "status": "reviewed_record",
-      "sha256": "eaf79767ecaaf3e8ef85cd4a1c08e2f4b6590dcd69c9038f0476a305632b7018",
+      "sha256": "59b3b47ae433db829a9c8a6d64c0c67024c959c75c0115ce1ca57931185c46ac",
       "pdf_pages": [
         19
       ]
@@ -515,7 +517,7 @@
       "path": "check.py",
       "role": "Kiểm tra chỉ đọc danh mục và bằng chứng",
       "status": "reviewed_record",
-      "sha256": "1e1a566d16d9251277e2f0c00c6f388fdda8b6120c70c7ae773663078fa0dd80",
+      "sha256": "1c072d94448c562e6afd223ed2a9152768142b462cc5b188636537a35a81d5c5",
       "pdf_pages": []
     },
     {
@@ -523,8 +525,90 @@
       "path": "test_check.py",
       "role": "Regression tests của bộ kiểm soát",
       "status": "reviewed_record",
-      "sha256": "57b33d4a3b05d2113de2182a61954c2873f55d65db210db4fae8f388d2b9d26d",
+      "sha256": "3e99c944230903ab2b012eb12c5c96497f964a8b316cce1fedfa5a3cf0996e24",
       "pdf_pages": []
+    },
+    {
+      "id": "COMPARISON",
+      "path": "02-design/COMPARISON.md",
+      "role": "So sánh lý thuyết Transformer/CNN/RNN",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        3,
+        4
+      ],
+      "sha256": "6dada9eef7b6499483df99657cb8f3b7970d875cff647426b98181a6a0977935",
+      "sections": [
+        "## Bảng dùng khi trình bày",
+        "## Liên hệ demo",
+        "## Nguồn"
+      ]
+    },
+    {
+      "id": "DEMO_TESTS",
+      "path": "08-test/test_demo.py",
+      "role": "Regression tests chạy trực tiếp code notebook",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sha256": "92d6910076d37beb78caa37b4c23912e478a15ce1ca7cb6fe500e9d52ca5cb53"
+    },
+    {
+      "id": "DEMO_OFFLINE_LOG",
+      "path": "evidence/2026-11-14-demo-offline.log",
+      "role": "Lượt demo mới offline GPU/CPU",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sha256": "dd5f53b97b8f7e99ac3d12ac7cc65d6479a05dacce7ca28a18f071bff75f57b7"
+    },
+    {
+      "id": "DEMO_CPU_LOG",
+      "path": "evidence/2026-11-14-demo-cpu.log",
+      "role": "Lượt demo mới giả lập không GPU",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sha256": "79f3ec31b60596b8032235d2cc05e2df46d73875b6ed14fa66b6af68a2191e9e"
+    },
+    {
+      "id": "DEMO_OOM_LOG",
+      "path": "evidence/2026-11-14-demo-oom.log",
+      "role": "Luồng toàn bộ row benchmark OOM",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        19
+      ],
+      "sha256": "a71acd2d6f9c31adb206f628d4596d9a8c165284a1ce1ab50180dbb46e3eb31a"
+    },
+    {
+      "id": "DEMO_RED_LOG",
+      "path": "evidence/2026-11-14-demo-red.log",
+      "role": "Lỗi hồi quy trước sửa, theo TDD",
+      "status": "reviewed_record",
+      "pdf_pages": [],
+      "sha256": "988d0ab7af79a4ce8b9f73fde6eb3c4fe4f1da9642a6d558863271eef5ee0130"
+    },
+    {
+      "id": "DEMO_GREEN_LOG",
+      "path": "evidence/2026-11-14-demo-tests.log",
+      "role": "Regression tests sau sửa",
+      "status": "reviewed_record",
+      "pdf_pages": [
+        17,
+        18,
+        19
+      ],
+      "sha256": "71df28de258f856e2e7bac8ef2eedf8af48aa075dcc76287172b07af953fb44a"
     }
   ],
   "sources": [
@@ -537,8 +621,8 @@
     {
       "id": "SOURCE_NOTEBOOK",
       "path": "../self_attention_demo.ipynb",
-      "role": "Code và output gốc, giữ nguyên trong nhiệm vụ workflow",
-      "sha256": "bb47b8e9e929f9c36ac62dd2e37a38370ac8aa2481eb951b17d27848bb6a94c7"
+      "role": "Demo ngắn đã sửa, gồm code và output kiểm chứng",
+      "sha256": "b83355336fec2b045ceb29e8b8c43919ee0f167bcf3823dfe404d5eceab83634"
     },
     {
       "id": "SOURCE_REQUIREMENTS",
@@ -549,14 +633,56 @@
     {
       "id": "SOURCE_SPEC",
       "path": "../docs/superpowers/specs/2026-11-10-self-attention-demo-design.md",
-      "role": "Đặc tả gốc; phần cứng cũ được ghi khác biệt",
-      "sha256": "aa761192d68c6a9b288eaa470ad9b8e7723e18655d6d4e9179eb366e608fe40f"
+      "role": "Nguồn thiết kế/kế hoạch đã đồng bộ phần cứng và yêu cầu bổ sung",
+      "sha256": "a3f84856e8c0427237964b1f454de3091b52ede93632f00a330bfc9238e77b64"
     },
     {
       "id": "SOURCE_PLAN",
       "path": "../docs/superpowers/plans/2026-11-10-self-attention-demo.md",
-      "role": "Kế hoạch 5 task gốc",
-      "sha256": "18151dbd61b75484bda41e91ca981052d4d44fd66780b51d83b974e7000071d5"
+      "role": "Nguồn thiết kế/kế hoạch đã đồng bộ phần cứng và yêu cầu bổ sung",
+      "sha256": "32e580352616822005fada7f99aab54d9ac43c064f810062e9d6441f2a268577"
+    },
+    {
+      "id": "SOURCE_README",
+      "path": "../README.md",
+      "role": "Hướng dẫn demo ngắn và cách chạy",
+      "sha256": "1ae74e2048384f8993955d46d84a92be26f8c71047154d98cfa131cb2aa63ef9"
+    },
+    {
+      "id": "SOURCE_AGENTS",
+      "path": "../AGENTS.md",
+      "role": "Quy tắc repo đã đồng bộ máy và yêu cầu bổ sung",
+      "sha256": "162aa5ad621063ec76a5122e33c5f47217c36d56629091d7be89bbaaff9b9465"
+    },
+    {
+      "id": "SOURCE_DEMO_RESULTS",
+      "path": "../figures/demo_results.json",
+      "role": "Dữ liệu đầy đủ của lượt notebook đang lưu",
+      "sha256": "6e4e415399181b180ceee4023fd251ea04b9f8444db5135402e9e3dc16eb0372"
+    },
+    {
+      "id": "SOURCE_HEATMAP_COMPARE",
+      "path": "../figures/heatmap_compare.png",
+      "role": "Hai heatmap từ lượt đã kiểm chứng",
+      "sha256": "6d909175c3c6940ea895cc08c3785207c60d1dc01b055ee5a4bdc6d89dad3638"
+    },
+    {
+      "id": "SOURCE_HEATMAP_NO_MASK",
+      "path": "../figures/heatmap_no_mask.png",
+      "role": "Heatmap không mask từ lượt đã kiểm chứng",
+      "sha256": "93d22d5326b7b130d0be24837e9d04cb85c71faa40e53bbeeff022380b2f4ba1"
+    },
+    {
+      "id": "SOURCE_HEATMAP_MASKED",
+      "path": "../figures/heatmap_causal_mask.png",
+      "role": "Heatmap có mask từ lượt đã kiểm chứng",
+      "sha256": "b3ceed7375d461228997463f6876a2d6eb411e8883df7c6f404404e0285adb22"
+    },
+    {
+      "id": "SOURCE_COST_CHART",
+      "path": "../figures/cost_gpu_cpu.png",
+      "role": "Biểu đồ đúng lượt số đo đã lưu",
+      "sha256": "6f93cb5c1ac6ccad415d42d5108ec2481ba1d8529a8e701fb951a6d0ab6b17d8"
     }
   ],
   "steps": [
@@ -618,7 +744,7 @@
     }
   ],
   "benchmark": {
-    "log": "evidence/2026-11-14-offline.log",
+    "log": "evidence/2026-11-14-demo-offline.log",
     "data": "evidence/measurements.json",
     "table": "08-test/TEST_RESULTS.md"
   }

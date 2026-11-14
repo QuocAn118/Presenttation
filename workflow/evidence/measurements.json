@@ -1,7 +1,37 @@
 [
-  {"length": 128, "gpu_ms": 0.29, "cpu_ms": 1.10, "gpu_mib": 497.95, "cpu_matrix_mib": 0.75},
-  {"length": 256, "gpu_ms": 0.29, "cpu_ms": 1.89, "gpu_mib": 506.49, "cpu_matrix_mib": 3.00},
-  {"length": 512, "gpu_ms": 0.52, "cpu_ms": 5.41, "gpu_mib": 540.93, "cpu_matrix_mib": 12.00},
-  {"length": 1024, "gpu_ms": 2.32, "cpu_ms": 20.03, "gpu_mib": 658.18, "cpu_matrix_mib": 48.00},
-  {"length": 2048, "gpu_ms": 8.04, "cpu_ms": 92.88, "gpu_mib": 1114.18, "cpu_matrix_mib": 192.00}
+  {
+    "length": 128,
+    "gpu_ms": 0.31,
+    "cpu_ms": 0.99,
+    "gpu_mib": 496.79,
+    "cpu_matrix_mib": 0.75
+  },
+  {
+    "length": 256,
+    "gpu_ms": 0.29,
+    "cpu_ms": 2.01,
+    "gpu_mib": 502.71,
+    "cpu_matrix_mib": 3.0
+  },
+  {
+    "length": 512,
+    "gpu_ms": 0.51,
+    "cpu_ms": 5.31,
+    "gpu_mib": 526.9,
+    "cpu_matrix_mib": 12.0
+  },
+  {
+    "length": 1024,
+    "gpu_ms": 2.36,
+    "cpu_ms": 25.49,
+    "gpu_mib": 607.15,
+    "cpu_matrix_mib": 48.0
+  },
+  {
+    "length": 2048,
+    "gpu_ms": 8.46,
+    "cpu_ms": 88.35,
+    "gpu_mib": 916.15,
+    "cpu_matrix_mib": 192.0
+  }
 ]

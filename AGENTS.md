@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Hướng dẫn cho trợ lý AI làm việc trong repo này, trên máy của thành viên thực hiện (GPU RTX 4080).
+Hướng dẫn cho trợ lý AI làm việc trong repo này, trên máy của thành viên thực hiện (GPU RTX 5060 Laptop GPU).
 
 ## Dự án
 
@@ -26,9 +26,9 @@ Nếu có skill `superpowers:executing-plans` thì dùng nó; không có thì t�
 ## Lệnh
 
 ```bash
-nvidia-smi                                   # kiểm tra driver hỗ trợ CUDA 12.6
+nvidia-smi                                   # kiểm tra driver hỗ trợ CUDA 12.8
 python -m venv .venv                         # Windows: .venv\Scripts\activate
-pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126
+pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
 pip install -r requirements.txt              # Task 1 tạo file này
 python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"  # phải in True và tên card
 jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
@@ -44,7 +44,7 @@ Lưu ý: `pip install torch` mặc định trên Windows là bản CPU. Luôn c�
 - **Không chọn lớp, đầu attention lén lút cho đẹp.** Dùng tiêu chí trong kế hoạch và ghi rõ trong notebook.
 - **Ngoài phạm vi:** tự huấn luyện hay tinh chỉnh mô hình, thêm bản trọng số ngẫu nhiên, slide, giao diện tương tác, bài IMDB cũ.
 - Không đặt `pip install` trong notebook. Chữ giải thích và nhãn hình bằng tiếng Việt; tên hàm, biến bằng tiếng Anh.
-- Notebook commit **kèm output** của lần chạy trên máy RTX 4080, để mở trên GitHub thấy sẵn hình.
+- Notebook commit **kèm output** của lần chạy trên máy RTX 5060 Laptop GPU, để mở trên GitHub thấy sẵn hình.
 
 ## Khi gặp vấn đề
 
@@ -61,3 +61,12 @@ Sau khi xong 5 task:
 1. Kiểm tra chạy offline với `HF_HUB_OFFLINE=1` (Task 5).
 2. Mở notebook trong VS Code, chạy "Restart" rồi "Run All" một lần, xem mọi hình hiện đúng.
 3. Push lên `main`, báo chồng kèm link repo. Trước ngày 14/11, chạy notebook một lần nữa để GPT-2 nằm sẵn trong cache.
+
+## Cập nhật yêu cầu ngày 14/11/2026
+
+- Người dùng duyệt RTX 5060 Laptop GPU/cu128 thay cấu hình RTX 4080/cu126 ban đầu.
+- Demo chính ngắn: Implementation self-attention, kiểm chứng, hai heatmap và giải thích đơn giản. Đo GPU/CPU cùng các kiểm tra bổ sung nằm ở phụ lục, không cắt bỏ phần đo đã chốt.
+- Bổ sung bảng so sánh **lý thuyết Transformer/CNN/RNN**, không huấn luyện ba mô hình hay làm lại bài IMDB.
+- `pick_head(src, tgt)` nhận chỉ số và trả `(layer, head, value)`, tự in top 3; `plot_attention` đúng tên/API trong kế hoạch.
+- Nhận xét số liệu được tạo từ kết quả lúc chạy. CPU đếm ma trận attention thật (cùng kích thước/kiểu với scores); GPU ghi đỉnh tensor gồm cả mô hình. Cả hai thiết bị warm-up 3, đo trung vị 20 lần.
+- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. PDF/ảnh slide cũ giữ nguyên lượt đo của chúng; không ép số mới bằng số slide.

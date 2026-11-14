@@ -10,7 +10,7 @@
 | FR-002 | Dùng trọng số đã huấn luyện GPT-2 và so attention với mô hình gốc | Trang 17 | Sai số mỗi lớp <`1e-4`, không nới ngưỡng |
 | FR-003 | Hai heatmap cùng Q/K, cùng lớp/đầu, trước và sau causal mask | Trang 8, 11, 18 | Hai panel thang 0–1, cùng nhãn token và thanh màu |
 | FR-004 | Đo attention trên GPU và CPU với dữ liệu ngẫu nhiên | Trang 19 | Bảng ms/bộ nhớ, hình hai panel theo độ dài 128–2048 |
-| FR-005 | Giải thích ưu/nhược điểm, ranh giới lý thuyết/thực nghiệm và cách chạy | Trang 3–16, 19 | Nhận xét khớp output, README, hướng dẫn offline |
+| FR-005 | Implementation/giải thích ngắn, so sánh lý thuyết Transformer/CNN/RNN và cách chạy | Trang 3–16, 19 | Nhận xét khớp output, README, hướng dẫn offline |
 
 ## Ràng buộc bắt buộc
 
@@ -28,11 +28,11 @@ Phần giải thích và nhãn hình dùng tiếng Việt. Đầu notebook và h
 | AC-002 | Ma trận attention khớp ở 12 lớp | `abs(attn-ref).max() < 1e-4` trong vòng lặp | Đạt; giá trị thật ở TEST_RESULTS |
 | AC-003 | Định vị đúng token; chọn đầu minh bạch | Kiểm tra `find_token(tokens, word)`, in top 3 | Đạt; có cả phép thử thiếu token |
 | AC-004 | Hình đúng cấu trúc và xuất đủ | Sau mask tam giác trên =0; trước mask có phần >0; 3 PNG | Đạt kiểm tra số/file; chưa thay kiểm tra hiển thị bằng CLI |
-| AC-005 | Benchmark có đủ năm độ dài và nhãn phương pháp đúng | Bảng GPU/CPU, thời gian trung vị, log-scale | Số đo đạt; diễn giải trong notebook còn mục review |
+| AC-005 | Benchmark có đủ năm độ dài và nhãn phương pháp đúng | Bảng GPU/CPU, thời gian trung vị, log-scale | Đạt; nhận xét lấy từ kết quả, 20 lần/thiết bị, phương pháp ghi rõ |
 | AC-006 | Không có GPU vẫn chạy hết | Kernel riêng ép CUDA không khả dụng | Đạt giả lập; chưa thử máy vật lý không GPU |
 | AC-007 | Cache đủ cho offline | Kernel mới với `HF_HUB_OFFLINE=1` | Đạt theo log |
 | AC-008 | Toàn notebook không có ô lỗi | `nbconvert --to notebook --execute` | Đạt CLI trên bản sao gốc |
-| AC-009 | Nhận xét dùng đúng số của cùng lượt và không suy rộng quá mức | Đối chiếu bảng, heatmap, văn bản | Chưa đạt đầy đủ; xem REVIEW |
+| AC-009 | Nhận xét dùng đúng số của cùng lượt và không suy rộng quá mức | Đối chiếu bảng, heatmap, văn bản | Đạt ở lượt đã lưu; nhận xét được sinh từ kết quả, giới hạn một đầu ghi rõ |
 | AC-010 | Restart/Run All và mọi hình đúng trong VS Code | Kiểm tra UI thực tế | Chưa xác nhận; người dùng đã dừng Computer Use |
 
 ## Truy vết từ yêu cầu đến hồ sơ

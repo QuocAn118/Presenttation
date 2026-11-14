@@ -20,9 +20,9 @@ flowchart LR
 | --- | --- | --- | --- | --- |
 | TASK-001 | Venv, requirements, model/tokenizer, thông tin máy | Trang 17 | Commit `55a1ad7`, log GPU | Đã triển khai; máy mới đã được duyệt |
 | TASK-002 | QKV, chia đầu, scores/mask/softmax/V và đối chiếu 12 lớp | Trang 7/9/11/17 | Commit `43d7c10`, AC-002 | Đạt kiểm tra số học |
-| TASK-003 | Quét đầu, 3 PNG, nhận xét heatmap | Trang 8/18 | Commit `89a2b15`, AC-003–004 | Code/hình có kiểm tra; mức diễn giải còn mở |
-| TASK-004 | Đo CPU/GPU, bảng và biểu đồ | Trang 19 | Commit `7961be7`, log GPU/CPU | Đạt runtime; phương pháp/nhận xét còn điểm review |
-| TASK-005 | Ưu/nhược điểm, README, offline và VS Code | Trang 3–16/19 | Commit `19f3203`, AC-007–008 | Có nội dung và offline đạt; chưa nghiệm thu toàn bộ |
+| TASK-003 | Quét đầu, 3 PNG, nhận xét heatmap | Trang 8/18 | Commit `89a2b15`, AC-003–004 | Đạt: plot_attention đúng API; nhận xét lấy từ head thật, giới hạn được ghi rõ |
+| TASK-004 | Đo CPU/GPU, bảng và biểu đồ | Trang 19 | Commit `7961be7`, log GPU/CPU | Đạt: hai thiết bị 20 lần, đo ma trận thật trên CPU, OOM có kiểm tra |
+| TASK-005 | Ưu/nhược điểm, README, offline và VS Code | Trang 3–16/19 | Commit `19f3203`, AC-007–008 | Demo ngắn/Implementation/so sánh đã có; CLI đạt, UI tự chạy chưa xác nhận |
 
 Các commit chứng minh file đã được lưu, không chứng minh đã chạy assert thất bại trước khi viết code hoặc Run All trước từng commit. Trạng thái chi tiết ở [TEST_RESULTS](../08-test/TEST_RESULTS.md).
 
@@ -34,8 +34,8 @@ Các commit chứng minh file đã được lưu, không chứng minh đã chạ
 4. Giữ log gốc, lập dữ liệu số đối chiếu log; bổ sung manifest và kiểm tra tính toàn vẹn.
 5. Kiểm tra nội dung, nguồn, số liệu, danh mục và diff; commit riêng workflow và push main theo quyền đã có của repo.
 
-## Công việc còn lại của sản phẩm
+## Bổ sung và trạng thái sản phẩm
 
-Ưu tiên khi được giao sửa notebook: đồng bộ nhận xét với output cùng lượt (REVIEW-001); thu hẹp kết luận heatmap (REVIEW-002); ghi đúng phương pháp/số lần lặp (REVIEW-003). Sau đó xử lý giới hạn OOM và sai khác API theo yêu cầu thiết kế, đồng bộ tài liệu ngoài workflow, chạy lại từ kernel mới rồi kiểm tra VS Code.
+Người dùng đã giao sửa demo và bổ sung Implementation, so sánh lý thuyết Transformer/CNN/RNN, giải thích ngắn. REVIEW-001–006 được sửa trong code/nguồn hướng dẫn; có kiểm tra offline, CPU giả lập và luồng toàn bộ mốc OOM. Còn bước người trình bày tự Restart/Run All trong VS Code; người dùng đã yêu cầu không dùng Computer Use.
 
-Không cắt ba phần trọng tâm để khớp mốc thuyết trình. Việc viết lại workflow không được tính là đã sửa các lỗi notebook. Phạm vi nhiệm vụ cụ thể ở [TASK_BRIEFS](../04-describe/TASK_BRIEFS.md), điều kiện bàn giao ở [ACCEPTANCE](../14-definition-of-done/ACCEPTANCE.md).
+Không cắt ba phần trọng tâm để khớp mốc thuyết trình. Lượt sửa demo có thay đổi notebook và log mới, không lấy log của lượt chỉ sửa workflow làm bằng chứng cho code mới. Phạm vi nhiệm vụ cụ thể ở [TASK_BRIEFS](../04-describe/TASK_BRIEFS.md), điều kiện bàn giao ở [ACCEPTANCE](../14-definition-of-done/ACCEPTANCE.md).

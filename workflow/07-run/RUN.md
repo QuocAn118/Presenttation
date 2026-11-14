@@ -1,38 +1,33 @@
-# 07 - Hồ sơ chạy notebook
+# 07 - Hồ sơ chạy demo ngắn
 
 **Mã hồ sơ: RUN. Cập nhật: 14/11/2026.**
 
 ## Đầu vào và cách thực thi
 
-Nguồn là notebook gốc tại commit nền `47246be`, giống bản notebook trên `main` ở `3e594be` trước lần bàn giao workflow. Những lần chạy đã ghi log dùng bản sao để không ghi đè notebook/ảnh nộp bài. Source hash hiện tại được khóa trong manifest; nếu nguồn đổi, không tái sử dụng kết luận runtime cũ như bằng chứng cho code mới.
+Notebook mới chứa Implementation, kiểm chứng, heatmap và so sánh lý thuyết ở mục 1–4; benchmark và assert ở phụ lục. Mã nguồn code SHA-256 `d8332185e0a9a3d5769e5c0f8ba54615035429375374455ef1229f26382f3522` được ghi trong các log mới. Notebook/PNG/JSON gốc đang lưu là kết quả của lượt offline GPU/CPU.
 
 ```powershell
 $env:PYTHONUTF8 = "1"
 $env:HF_HUB_OFFLINE = "1"
-New-Item -ItemType Directory -Force scratch/wf-offline | Out-Null
-Copy-Item -LiteralPath self_attention_demo.ipynb -Destination scratch/wf-offline/self_attention_demo.ipynb
-.\.venv\Scripts\python.exe -m jupyter nbconvert --to notebook --execute --inplace scratch/wf-offline/self_attention_demo.ipynb
+.\.venv\Scripts\python.exe -m jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
 ```
 
-Đường dẫn làm việc là gốc repo. `PYTHONUTF8=1` tránh lỗi xuất chữ Việt/đường dẫn trong CLI. Kernel notebook phải là môi trường nêu ở [ENVIRONMENT](ENVIRONMENT.md).
+Chạy từ gốc repo; kernel trỏ về `.venv`, xem ENVIRONMENT. Tất cả nhận xét số được sinh từ kết quả trong kernel.
 
 ## Lần chạy đã quan sát
 
-| Lượt | Input/thao tác | Kết quả | Log |
-| --- | --- | --- | --- |
-| Offline GPU/CPU | Bản sao nguyên trạng, kernel mới, `HF_HUB_OFFLINE=1` | Exit 0, 0 ô lỗi, 4 PNG; 13.41 giây | [offline](../evidence/2026-11-14-offline.log) |
-| CPU giả lập không GPU | Bản sao riêng, thêm ô đầu ép CUDA không khả dụng | Exit 0, 0 ô lỗi, 4 PNG; 12.33 giây | [cpu](../evidence/2026-11-14-cpu.log) |
+| Lượt | Kết quả | Bằng chứng |
+| --- | --- | --- |
+| Offline GPU/CPU, kernel mới | Exit 0, 0 ô lỗi, 17.51s | [Log offline](../evidence/2026-11-14-demo-offline.log) |
+| CPU giả lập không GPU, bản sao riêng | Exit 0, 0 ô lỗi, 14.32s | [Log CPU](../evidence/2026-11-14-demo-cpu.log) |
+| Mọi row benchmark OOM, bản sao riêng | Exit 0, 0 ô lỗi, 11.32s | [Log OOM](../evidence/2026-11-14-demo-oom.log) |
 
-Nhánh CPU dùng `import torch; torch.cuda.is_available = lambda: False` chỉ trong bản sao/kernel thử nghiệm. Không ghi bản đó vào notebook nộp bài. Đây là giả lập, không phải kết quả đo trên máy vật lý không có GPU.
+Hai bản sao kiểm thử nằm trong `scratch/demo-cpu/` và `scratch/demo-oom/`, không ghi đè output nộp. CPU ép `torch.cuda.is_available()` trả False. Luồng OOM thay tạm benchmark bằng row None, khôi phục hàm thật trước assert phụ lục; không gây OOM thật. Các test cấp phát riêng kiểm tra hàm benchmark thật.
 
 ## Output được xác nhận
 
-Lượt offline nạp được GPT-2 từ cache, token hóa đúng câu, so attention ở cả 12 lớp và in top 3 đầu. Các file `heatmap_compare.png`, `heatmap_no_mask.png`, `heatmap_causal_mask.png`, `cost_gpu_cpu.png` được tạo không rỗng trong thư mục thử nghiệm.
-
-Số liệu đầy đủ được dẫn ở [TEST_RESULTS](../08-test/TEST_RESULTS.md). Warning về tqdm/Jupyter được giữ trong log; không biến warning thành ô lỗi khi exit code và notebook xác nhận chạy thành công.
+Mỗi lượt xuất 4 PNG và `demo_results.json`. PNG gốc đã được xem trực tiếp từ file; nhãn/thang màu rõ. TEST_RESULTS ghi bảng cùng lượt; JSON giữ cả phương pháp, máy, sai số và head. Log cũ trước sửa được giữ như lịch sử, không dùng cho mã nguồn mới.
 
 ## Kiểm tra hiển thị và giới hạn
 
-VS Code là môi trường trình bày đã chốt. Chưa hoàn thành xác nhận Restart → Run All rồi quan sát mọi hình: người dùng đã dừng Computer Use bằng Escape. Không thay kết quả UI bằng kết quả CLI và không tự đánh dấu phần này đạt.
-
-Không ngắt mạng hệ điều hành để thử; offline được kiểm tra theo `HF_HUB_OFFLINE=1`. Các bản PNG nền tối/slide không tự tái tạo theo Run All. Việc chạy CLI thành công cũng không chứng minh các nhận xét tĩnh đã đúng số.
+Người dùng đã dừng Computer Use và yêu cầu tiếp tục không dùng nó. Không thao tác UI nữa, không nhận đã Restart/Run All trong VS Code. Kết quả hiện tại là CLI và kiểm tra PNG; người trình bày có thể tự Run All bằng kernel `.venv`. PDF/ảnh slide cũ không tự cập nhật theo benchmark mới.

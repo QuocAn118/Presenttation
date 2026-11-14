@@ -14,12 +14,13 @@
 | `19f3203` | Nhận xét, README, output | Bản Task 5 đã được lưu, không tự chứng minh nghiệm thu đầy đủ |
 | `2d15b4c`, `47246be` | Hình nền tối và ảnh tổng quan slide | Ảnh bổ sung được tạo riêng với notebook |
 | `6ec834b` trên main | Hồ sơ workflow và log kiểm tra | Lần bàn giao tài liệu trước lần viết lại theo PDF |
+| `66089ea` trên main | Hồ sơ từng bước theo PDF và bộ kiểm soát file | Mốc tài liệu trước khi người dùng mở phạm vi sửa demo |
 
 Không dùng tên tác giả commit để suy ra ai tự viết từng dòng hoặc mô hình AI đã dùng. Không dùng lịch sử có commit làm chứng cứ đã TDD/Run All trước từng commit.
 
 ## Quyền và kiểm soát phạm vi
 
-AGENTS của repo đã giao commit/push main; chỉ stage phạm vi nhiệm vụ. Lần này gồm nội dung workflow, bỏ GUIDE/hồ sơ trùng đã chuyển vị trí và thêm kiểm tra tài liệu. Thay đổi xóa PDF cũ và PDF đầu vào mới do người dùng để trong working tree không thuộc commit workflow; không tự stage chúng.
+AGENTS của repo đã giao commit/push main; chỉ stage phạm vi nhiệm vụ. Lượt trước chỉ sửa workflow. Lượt mới được giao sửa demo: notebook/PNG/JSON kết quả, README/AGENTS/spec/plan và hồ sơ kiểm chứng cùng manifest. Thay đổi xóa PDF cũ và PDF đầu vào mới do người dùng để trong working tree không thuộc commit workflow; không tự stage chúng.
 
 Trước commit: xem `git status`, xác nhận source không đổi, chạy bộ kiểm soát workflow và kiểm tra whitespace/staged diff. Theo AGENTS, chạy lại toàn notebook trước commit; có thể dùng checkout/worktree riêng để không ghi đè sản phẩm ở workspace người dùng, nhưng phải dùng đúng source.
 

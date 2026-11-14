@@ -54,3 +54,7 @@ Các điểm về GPT-2 được đối chiếu với config cache và code `tra
 ## Giới hạn kết luận
 
 Attention cao giữa `it` và `animal` là quan sát của một đầu đã được chọn theo tiêu chí này. Nó không chứng minh toàn bộ cơ chế suy luận, khả năng tổng quát trên nhiều câu hoặc chất lượng vượt RNN/LSTM. Benchmark là hàm attention trên dữ liệu ngẫu nhiên, không phải độ trễ sinh văn bản hay tổng chi phí GPT-2. Các khác biệt số liệu và hạn chế code được ghi trong [review](06-review/REVIEW.md).
+
+## Bổ sung so sánh CNN/RNN và trình bày Implementation
+
+Yêu cầu mới thêm bảng [Transformer/CNN/RNN](02-design/COMPARISON.md) dựa trên nguồn gốc được dẫn ở đó; không coi PDF đã có thí nghiệm CNN. Notebook trình bày Implementation và giải thích ngắn ở mục 1–4, phần chi phí ở phụ lục. Nhận xét được sinh từ output; API/máy/method đã đồng bộ. PDF trang 19 và ảnh slide cũ vẫn mang số lịch sử, không chỉnh để bằng lượt mới.

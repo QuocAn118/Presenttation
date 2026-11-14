@@ -27,7 +27,7 @@ Trên lớp, chồng mở notebook và chạy lần lượt từng ô. Giảng v
 
 `The animal didn't cross the street because it was too tired`
 
-Tiếng Anh vì GPT-2 chỉ hiểu tiếng Anh. Ý muốn khán giả thấy: từ "it" chú ý mạnh vào "animal". Nhãn trục heatmap là các token GPT-2 tách ra (ví dụ "didn", "'t"), hiển thị dễ đọc (bỏ ký tự khoảng trắng đặc biệt `Ġ`).
+Giữ câu tiếng Anh đã chốt để token và phép đối chiếu không thay đổi. Ý muốn khán giả thấy: từ "it" chú ý mạnh vào "animal". Nhãn trục heatmap là các token GPT-2 tách ra (ví dụ "didn", "'t"), hiển thị dễ đọc (bỏ ký tự khoảng trắng đặc biệt `Ġ`).
 
 ## Nội dung notebook (theo thứ tự)
 
@@ -37,10 +37,10 @@ Tiếng Anh vì GPT-2 chỉ hiểu tiếng Anh. Ý muốn khán giả thấy: t�
 4. **Kiểm tra khớp với GPT-2 gốc** (sai số lớn nhất + `assert`).
 5. **Hai heatmap trước và sau causal mask**, đặt cạnh nhau, cùng thang màu. Sau mask, nửa trên đường chéo phải bằng 0.
 6. **Nhận xét heatmap**: "it" chú ý vào đâu; sau mask mỗi token chỉ nhìn được chính nó và các token trước; token đầu nhận nhiều attention (hiện tượng "attention sink" của GPT-2) — viết đúng những gì heatmap thật cho thấy, không viết trước.
-7. **Đo thật tốc độ và bộ nhớ** (chồng đồng ý): chạy hàm tự viết với đầu vào ngẫu nhiên (cùng số đầu và kích thước như GPT-2: 12 đầu, mỗi đầu 64), độ dài 128, 256, 512, 1024, 2048, **trên cả GPU và CPU** (chồng muốn dùng GPU của máy RTX 4080).
+7. **Đo thật tốc độ và bộ nhớ** (chồng đồng ý): chạy hàm tự viết với đầu vào ngẫu nhiên (cùng số đầu và kích thước như GPT-2: 12 đầu, mỗi đầu 64), độ dài 128, 256, 512, 1024, 2048, **trên cả GPU và CPU** (chồng muốn dùng GPU của máy RTX 5060 Laptop GPU).
    - Thời gian: trung vị nhiều lần chạy, có chạy làm nóng trước; trên GPU phải đồng bộ (`torch.cuda.synchronize`) trước khi bấm giờ.
    - Bộ nhớ GPU: bộ nhớ đỉnh thật (`torch.cuda.reset_peak_memory_stats` rồi `torch.cuda.max_memory_allocated`), MB.
-   - Bộ nhớ CPU: dung lượng thật của ma trận điểm attention đã tạo ra (`nelement() * element_size()`), MB.
+   - Bộ nhớ CPU: dung lượng ma trận attention thực trả về (`nelement() * element_size()`, cùng shape/dtype với scores), MB.
    - Một biểu đồ hai panel (thời gian, bộ nhớ theo độ dài), mỗi panel hai đường GPU và CPU, ghi rõ "dữ liệu ngẫu nhiên, chỉ để đo chi phí" cùng tên GPU, CPU. Nhận xét ngắn theo số thật: ví dụ độ dài gấp đôi thì bộ nhớ gấp khoảng bốn lần (O(n²)); GPU nhanh hơn CPU bao nhiêu lần.
    - Phải chạy xong trong khoảng một phút; nếu CPU chậm thì bỏ bớt độ dài lớn nhất ở CPU và ghi chú lại. Hết bộ nhớ thì ghi "OOM", không dừng notebook.
    - Máy không có GPU thì chỉ đo CPU và in thông báo, không lỗi.
@@ -80,8 +80,8 @@ Tiếng Anh vì GPT-2 chỉ hiểu tiếng Anh. Ý muốn khán giả thấy: t�
 ## Ràng buộc
 
 - **Người thực hiện:** thành viên khác trong nhóm (gọi là "thành viên thực hiện") viết notebook theo tài liệu này; em chỉ soạn tài liệu. Thành viên commit và push thẳng `main` của repo GitHub chồng tạo.
-- **Thuyết trình ngày 14/11/2026**, chạy trên **máy RTX 4080 của thành viên thực hiện**, mở file `.ipynb` bằng **VS Code** (quyết định của chồng). Notebook phải xong, đã chạy và push trước ngày đó. Hướng dẫn chạy viết cho VS Code: cài extension Jupyter và Python, tạo venv, cài PyTorch bản CUDA (`pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126`, vì cài mặc định trên Windows là bản CPU), cài `requirements.txt`, chọn kernel venv.
-- Notebook tự dùng GPU nếu có, không có thì chạy CPU, nên máy nào cũng chạy được. Output lưu trong notebook là của lần chạy trên máy RTX 4080.
+- **Thuyết trình ngày 14/11/2026**, chạy trên **máy RTX 5060 Laptop GPU của thành viên thực hiện**, mở file `.ipynb` bằng **VS Code** (quyết định của chồng). Notebook phải xong, đã chạy và push trước ngày đó. Hướng dẫn chạy viết cho VS Code: cài extension Jupyter và Python, tạo venv, cài PyTorch bản CUDA (`pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128`, vì cài mặc định trên Windows là bản CPU), cài `requirements.txt`, chọn kernel venv.
+- Notebook tự dùng GPU nếu có, không có thì chạy CPU, nên máy nào cũng chạy được. Output lưu trong notebook là của lần chạy trên máy RTX 5060 Laptop GPU.
 - Cần mạng để tải GPT-2 một lần (khoảng 500MB) từ Hugging Face. README dặn chạy notebook một lần trước giờ thuyết trình để mô hình được lưu sẵn trong cache, phòng khi lớp không có mạng (lựa chọn của em).
 - Cài thư viện theo README, không đặt lệnh `pip install` trong notebook (lựa chọn của em).
 - "Restart & Run All" phải chạy hết không lỗi. Notebook lưu kèm output (hình hiện sẵn khi mở trên GitHub).
@@ -105,3 +105,12 @@ Tiếng Anh vì GPT-2 chỉ hiểu tiếng Anh. Ý muốn khán giả thấy: t�
 - Chọn lớp và đầu attention cho heatmap chính, miễn ghi rõ tiêu chí trong notebook. Gợi ý: quét mọi lớp, mọi đầu, lấy đầu có attention từ "it" sang "animal" lớn nhất (sau mask), và in ra con số đó.
 - Tên file notebook, tên file PNG, bố cục README (đủ: cài đặt, cách chạy, mô tả ngắn).
 - Phiên bản thư viện cụ thể (ghim đúng bản đã cài và chạy được).
+
+## Cập nhật yêu cầu ngày 14/11/2026
+
+- Người dùng duyệt RTX 5060 Laptop GPU/cu128 thay cấu hình RTX 4080/cu126 ban đầu.
+- Demo chính ngắn: Implementation self-attention, kiểm chứng, hai heatmap và giải thích đơn giản. Đo GPU/CPU cùng các kiểm tra bổ sung nằm ở phụ lục, không cắt bỏ phần đo đã chốt.
+- Bổ sung bảng so sánh **lý thuyết Transformer/CNN/RNN**, không huấn luyện ba mô hình hay làm lại bài IMDB.
+- `pick_head(src, tgt)` nhận chỉ số và trả `(layer, head, value)`, tự in top 3; `plot_attention` đúng tên/API trong kế hoạch.
+- Nhận xét số liệu được tạo từ kết quả lúc chạy. CPU đếm ma trận attention thật (cùng kích thước/kiểu với scores); GPU ghi đỉnh tensor gồm cả mô hình. Cả hai thiết bị warm-up 3, đo trung vị 20 lần.
+- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. PDF/ảnh slide cũ giữ nguyên lượt đo của chúng; không ép số mới bằng số slide.

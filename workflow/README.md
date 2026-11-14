@@ -11,7 +11,7 @@ Nội dung được viết theo PDF lý thuyết người dùng cung cấp và b
 | Bước | Hồ sơ đã viết |
 | --- | --- |
 | 01 - Define | [Bài toán/phạm vi](01-define/DEFINE.md), [yêu cầu/nghiệm thu](01-define/REQUIREMENTS.md) |
-| 02 - Design | [Kiến trúc, tensor, công thức và API](02-design/DESIGN.md) |
+| 02 - Design | [Kiến trúc, tensor, công thức và API](02-design/DESIGN.md), [Transformer/CNN/RNN](02-design/COMPARISON.md) |
 | 03 - Plan | [5 task, phụ thuộc, tiến độ](03-plan/PLAN.md) |
 | 04 - Describe | [Brief cụ thể từng task](04-describe/TASK_BRIEFS.md) |
 | 05 - Generate | [Triển khai thực tế](05-generate/IMPLEMENTATION.md) |
@@ -39,6 +39,6 @@ Giữ PDF đúng tên ở gốc theo manifest để đối chiếu nguồn; thi�
 
 ## Trạng thái và ranh giới
 
-Máy được duyệt lại là **RTX 5060 Laptop GPU, torch 2.9.1+cu128**. Đã có log notebook gốc chạy offline/CPU giả lập; sản phẩm vẫn còn các mục review và kiểm tra UI chưa xác nhận, xem ACCEPTANCE. Không lấy tỷ lệ benchmark trên PDF làm số của lần chạy khác.
+Máy được duyệt lại là **RTX 5060 Laptop GPU, torch 2.9.1+cu128**. Đã có log notebook gốc chạy offline/CPU giả lập; REVIEW-001–006 đã được xử lý/kiểm chứng; còn bước UI tự chạy trong VS Code chưa xác nhận theo yêu cầu không dùng Computer Use, xem ACCEPTANCE. Không lấy tỷ lệ benchmark trên PDF làm số của lần chạy khác.
 
-Lượt này chỉ viết lại workflow và kiểm soát tài liệu. Notebook, ảnh, PDF, requirements, AGENTS và đặc tả/kế hoạch gốc giữ nguyên; khác biệt phần cứng ở nguồn cũ được ghi công khai. Các hồ sơ cũ trong workflow/docs đã chuyển về các file ở bảng trên, không giữ hai bản song song.
+Lượt mới đã làm lại demo ngắn mục 1–4, có Implementation và so sánh lý thuyết Transformer/CNN/RNN; benchmark/kiểm tra nằm ở phụ lục. Notebook, hình gốc, README, AGENTS và đặc tả/kế hoạch đã đồng bộ với máy được duyệt. PDF/ảnh slide cũ giữ nguyên lịch sử. Các hồ sơ cũ trong workflow/docs đã chuyển về các file ở bảng trên, không giữ hai bản song song.

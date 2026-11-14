@@ -6,13 +6,13 @@
 
 **Architecture:** Mọi code nằm trong **một notebook** `self_attention_demo.ipynb` để giảng viên thấy từng bước; các hàm định nghĩa trong ô code của notebook, không tách module. Kiểm thử là các `assert` trong notebook (so với GPT-2 gốc) và chạy lại toàn bộ notebook từ đầu bằng `nbconvert`.
 
-**Tech Stack:** Python, PyTorch 2.9.1 (cu126), Hugging Face `transformers`, matplotlib, Jupyter trong VS Code.
+**Tech Stack:** Python, PyTorch 2.9.1 (cu128), Hugging Face `transformers`, matplotlib, Jupyter trong VS Code.
 
 **Spec:** `docs/superpowers/specs/2026-11-10-self-attention-demo-design.md` (đọc trước; nếu kế hoạch mâu thuẫn với spec thì làm theo spec).
 
 ## Global Constraints
 
-- Người thực hiện: thành viên thực hiện, trên máy RTX 4080 của họ. Commit sau mỗi task, push thẳng `main`.
+- Người thực hiện: thành viên thực hiện, trên máy RTX 5060 Laptop GPU của họ. Commit sau mỗi task, push thẳng `main`.
 - Hạn chót: notebook đã chạy xong, lưu output và push **trước ngày 14/11/2026** (ngày thuyết trình).
 - Mô hình: `GPT2Model.from_pretrained("gpt2", attn_implementation="eager")`, `model.eval()`, float32. Ghi rõ trong notebook: **"trọng số đã huấn luyện của GPT-2"**.
 - Câu ví dụ đúng nguyên văn: `The animal didn't cross the street because it was too tired`. Không thêm token BOS.
@@ -20,7 +20,7 @@
 - `DEVICE = "cuda" if torch.cuda.is_available() else "cpu"`. Máy không có GPU vẫn chạy hết notebook.
 - Chữ giải thích, tiêu đề, nhãn hình bằng tiếng Việt; tên biến, hàm tiếng Anh.
 - Không có lệnh `pip install` trong notebook; cài theo README.
-- Notebook lưu kèm output của lần chạy trên máy RTX 4080. Hình lưu vào `figures/`.
+- Notebook lưu kèm output của lần chạy trên máy RTX 5060 Laptop GPU. Hình lưu vào `figures/`.
 - Không tự huấn luyện, không tinh chỉnh, không thêm bản trọng số ngẫu nhiên, không slide.
 
 ## Review Focus
@@ -46,13 +46,13 @@
 ```bash
 nvidia-smi
 python -m venv .venv          # Windows: .venv\Scripts\activate
-pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126
+pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
 pip install transformers matplotlib ipykernel nbconvert
 python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 ```
-Expected: in `True` và tên card RTX 4080.
+Expected: in `True` và tên card RTX 5060 Laptop GPU.
 
-- [ ] **Step 2: Viết `requirements.txt`** ghim đúng phiên bản vừa cài của `transformers`, `matplotlib`, `ipykernel`, `nbconvert` (lấy từ `pip freeze`). Dòng đầu là comment: torch 2.9.1 cài riêng bằng `--index-url .../cu126`. `.gitignore`: `.venv/`, `__pycache__/`, `.ipynb_checkpoints/`.
+- [ ] **Step 2: Viết `requirements.txt`** ghim đúng phiên bản vừa cài của `transformers`, `matplotlib`, `ipykernel`, `nbconvert` (lấy từ `pip freeze`). Dòng đầu là comment: torch 2.9.1 cài riêng bằng `--index-url .../cu128`. `.gitignore`: `.venv/`, `__pycache__/`, `.ipynb_checkpoints/`.
 
 - [ ] **Step 3: Tạo notebook**, gồm:
   - Ô markdown giới thiệu: bài làm gì; dòng in đậm "Dùng **trọng số đã huấn luyện của GPT-2** (bản `gpt2`, 124M tham số), không phải trọng số ngẫu nhiên".
@@ -144,7 +144,7 @@ assert find_token(tokens, "animal") < find_token(tokens, "it")
 
 - [ ] **Step 3: Viết `plot_attention`** và vẽ cho lớp, đầu đã chọn:
   - Hai panel cạnh nhau, **cùng thang màu 0–1**, nhãn trục là `tokens` (trục y: token đang hỏi, trục x: token được chú ý), một thanh màu chung.
-  - Tiêu đề panel: "Trước causal mask (không mask)" và "Sau causal mask"; tiêu đề chung có "Trọng số đã huấn luyện GPT-2 – lớp L, đầu H".
+  - Tiêu đề panel: "Trước causal mask (không mask)" và "Sau causal mask"; tiêu đề chung có "Trọng số đã huấn luyện của GPT-2 – lớp L, đầu H".
   - Lưu `figures/heatmap_compare.png` và hai panel riêng `heatmap_no_mask.png`, `heatmap_causal_mask.png` (dpi 200).
   - Ô kiểm tra: `assert attn_mask.triu(1).abs().max() == 0` và `attn_no_mask.triu(1).abs().max() > 0`.
 
@@ -181,7 +181,7 @@ assert abs(r[1]["mem_mb"] / r[0]["mem_mb"] - 4) < 0.01   # độ dài gấp đô
 - [ ] **Step 2: Viết `benchmark`**:
   - Đầu vào ngẫu nhiên `x (len, 768)`, `w_qkv (768, 2304)`, `b_qkv (2304,)` tạo bằng `torch.Generator().manual_seed(42)`, 12 đầu, `causal=True`, trong `torch.inference_mode()`.
   - Chạy làm nóng 3 lần, rồi `n_rep` lần, lấy trung vị (ms). Trên GPU gọi `torch.cuda.synchronize()` trước và sau mỗi lần bấm giờ.
-  - Bộ nhớ GPU: `torch.cuda.reset_peak_memory_stats()` trước, `torch.cuda.max_memory_allocated()/2**20` sau. Bộ nhớ CPU: `scores.nelement() * scores.element_size() / 2**20` với `scores` cỡ `(12, len, len)` float32 (tính đúng ma trận điểm của độ dài đó).
+  - Bộ nhớ GPU: `torch.cuda.reset_peak_memory_stats()` trước, `torch.cuda.max_memory_allocated()/2**20` sau. Bộ nhớ CPU: lấy `attn.nelement() * attn.element_size() / 2**20` từ ma trận attention thực trả về, cùng shape/dtype với scores; không tạo dummy tensor và không coi là peak RAM.
   - Bắt `torch.OutOfMemoryError`: ghi `ms`, `mem_mb` là `None`, `torch.cuda.empty_cache()`, đo tiếp độ dài sau.
 
 - [ ] **Step 3: Ô đo và vẽ**:
@@ -212,13 +212,22 @@ assert abs(r[1]["mem_mb"] / r[0]["mem_mb"] - 4) < 0.01   # độ dài gấp đô
 
 - [ ] **Step 2: Viết README** (tiếng Việt) gồm:
   - Mô tả ngắn, dòng "Dùng trọng số đã huấn luyện của GPT-2".
-  - **Cài đặt cho VS Code:** cài extension Python và Jupyter; tạo venv; lệnh cài torch bản cu126 (ghi lý do: cài mặc định trên Windows là bản CPU); `pip install -r requirements.txt`; mở notebook, chọn kernel `.venv`.
+  - **Cài đặt cho VS Code:** cài extension Python và Jupyter; tạo venv; lệnh cài torch bản cu128 (ghi lý do: cài mặc định trên Windows là bản CPU); `pip install -r requirements.txt`; mở notebook, chọn kernel `.venv`.
   - **Cách chạy:** "Restart" rồi "Run All"; lần đầu cần mạng để tải GPT-2 (~500MB); **chạy một lần trước giờ thuyết trình** để mô hình nằm sẵn trong cache; nếu lớp không có mạng, đặt biến môi trường `HF_HUB_OFFLINE=1` trước khi mở VS Code.
   - Danh sách file trong `figures/` và hình nào dùng cho phần nào.
   - Cấu hình máy đã chạy output lưu sẵn (GPU, CPU, phiên bản torch, transformers) — lấy từ output ô import.
 
 - [ ] **Step 3: Kiểm tra chạy offline**: đặt `HF_HUB_OFFLINE=1` rồi chạy `nbconvert --execute`. Expected: không lỗi (mô hình lấy từ cache).
 
-- [ ] **Step 4: Bản chạy cuối trên RTX 4080**: chạy `jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb` một lần cuối; mở notebook trong VS Code kiểm tra mọi hình hiện ra, chữ "trọng số đã huấn luyện của GPT-2" có ở đầu notebook và tiêu đề heatmap.
+- [ ] **Step 4: Bản chạy cuối trên RTX 5060 Laptop GPU**: chạy `jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb` một lần cuối; mở notebook trong VS Code kiểm tra mọi hình hiện ra, chữ "trọng số đã huấn luyện của GPT-2" có ở đầu notebook và tiêu đề heatmap.
 
 - [ ] **Step 5: Commit** `docs: uu han che, README va output cuoi`, push `main`, báo chồng kèm link repo.
+
+## Cập nhật yêu cầu ngày 14/11/2026
+
+- Người dùng duyệt RTX 5060 Laptop GPU/cu128 thay cấu hình RTX 4080/cu126 ban đầu.
+- Demo chính ngắn: Implementation self-attention, kiểm chứng, hai heatmap và giải thích đơn giản. Đo GPU/CPU cùng các kiểm tra bổ sung nằm ở phụ lục, không cắt bỏ phần đo đã chốt.
+- Bổ sung bảng so sánh **lý thuyết Transformer/CNN/RNN**, không huấn luyện ba mô hình hay làm lại bài IMDB.
+- `pick_head(src, tgt)` nhận chỉ số và trả `(layer, head, value)`, tự in top 3; `plot_attention` đúng tên/API trong kế hoạch.
+- Nhận xét số liệu được tạo từ kết quả lúc chạy. CPU đếm ma trận attention thật (cùng kích thước/kiểu với scores); GPU ghi đỉnh tensor gồm cả mô hình. Cả hai thiết bị warm-up 3, đo trung vị 20 lần.
+- OOM tại cấp phát weight/bias/input và trong attention được bắt, ghi OOM và tiếp tục. PDF/ảnh slide cũ giữ nguyên lượt đo của chúng; không ép số mới bằng số slide.

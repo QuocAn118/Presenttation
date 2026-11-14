@@ -4,7 +4,7 @@
 
 ## Phạm vi và thứ tự quyết định
 
-Lần sửa này hoàn thiện nội dung bài trong từng thư mục bước, thay các `GUIDE.md` bằng hồ sơ có nội dung cụ thể. Notebook, hình, requirements, AGENTS, đặc tả và PDF đầu vào được giữ nguyên. Không đổi trạng thái sản phẩm thành “đã nghiệm thu” chỉ vì đã viết xong tài liệu.
+Lượt trước đã hoàn thiện hồ sơ và thay GUIDE. Yêu cầu mới mở phạm vi sửa demo: Implementation ngắn, hai heatmap, nhận xét theo output, bảng lý thuyết Transformer/CNN/RNN; benchmark và kiểm tra ở phụ lục. Notebook, PNG, README và nguồn hướng dẫn được đồng bộ; PDF/slide cũ giữ nguyên lượt lịch sử. Không đổi trạng thái sản phẩm thành “đã nghiệm thu” chỉ vì đã viết xong tài liệu.
 
 Thứ tự áp dụng: yêu cầu người dùng mới nhất → đặc tả gốc → kế hoạch gốc → PDF lý thuyết → triển khai và bằng chứng để xác định trạng thái thực tế. PDF giải thích lý thuyết, không tự mở rộng phạm vi thành huấn luyện mô hình/encoder–decoder/IMDB. Quyết định người dùng ngày 14/11/2026 đã thay máy mục tiêu thành RTX 5060 Laptop/cu128; nguồn gốc còn ghi RTX 4080 được đánh dấu khác biệt, không âm thầm sửa.
 
@@ -34,7 +34,7 @@ Các file liên kết về nơi chính thay vì duy trì hai bản bảng số l
 
 [manifest.json](manifest.json) ghi ID duy nhất, đường dẫn, vai trò, trạng thái tài liệu, mục bắt buộc, trang lý thuyết liên quan và SHA-256 của từng file. File manifest không tự băm chính nó. Mỗi thư mục bước 01–14 phải có hồ sơ trong danh mục; file phát sinh ngoài danh mục là lỗi.
 
-[check.py](check.py) chỉ đọc và kiểm tra: đủ file, không file lạ/ID trùng/khung GUIDE, hash khớp, mục bắt buộc đủ, liên kết cục bộ hợp lệ, dấu giữ chỗ chưa điền, nguồn đầu vào không đổi, bảng đo khớp log. Hash text chuẩn hóa CRLF/LF để không báo sai do Git trên Windows; PDF được băm theo byte gốc. Hash giúp phát hiện thay đổi sau lần rà soát, **không thay thế đánh giá nội dung**.
+[check.py](check.py) chỉ đọc và kiểm tra: đủ file, không file lạ/ID trùng/khung GUIDE, hash khớp, mục bắt buộc đủ, liên kết cục bộ hợp lệ, dấu giữ chỗ chưa điền, nguồn đầu vào/PNG/JSON kết quả khớp lượt đã lưu, bảng đo khớp log. Hash text chuẩn hóa CRLF/LF để không báo sai do Git trên Windows; PDF và PNG được băm theo byte gốc. Hash giúp phát hiện thay đổi sau lần rà soát, **không thay thế đánh giá nội dung**.
 
 Chạy từ gốc repo:
 

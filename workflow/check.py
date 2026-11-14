@@ -8,7 +8,8 @@ from urllib.parse import unquote
 
 
 def fingerprint(path):
-    data = path.read_bytes() if path.suffix.lower() == '.pdf' else path.read_text(encoding='utf-8').encode('utf-8')
+    text_formats = {'.md', '.py', '.json', '.log', '.txt', '.ipynb'}
+    data = path.read_text(encoding='utf-8').encode('utf-8') if path.suffix.lower() in text_formats else path.read_bytes()
     return hashlib.sha256(data).hexdigest()
 
 
