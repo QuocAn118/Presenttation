@@ -8,7 +8,7 @@ Các log dùng code notebook gốc của commit nền `47246be`; notebook này g
 | [cpu](2026-11-14-cpu.log) | Thêm ô giả lập không GPU trước các ô gốc, chạy trong kernel mới | Exit code 0; 0 ô lỗi; 4 PNG; 12.33 giây |
 | [branches](2026-11-14-branches.log) | Chạy các hàm gốc với OOM giả lập và token bị thiếu | Bắt lỗi và trả kết quả đúng trong phạm vi thử |
 
-Lệnh CLI, stdout notebook, môi trường offline và warning được giữ trong hai log thực thi. Các output thử nghiệm đầy đủ nằm trong `scratch/wf-offline/` và `scratch/wf-cpu/` trên máy chạy, không được commit. Cách chạy lại xem [05_TOOLS](../docs/05_TOOLS.md).
+Lệnh CLI, stdout notebook, môi trường offline và warning được giữ trong hai log thực thi. Các output thử nghiệm đầy đủ nằm trong `scratch/wf-offline/` và `scratch/wf-cpu/` trên máy chạy, không được commit. Cách chạy lại xem [RUN](../07-run/RUN.md). Bảng số của lượt GPU/CPU được lưu ở [measurements.json](measurements.json), đối chiếu với log và bảng trong [TEST_RESULTS](../08-test/TEST_RESULTS.md) bằng bộ kiểm soát workflow.
 
 ## Tái lập nhánh lỗi
 
