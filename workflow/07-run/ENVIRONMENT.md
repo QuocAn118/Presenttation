@@ -46,6 +46,6 @@ Chọn kernel trỏ về Python `.venv` trong VS Code. Nếu CUDA không khả d
 
 ## Quyết định phần cứng và nguồn số liệu
 
-Người dùng đã chọn RTX 5060 Laptop/cu128 ngày 14/11/2026. Spec/AGENTS bên ngoài workflow còn RTX 4080/cu126; không lấy các dòng cũ đó làm mô tả lần chạy hiện tại. Quyết định và khác biệt nằm tại DEC-006 trong [DESIGN](../02-design/DESIGN.md) và REVIEW-005 trong [REVIEW](../06-review/REVIEW.md).
+Người dùng đã chọn RTX 5060 Laptop/cu128 ngày 14/11/2026. Spec/plan/AGENTS và README đã đồng bộ RTX 5060 Laptop/cu128; thông tin RTX 4080/cu126 chỉ còn như lịch sử quyết định. Quyết định và khác biệt nằm tại DEC-006 trong [DESIGN](../02-design/DESIGN.md) và REVIEW-005 trong [REVIEW](../06-review/REVIEW.md).
 
 Kết quả phép đo được giữ trong log, không dự đoán từ thông số GPU. PDF trang 19 chỉ trình bày lượt thử nghiệm của slide; thời gian chạy mới không bắt buộc trùng slide.

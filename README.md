@@ -1,107 +1,62 @@
-# Demo Self-Attention và Causal Mask với GPT-2
+# Demo self-attention bằng PyTorch
 
-Dự án bài tập môn Deep Learning: Hiện thực hóa cơ chế Self-Attention và Causal Mask từ đầu bằng PyTorch, nạp **trọng số đã huấn luyện của GPT-2** (`gpt2`, 124M tham số), trực quan hóa attention heatmap và đo lường chi phí tính toán thực tế trên GPU và CPU.
+Dùng **trọng số đã huấn luyện của GPT-2**, tự viết phép attention và kiểm chứng với mô hình gốc. Câu mẫu: `The animal didn't cross the street because it was too tired`.
 
-> **Tiêu chí cốt lõi**: Toàn bộ notebook sử dụng **trọng số đã huấn luyện của GPT-2**, không phải trọng số ngẫu nhiên. Hàm `self_attention` được tự code từng bước ma trận ($Q, K, V$, scaling, masking, softmax), không sử dụng hàm thư viện dựng sẵn như `scaled_dot_product_attention` hay `nn.MultiheadAttention`.
+## Trình bày ngắn trên lớp
 
----
+Mở [self_attention_demo.ipynb](self_attention_demo.ipynb), chạy mục **1–4**:
 
-## 1. Cấu trúc Dự án
+1. **Implementation:** Q, K, V → QKᵀ/√64 → causal mask → softmax → nhân V.
+2. **Kiểm chứng:** sai số attention ở cả 12 lớp phải <`1e-4`.
+3. **Heatmap:** cùng Q/K trước/sau mask; sau mask không nhìn token tương lai. Đầu được chọn công khai bằng quét 144 đầu, không đại diện toàn bộ GPT-2.
+4. **So sánh Transformer/CNN/RNN:** bảng lý thuyết ngắn, ưu điểm và hạn chế.
 
-```text
-├── self_attention_demo.ipynb    # Notebook duy nhất chứa toàn bộ code demo và output
-├── requirements.txt            # Phiên bản các thư viện phụ trợ
-├── README.md                   # Hướng dẫn cài đặt, chạy và cấu hình
-├── figures/                    # Các hình ảnh độ phân giải cao xuất ra phục vụ slide
-│   ├── heatmap_compare.png     # So sánh 2 heatmap trước và sau Causal Mask cạnh nhau
-│   ├── heatmap_no_mask.png     # Heatmap trước Causal Mask (thử nghiệm minh họa)
-│   ├── heatmap_causal_mask.png # Heatmap sau Causal Mask (chặn tương lai)
-│   └── cost_gpu_cpu.png        # Biểu đồ đo thời gian (ms) và bộ nhớ (MB) GPU vs CPU
-├── workflow/                   # Bộ tài liệu quy trình Vibe Coding chuẩn mực
-│   ├── docs/                   # 00_MINDMAP đến 08_RELEASE (5W1H, Spec, Verification)
-│   └── 01-define/ ...          # Hướng dẫn chi tiết từng bước phát triển sản phẩm với AI
-└── docs/superpowers/           # Đặc tả thiết kế và kế hoạch 5 task ban đầu
+Phép đo GPU/CPU và các assert bổ sung nằm ở **phụ lục**, có thể thu gọn khi trình bày. Đây là benchmark hàm attention trên tensor ngẫu nhiên, không phải huấn luyện hay đo toàn bộ ba mô hình.
+
+## Cài và chạy trong VS Code
+
+Cần Python 3.12, extension Python và Jupyter. Máy đã được người dùng duyệt: **NVIDIA GeForce RTX 5060 Laptop GPU**, driver 582.05, PyTorch 2.9.1+cu128. Máy không có GPU vẫn chạy CPU.
+
+Từ thư mục gốc, PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements.txt
+python -m ipykernel install --user --name self-attention-env --display-name "Python (.venv)"
 ```
 
----
+Chọn kernel `.venv` → **Restart** → **Run All**. Lần đầu cần mạng tải GPT-2; chạy trước buổi demo để model nằm trong cache. Không cài thư viện bên trong notebook.
 
-## 2. Hướng dẫn Cài đặt Môi trường trong VS Code
+Kiểm tra offline với kernel mới:
 
-### Điều kiện tiên quyết:
-- Đã cài đặt **VS Code** và hai extension: **Python** và **Jupyter**.
-- Đã cài đặt Python 3.10+ (khuyên dùng Python 3.12).
-- Máy có card đồ họa NVIDIA (khuyên dùng RTX 4080 / RTX Series có hỗ trợ CUDA 12.6+).
+```powershell
+$env:PYTHONUTF8 = "1"
+$env:HF_HUB_OFFLINE = "1"
+.\.venv\Scripts\python.exe -m jupyter nbconvert --to notebook --execute --inplace self_attention_demo.ipynb
+```
 
-### Các bước cài đặt chi tiết (Windows PowerShell):
+## Output của lượt chạy
 
-1. **Mở thư mục dự án trong VS Code**:
-   ```powershell
-   cd "c:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation"
-   ```
+| File | Nội dung |
+| --- | --- |
+| `figures/heatmap_compare.png` | Hai heatmap trước/sau cùng thang màu 0–1 |
+| `figures/heatmap_no_mask.png`, `figures/heatmap_causal_mask.png` | Hai panel riêng để dùng khi trình bày |
+| `figures/cost_gpu_cpu.png` | Thời gian và bộ nhớ, dữ liệu ngẫu nhiên, trục log |
+| `figures/demo_results.json` | Máy, phương pháp, sai số, head và số đo chính xác của lượt vừa chạy |
 
-2. **Tạo môi trường ảo (.venv)**:
-   ```powershell
-   python -m venv .venv
-   ```
+Nhận xét trong notebook tính trực tiếp từ kết quả, không chép các con số tĩnh. Bộ nhớ dùng MiB: CPU là một ma trận attention thật; GPU là đỉnh tensor PyTorch gồm cả mô hình. Hai đường không có cùng phạm vi đo. Mốc 2048 là độ dài tensor nhân tạo, không phải context GPT-2 2048.
 
-3. **Kích hoạt môi trường ảo**:
-   ```powershell
-   .\.venv\Scripts\Activate.ps1
-   ```
+PDF và các ảnh `_dark`/ảnh slide cũ thuộc lượt trước, không tự cập nhật theo Run All; dùng các PNG gốc và JSON mới nếu cần số liệu hiện tại.
 
-4. **Cài đặt PyTorch bản CUDA**:
-   > **LƯU Ý QUAN TRỌNG**: Nếu chỉ gõ `pip install torch`, pip trên Windows sẽ mặc định tải bản CPU. Bắt buộc phải cài bằng lệnh có `--index-url` dưới đây:
-   ```powershell
-   pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu128
-   ```
-   *(Hoặc `--index-url https://download.pytorch.org/whl/cu126` tùy phiên bản driver)*.
+## Hồ sơ và kiểm tra
 
-5. **Cài đặt các thư viện còn lại**:
-   ```powershell
-   pip install -r requirements.txt
-   ```
+[workflow/README.md](workflow/README.md) là mục lục 14 bước; [Implementation](workflow/05-generate/IMPLEMENTATION.md), [bảng so sánh](workflow/02-design/COMPARISON.md), [kết quả kiểm chứng](workflow/08-test/TEST_RESULTS.md).
 
-6. **Đăng ký kernel cho Jupyter Notebook**:
-   ```powershell
-   python -m ipykernel install --user --name self-attention-env --display-name "Python (.venv)"
-   ```
+```powershell
+.\.venv\Scripts\python.exe workflow/test_check.py
+.\.venv\Scripts\python.exe workflow/check.py
+```
 
----
-
-## 3. Hướng dẫn Chạy Notebook
-
-1. Trong VS Code, mở file `self_attention_demo.ipynb`.
-2. Ở góc trên cùng bên phải của notebook, bấm vào **Select Kernel** $\rightarrow$ chọn **Python (.venv)** (hoặc `self-attention-env`).
-3. Bấm **Clear All Outputs** rồi bấm **Run All** (hoặc **Restart & Run All**) để chạy toàn bộ notebook từ đầu.
-4. **Chuẩn bị trước buổi thuyết trình (Chạy Offline)**:
-   - Lần đầu chạy cần có mạng để tải mô hình GPT-2 (~500MB) từ Hugging Face về cache máy.
-   - **Chạy notebook một lần trước ngày 14/11** để toàn bộ mô hình và tokenizer được lưu sẵn trong local cache.
-   - Khi lên lớp thuyết trình (phòng học không có internet), mở PowerShell và đặt biến môi trường offline trước khi khởi động VS Code:
-     ```powershell
-     $env:HF_HUB_OFFLINE="1"
-     code .
-     ```
-     Notebook sẽ tự động đọc trực tiếp từ cache mà không cần kết nối mạng.
-
----
-
-## 4. Danh mục Hình ảnh trong `figures/` dùng làm Slide
-
-| Tên File | Nội dung chi tiết | Dùng cho Slide |
-|---|---|---|
-| `heatmap_compare.png` | Hình so sánh 2 panel cạnh nhau trước và sau Causal Mask (Lớp 4, Đầu 3), chung thang màu 0-1 | **Slide Demo**: Trực quan hóa vai trò của Causal Mask và chứng minh liên kết `"it"` $\rightarrow$ `"animal"` |
-| `heatmap_causal_mask.png` | Panel riêng biệt sau Causal Mask (nửa trên bằng 0, attention sink `"The"`, liên kết `"it"` $\rightarrow$ `"animal"` = 84.61%) | **Slide Cơ chế Causal Mask** |
-| `heatmap_no_mask.png` | Panel trước Causal Mask (thử nghiệm minh họa token nhìn cả tương lai) | **Slide So sánh Encoder vs Decoder** |
-| `cost_gpu_cpu.png` | Biểu đồ 2 panel đo độ trễ (ms) và bộ nhớ (MB) log-scale theo độ dài chuỗi $128 \rightarrow 2048$ trên GPU và CPU | **Slide Hiệu năng & Chi phí**: Chứng minh độ phức tạp $O(n^2)$ và ưu thế của GPU |
-
----
-
-## 5. Cấu hình Phần cứng Đã Chạy và Lưu Output Sẵn
-
-File `self_attention_demo.ipynb` được cam kết kèm toàn bộ output và hình ảnh thực tế từ lượt chạy trên cấu hình:
-- **Hệ điều hành**: Windows 11 (64-bit)
-- **GPU**: NVIDIA GeForce RTX Laptop GPU (CUDA 12.8 / Driver 582.05)
-- **CPU**: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
-- **Phiên bản PyTorch**: `2.9.1+cu128` (CUDA khả dụng: `True`)
-- **Phiên bản Transformers**: `5.22.2`
-- **Mô hình tiền huấn luyện**: `gpt2` (124M tham số, 12 layers, 12 heads, $d=64$)
+Manifest là ảnh chụp của lượt đã nghiệm thu. Chạy lại notebook sẽ đổi timing/output; cần đối chiếu và cập nhật hồ sơ/hash theo CONTROL trước khi nhận checker đạt cho lượt mới. Không tự đặt số bằng kết quả cũ.

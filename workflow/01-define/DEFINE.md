@@ -14,6 +14,9 @@ PDF trang 3–4 đặt vấn đề về xử lý tuần tự và phụ thuộc x
 - Kiểm tra ma trận tự tính với GPT-2 gốc ở 12 lớp, sai số lớn nhất <`1e-4`.
 - Ba PNG heatmap gồm hình so sánh và hai panel riêng; một biểu đồ thời gian/bộ nhớ GPU/CPU.
 - Hướng dẫn cài môi trường, chạy trong VS Code và kiểm tra offline.
+- Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
+- Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
+- Mục Implementation ngắn và bảng so sánh lý thuyết Transformer/CNN/RNN theo yêu cầu bổ sung; benchmark ở phụ lục.
 
 ## Why - Giá trị của bài
 
@@ -41,4 +44,4 @@ Ngoài phạm vi: bài IMDB cũ; huấn luyện/fine-tune; bản trọng số ng
 
 ## Tiêu chí thành công và trạng thái
 
-Tiêu chí chi tiết có ID ở [REQUIREMENTS](REQUIREMENTS.md). Log hiện có xác minh code chạy và sai số đạt; chưa nghiệm thu toàn bộ bài vì nhận xét notebook còn lệch số và chưa xác nhận đủ hình trong VS Code. Đây là khác biệt giữa hoàn tất tài liệu và hoàn tất sản phẩm, được giữ trong [ACCEPTANCE](../14-definition-of-done/ACCEPTANCE.md).
+Tiêu chí chi tiết có ID ở [REQUIREMENTS](REQUIREMENTS.md). Demo mới có nhận xét sinh từ output, API khớp kế hoạch, OOM được kiểm tra ở cấp phát/attention và toàn notebook chạy đạt; chưa xác nhận Restart/Run All trong VS Code vì người dùng yêu cầu không dùng Computer Use. Đây là khác biệt giữa hoàn tất tài liệu và hoàn tất sản phẩm, được giữ trong [ACCEPTANCE](../14-definition-of-done/ACCEPTANCE.md).

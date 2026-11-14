@@ -38,10 +38,11 @@ flowchart TD
 | `get_qkv_weights(model, layer)` | Model và lớp | Weight/bias QKV của lớp |
 | `self_attention(x,w_qkv,b_qkv,n_head=12,causal=True)` | Tensor 2D, weight, bias | `(out,attn)`; `out` chưa qua `c_proj` |
 | `find_token(token_list,word)` | Nhãn token và từ | Chỉ số; thiếu từ báo `ValueError` tiếng Việt |
-| `pick_head(src_word="it",tgt_word="animal")` | Từ nguồn/đích | `(best,top3)`; mỗi mục là `(layer,head,value)` |
+| `pick_head(src:int,tgt:int)` | Chỉ số Query/Key | `(layer,head,value)`; in top 3 trong hàm |
+| `plot_attention(attn_no_mask,attn_mask,tokens,title,path_prefix)` | Hai ma trận đầu được chọn và nhãn | Xuất hình so sánh + hai PNG riêng, cùng thang 0–1 |
 | `benchmark(lengths,device,n_rep=20)` | Độ dài, thiết bị, số lặp | Danh sách `{len,ms,mem_mb}`; lỗi OOM được bắt trong vùng `try` ghi `None` |
 
-Kế hoạch gốc mô tả `pick_head` nhận chỉ số và có `plot_attention`. Code đang dùng từ và vẽ trực tiếp trong ô; đây là sai khác đã ghi ở REVIEW-004, không tự mô tả hàm chưa tồn tại.
+Demo mới dùng đúng tên/chữ ký hàm của kế hoạch. Phần chính trình bày Implementation, đối chiếu, heatmap và bảng so sánh; code benchmark/kiểm tra được đặt ở phụ lục thu gọn.
 
 ## Thiết kế đối chứng và trực quan hóa
 
@@ -51,11 +52,11 @@ Quét 12 lớp ×12 đầu và chọn attention `it` → `animal` lớn nhất s
 
 ## Thiết kế benchmark và giới hạn
 
-Benchmark gọi hàm tự viết trên `x` và weight ngẫu nhiên seed 42, 12 đầu ×64 chiều, độ dài 128/256/512/1024/2048. Chạy inference mode, warm-up 3; CPU lặp 10, GPU 20, lấy trung vị. GPU đồng bộ trước/sau bấm giờ.
+Benchmark gọi hàm tự viết trên `x` và weight ngẫu nhiên seed 42, 12 đầu ×64 chiều, độ dài 128/256/512/1024/2048. Chạy inference mode, warm-up 3; CPU và GPU đều lặp 20, lấy trung vị. GPU đồng bộ trước/sau bấm giờ.
 
 2048 ở đây là kích thước tensor nhân tạo cho phép attention, **không phải** chạy GPT-2 với context 2048; config checkpoint có `n_positions=1024`.
 
-GPU báo `max_memory_allocated()/2**20` sau reset peak, bao gồm tensor còn sống từ GPT-2. CPU cấp phát `dummy_scores` cùng shape `(12,N,N)` và tính dung lượng một tensor, không đo đỉnh RAM tiến trình. Hai đường không có cùng phạm vi đo; nhãn MB trong hình tương ứng MiB. Các cấp phát `x`, weight và bias còn ở ngoài `try` nên OOM chưa được bao phủ ở mọi điểm.
+GPU báo `max_memory_allocated()/2**20` sau reset peak, bao gồm tensor còn sống từ GPT-2. CPU tính `attn.nelement()*attn.element_size()` từ ma trận thực trả về, cùng shape/dtype với scores; không tạo dummy và không đo đỉnh RAM tiến trình. Hai đường không cùng phạm vi đo và đều ghi đơn vị MiB. Các cấp phát weight/bias/input, làm nóng và đo đều trong `try`; OOM ghi `None` rồi dọn tham chiếu/đo tiếp.
 
 ## Quyết định và trạng thái
 
@@ -65,8 +66,8 @@ GPU báo `max_memory_allocated()/2**20` sau reset peak, bao gồm tensor còn s�
 | DEC-002 | Một notebook, hàm attention tự viết | Phù hợp trình diễn từng bước và yêu cầu môn học |
 | DEC-003 | Giữ √d_k, mask cộng và đầu ra trước `c_proj` | Khớp phép tính theo đầu, PDF trang 17 và hợp đồng thực tế |
 | DEC-004 | Chọn đầu theo `it` → `animal` lớn nhất | Công khai tiêu chí, không coi mẫu được chọn là đại diện toàn model |
-| DEC-005 | OOM có ghi nhận, không nới ngưỡng đối chứng | Runtime có một phần xử lý; REVIEW-006 còn mở |
-| DEC-006 | RTX 5060 Laptop/cu128 | Người dùng duyệt ngày 14/11/2026; nguồn ngoài workflow còn cấu hình cũ |
-| DEC-007 | Chỉ viết lại hồ sơ workflow theo PDF | Không sửa notebook, hình hoặc PDF trong nhiệm vụ tài liệu này |
+| DEC-005 | OOM có ghi nhận, không nới ngưỡng đối chứng | Đã thử mô phỏng ở weight/bias/input và attention, gồm tình huống toàn bộ mốc OOM |
+| DEC-006 | RTX 5060 Laptop/cu128 | Người dùng duyệt ngày 14/11/2026; nguồn hướng dẫn đã được đồng bộ |
+| DEC-007 | Rút gọn demo theo yêu cầu mới | Implementation + giải thích ngắn, so sánh lý thuyết; benchmark ở phụ lục, PDF/slide cũ giữ lịch sử |
 
 Lý thuyết và các điểm cần phân biệt được kiểm soát ở [THEORY](../THEORY.md); kết quả thiết kế được kiểm tra ở [TEST_RESULTS](../08-test/TEST_RESULTS.md).

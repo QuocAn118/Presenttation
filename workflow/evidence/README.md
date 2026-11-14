@@ -1,39 +1,22 @@
-# Bằng chứng kiểm tra ngày 14/11/2026
+# Bằng chứng chạy và kiểm tra
 
-Các log dùng code notebook gốc của commit nền `47246be`; notebook này giống bản tại `origin/main` (`3e594be`) khi bắt đầu bàn giao workflow. Ngày được ghi theo Asia/Bangkok.
+## Lượt demo ngắn hiện tại
 
-| Log | Phạm vi | Kết quả |
-| --- | --- | --- |
-| [offline](2026-11-14-offline.log) | Bản sao nguyên trạng, GPU và CPU, `HF_HUB_OFFLINE=1` | Exit code 0; 0 ô lỗi; 4 PNG; 13.41 giây |
-| [cpu](2026-11-14-cpu.log) | Thêm ô giả lập không GPU trước các ô gốc, chạy trong kernel mới | Exit code 0; 0 ô lỗi; 4 PNG; 12.33 giây |
-| [branches](2026-11-14-branches.log) | Chạy các hàm gốc với OOM giả lập và token bị thiếu | Bắt lỗi và trả kết quả đúng trong phạm vi thử |
+| File | Nội dung |
+| --- | --- |
+| [demo-offline](2026-11-14-demo-offline.log) | Chạy notebook đang lưu trên GPU/CPU, offline, có stdout + nhận xét Markdown |
+| [demo-cpu](2026-11-14-demo-cpu.log) | Bản sao ép nhánh không GPU |
+| [demo-oom](2026-11-14-demo-oom.log) | Bản sao có toàn bộ row OOM, vẫn xuất hình/JSON và chạy hết |
+| [demo-red](2026-11-14-demo-red.log) | Regression trước sửa: thất bại như dự kiến, bằng chứng TDD |
+| [demo-tests](2026-11-14-demo-tests.log) | Regression sau sửa, mã nguồn mới |
+| [measurements](measurements.json) | Bảng số đã làm tròn, đối chiếu demo-offline và TEST_RESULTS |
 
-Lệnh CLI, stdout notebook, môi trường offline và warning được giữ trong hai log thực thi. Các output thử nghiệm đầy đủ nằm trong `scratch/wf-offline/` và `scratch/wf-cpu/` trên máy chạy, không được commit. Cách chạy lại xem [RUN](../07-run/RUN.md). Bảng số của lượt GPU/CPU được lưu ở [measurements.json](measurements.json), đối chiếu với log và bảng trong [TEST_RESULTS](../08-test/TEST_RESULTS.md) bằng bộ kiểm soát workflow.
+[figures/demo_results.json](../../figures/demo_results.json) giữ số chưa làm tròn, phương pháp, cấu hình và sai số của lượt chính. Log ghi mã nguồn code SHA-256 để phân biệt các bản; mã nguồn của bản sao CPU/OOM được sửa tạm như RUN mô tả.
 
-## Tái lập nhánh lỗi
+## Lịch sử trước khi sửa demo
 
-Trong kernel thử nghiệm riêng đã định nghĩa các hàm gốc, chạy:
+[offline cũ](2026-11-14-offline.log), [CPU cũ](2026-11-14-cpu.log), [nhánh lỗi cũ](2026-11-14-branches.log) thuộc bản trước (nền code 47246be). Giữ nguyên kết quả lịch sử; không dùng bảng cũ để giải thích output mới. Thời gian cũ 13.41/12.33 giây không phải thời gian của demo ngắn mới.
 
-```python
-original_attention = self_attention
-def simulated_oom(*args, **kwargs):
-    raise torch.OutOfMemoryError("simulated")
+## Tái lập kiểm tra
 
-try:
-    self_attention = simulated_oom
-    assert benchmark([16, 32], "cpu", n_rep=1) == [
-        {"len": 16, "ms": None, "mem_mb": None},
-        {"len": 32, "ms": None, "mem_mb": None},
-    ]
-finally:
-    self_attention = original_attention
-
-try:
-    find_token(["The", "animal"], "it")
-except ValueError as error:
-    assert "Không tìm thấy token 'it'" in str(error)
-else:
-    raise AssertionError("Thiếu token phải báo ValueError")
-```
-
-Không gây OOM thật. Phép mô phỏng không bao phủ cấp phát nằm ngoài `try` trong benchmark. Các kiểm tra CLI không thay thế kiểm tra hiển thị trong VS Code.
+Từ gốc repo: `python workflow/08-test/test_demo.py` kiểm tra hàm gốc được trích trực tiếp từ notebook bằng AST, không tạo module sản phẩm riêng. Notebook cũng có assert ở phụ lục. Cách chạy đầy đủ và các bước mô phỏng tại [RUN](../07-run/RUN.md). Manifest kiểm soát file/link/nguồn và dữ liệu số; không làm mới hash để che số liệu chưa được kiểm chứng.

@@ -1,0 +1,8 @@
+Source code SHA256: d8332185e0a9a3d5769e5c0f8ba54615035429375374455ef1229f26382f3522
+Exit code: 0
+.......<notebook>:20: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+.
+----------------------------------------------------------------------
+Ran 8 tests in 0.742s
+
+OK

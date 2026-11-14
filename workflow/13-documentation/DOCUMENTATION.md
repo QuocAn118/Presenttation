@@ -13,7 +13,7 @@ Mục lục ở [README](../README.md), quyền sở hữu thông tin ở [CONTR
 | Nguồn | Cách dùng | Giới hạn |
 | --- | --- | --- |
 | PDF 20 trang người dùng cung cấp | Cơ sở lý thuyết và nối slide 17–19 với demo | Có biểu diễn tổng quát khác GPT-2 và số của lượt đo cũ; đọc theo THEORY |
-| Spec/plan gốc | Phạm vi, tên hàm dự kiến, 5 task và điều kiện nghiệm thu | Phần cứng cũ còn RTX 4080/cu126; quyết định mới được ghi trong workflow |
+| Spec/plan gốc | Phạm vi, tên hàm dự kiến, 5 task và điều kiện nghiệm thu | Đã đồng bộ RTX 5060/cu128, giữ ghi chú lịch sử quyết định |
 | Notebook/requirements | Hành vi, API và dependency thực tế | Không giả định code khớp toàn bộ kế hoạch nếu chưa kiểm tra |
 | Log kiểm tra | Bằng chứng chạy offline, CPU giả lập và lỗi mô phỏng | Chỉ có giá trị cho đúng source được khóa; không thay UI review |
 
@@ -21,7 +21,7 @@ Manifest khóa fingerprint các nguồn và file tài liệu. PDF là input cụ
 
 ## Nội dung bàn giao theo yêu cầu giảng viên
 
-Code self-attention, hai heatmap và phần ưu/nhược điểm nằm trong notebook đã có. Tài liệu workflow giải thích rõ nguồn trọng số, công thức, cách đọc hình, benchmark và các giới hạn của kết luận. Hướng dẫn môi trường/chạy được ghi trong ENVIRONMENT/RUN; README gốc ngoài workflow vẫn cần đồng bộ nếu phạm vi được mở rộng.
+Code self-attention, hai heatmap và phần ưu/nhược điểm nằm trong notebook đã có. Tài liệu workflow giải thích rõ nguồn trọng số, công thức, cách đọc hình, benchmark và các giới hạn của kết luận. Hướng dẫn môi trường/chạy được ghi trong ENVIRONMENT/RUN; README đã đồng bộ với Implementation, bảng so sánh và cách trình bày ngắn; benchmark đặt ở phụ lục.
 
 Nguồn PNG được xác định: Matplotlib trong notebook tạo heatmap/bảng chi phí; các bản nền tối và tổng quan slide thêm riêng qua Git. Không gọi ảnh slide là số đo mới hoặc cho rằng chúng tự được cập nhật khi Run All.
 

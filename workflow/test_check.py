@@ -74,6 +74,11 @@ class DocumentControlTests(unittest.TestCase):
         path.write_bytes(path.read_text(encoding='utf-8').replace('\n', '\r\n').encode('utf-8'))
         self.assertEqual(checker.fingerprint(path), before)
 
+    def test_binary_figures_can_be_fingerprinted(self):
+        path = self.root.parent / 'figure.png'
+        path.write_bytes(b'\x89PNG\r\n\x1a\n\xff\x00')
+        self.assertEqual(len(checker.fingerprint(path)), 64)
+
 
 if __name__ == '__main__':
     unittest.main()

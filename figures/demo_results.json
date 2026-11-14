@@ -1,0 +1,81 @@
+{
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "torch": "2.9.1+cu128",
+    "transformers": "5.22.2"
+  },
+  "method": {
+    "seed": 42,
+    "warmup": 3,
+    "repetitions": 20,
+    "memory_unit": "MiB",
+    "cpu_memory": "returned_attention_matrix",
+    "gpu_memory": "total_peak_allocated_including_model"
+  },
+  "verification": {
+    "max_diff": 1.7583370208740234e-06,
+    "layers": 12
+  },
+  "heatmap": {
+    "layer": 4,
+    "head": 3,
+    "before": 0.7929674386978149,
+    "after": 0.8460676670074463,
+    "first_token_mean": 0.2876138985157013
+  },
+  "cpu": [
+    {
+      "len": 128,
+      "ms": 0.988349987892434,
+      "mem_mb": 0.75
+    },
+    {
+      "len": 256,
+      "ms": 2.0081000111531466,
+      "mem_mb": 3.0
+    },
+    {
+      "len": 512,
+      "ms": 5.311999993864447,
+      "mem_mb": 12.0
+    },
+    {
+      "len": 1024,
+      "ms": 25.49294999334961,
+      "mem_mb": 48.0
+    },
+    {
+      "len": 2048,
+      "ms": 88.35059999546502,
+      "mem_mb": 192.0
+    }
+  ],
+  "gpu": [
+    {
+      "len": 128,
+      "ms": 0.3110000106971711,
+      "mem_mb": 496.78564453125
+    },
+    {
+      "len": 256,
+      "ms": 0.2875500067602843,
+      "mem_mb": 502.70751953125
+    },
+    {
+      "len": 512,
+      "ms": 0.5148999916855246,
+      "mem_mb": 526.89501953125
+    },
+    {
+      "len": 1024,
+      "ms": 2.3575499944854528,
+      "mem_mb": 607.14501953125
+    },
+    {
+      "len": 2048,
+      "ms": 8.455750008579344,
+      "mem_mb": 916.14501953125
+    }
+  ]
+}

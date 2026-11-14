@@ -1,0 +1,74 @@
+Date: 2026-11-14 (Asia/Bangkok)
+Mode: demo-cpu
+Source code SHA256: d8332185e0a9a3d5769e5c0f8ba54615035429375374455ef1229f26382f3522
+HF_HUB_OFFLINE=1
+Command: python -m jupyter nbconvert --to notebook --execute --inplace scratch\demo-cpu\self_attention_demo.ipynb
+[NbConvertApp] Converting notebook C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo-cpu\self_attention_demo.ipynb to notebook
+C:\Users\Legion\AppData\Roaming\Python\Python312\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 194235 bytes to C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\demo-cpu\self_attention_demo.ipynb
+
+Exit code: 0
+Elapsed seconds: 14.32
+Notebook errors: 0
+
+Notebook text outputs:
+C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\.venv\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+
+W1114 08:31:26.237000 28360 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+PyTorch: 2.9.1+cu128 | Transformers: 5.22.2
+GPU: Không có GPU | CPU: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD | Device: cpu
+
+
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+
+Loading weights:   8%|▊         | 12/148 [00:00<00:01, 80.63it/s]
+
+Loading weights: 100%|██████████| 148/148 [00:00<00:00, 916.90it/s]
+Token: ['The', 'animal', 'didn', "'t", 'cross', 'the', 'street', 'because', 'it', 'was', 'too', 'tired']
+
+
+
+Khớp GPT-2 gốc ở cả 12 lớp; sai số lớn nhất: 4.47e-07 < 1e-4
+
+Top 1: lớp 4, đầu 3, it → animal = 0.8461 (84.61%)
+Top 2: lớp 5, đầu 10, it → animal = 0.4135 (41.35%)
+Top 3: lớp 6, đầu 0, it → animal = 0.3952 (39.52%)
+
+
+
+Không có GPU, chỉ đo CPU
+N | GPU ms | CPU ms | GPU đỉnh MiB | CPU ma trận MiB
+128 | N/A | 1.07 | N/A | 0.75
+256 | N/A | 1.95 | N/A | 3.00
+512 | N/A | 5.87 | N/A | 12.00
+1024 | N/A | 21.54 | N/A | 48.00
+2048 | N/A | 82.94 | N/A | 192.00
+
+
+
+
+
+Đạt: ví dụ số tính tay, OOM ở weight/bias/input và attention; đo tiếp sau OOM.
+
+
+Generated explanations:
+
+
+
+
+
+
+
+
+
+
+
+**Nhìn hình:** ở lớp 4, đầu 3, `it → animal` là **79.30% trước mask**, **84.61% sau mask**. Sau mask, vùng tương lai bằng **0**. Attention trung bình về `The` của các token phía sau là **28.76%**; đây chỉ là quan sát tại đầu này, không chứng minh toàn bộ cách GPT-2 hiểu câu.
+
+
+**Chi phí:** ma trận attention tăng từ **0.75 MiB** (N=128) lên **192.00 MiB** (N=2048). Kích thước N×N tăng 4 lần khi N gấp đôi.
+Không có cặp số đo GPU/CPU hợp lệ để tính tỷ lệ (thiếu GPU hoặc OOM).

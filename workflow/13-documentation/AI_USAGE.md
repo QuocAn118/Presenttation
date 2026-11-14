@@ -23,4 +23,4 @@ Trang thành viên PDF có tỷ lệ hoàn thành, nhưng không dùng tỷ lệ
 
 ## Ranh giới của phiên này
 
-Sản phẩm của phiên là nội dung workflow và bộ kiểm tra tài liệu. Notebook, PDF, hình và quyết định về câu demo/GPT-2 được giữ nguyên. Computer Use đã bị người dùng dừng; không khẳng định có kiểm tra UI hoàn chỉnh trong phiên.
+Lượt hồ sơ ban đầu chỉ sửa workflow; lượt mới được người dùng giao sửa demo và thêm Implementation/so sánh lý thuyết ngắn. AI sửa notebook/hình/nguồn hướng dẫn, thêm test và chạy CLI. Giữ PDF/slide, GPT-2 và câu mẫu. Người dùng dừng Computer Use và yêu cầu không dùng nó; không nhận có kiểm tra UI hoàn chỉnh.

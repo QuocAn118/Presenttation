@@ -1,35 +1,27 @@
-# 06 - Kết quả rà soát theo lý thuyết và code
+# 06 - Kết quả rà soát demo đã sửa
 
 **Mã hồ sơ: REVIEW. Cập nhật: 14/11/2026.**
 
 ## Phạm vi và cách đối chiếu
 
-Đọc PDF, notebook/outputs, config/code GPT-2 đang cài và log kiểm tra. Đối chiếu công thức, shape tensor, mask, lựa chọn đầu và cách diễn giải. Đây là hồ sơ phát hiện, không phải tuyên bố đã sửa lỗi ngoài phạm vi tài liệu.
+Đối chiếu PDF, code và output mới. Demo chính chỉ có Implementation, kiểm chứng, heatmap và bảng Transformer/CNN/RNN; phần đo/kiểm tra đặt ở phụ lục. Không coi bảng so sánh là thí nghiệm huấn luyện ba mô hình.
 
-Các điểm lý thuyết dễ nhầm được chốt ở [THEORY](../THEORY.md): √d_k cho từng đầu, mask cộng khác mask nhị phân, GPT-2 pre-LN/không cross-attention, hàm trả đầu ra trước `c_proj`.
+## Phát hiện và trạng thái xử lý
+
+| ID | Vấn đề ở bản trước | Bản sửa / bằng chứng |
+| --- | --- | --- |
+| REVIEW-001 | Nhận xét tĩnh lệch bảng benchmark | Đã sửa: Markdown tính trực tiếp từ `res_cpu/res_gpu`, không nhét số cũ vào văn bản. JSON lưu cùng lượt và log có phần Generated explanations |
+| REVIEW-002 | Kết luận mạnh từ một đầu; attention sink chưa đo riêng | Đã sửa: ghi giới hạn một đầu; `it→animal` trước/sau và trung bình về token đầu được tính từ ma trận thật |
+| REVIEW-003 | CPU dummy, hai phép đo khác phạm vi; số lần lặp không thống nhất | Đã sửa: CPU đếm attention thực trả về; hai thiết bị 20 lần; GPU peak gồm mô hình và MiB được ghi rõ trên hình/notebook |
+| REVIEW-004 | `pick_head` sai API và chưa có `plot_attention` | Đã sửa đúng chữ ký kế hoạch; tests kiểm tra API và xuất đủ PNG |
+| REVIEW-005 | AGENTS/spec/plan/README lệch máy mới | Đã đồng bộ RTX 5060 Laptop/cu128 theo lựa chọn đã duyệt; cấu hình cũ chỉ còn trong ghi chú lịch sử |
+| REVIEW-006 | Cấp phát ngoài vùng bắt OOM | Đã sửa: weight/bias/input và attention trong `try`; test từng cấp phát, OOM trong hàm và toàn bộ row OOM đều đạt |
+| REVIEW-007 | PDF/ảnh slide có số của lượt cũ | Giữ nguyên nguồn lịch sử; không ép số mới khớp slide. Dùng PNG gốc/JSON mới để trình bày số hiện tại |
 
 ## Phần đã có bằng chứng phù hợp
 
-- QKV và sáu phép tính attention hiện rõ trong hàm tự viết; chia √64 đúng kích thước đầu.
-- Đối chứng eager GPT-2 dùng cùng hidden state/trọng số; sai số mỗi lớp được assert dưới `1e-4`.
-- Quét toàn bộ lớp/đầu theo tiêu chí công khai; lớp 4, đầu 3 được chọn theo index 0, không gán là đại diện toàn model.
-- Hai panel dùng cùng Q/K, một có causal mask; kiểm tra số xác nhận vùng tương lai bị triệt tiêu.
-- Cache offline và nhánh CPU có log runtime. Không dùng các kiểm tra CLI này để xác nhận mọi chi tiết hiển thị trong VS Code.
+Sai số, tổng hàng và tam giác trên được assert ở từng lớp trong cả 12 lớp. Hình gốc đã được xem trực tiếp từ file PNG: chữ/nhãn/thang màu rõ, trước/sau cùng lớp/đầu. Bản offline, CPU giả lập và all-OOM chạy hết không ô lỗi; test tính tay, API, ma trận CPU thực và OOM có log mới ở TEST_RESULTS.
 
-## Phát hiện còn mở
+## Giới hạn còn lại
 
-| ID | Bằng chứng cụ thể | Ảnh hưởng | Trạng thái |
-| --- | --- | --- | --- |
-| REVIEW-001 | Nhận xét notebook ghi GPU đỉnh 19.77–636.88 MB; bảng lưu sẵn ghi 497.95–1114.18 MB. Thời gian markdown 0.23/1.00 và 8.05/86.61 ms khác bảng 0.27/0.97 và 8.09/88.17 ms | Người trình bày có thể đọc số của lượt khác | Chưa sửa notebook; cần dùng cùng lượt đo hoặc suy ra nhận xét trực tiếp từ kết quả |
-| REVIEW-002 | Văn bản dùng một đầu để khẳng định “chứng minh” tham chiếu/so RNN; con số attention sink chưa có output xác minh riêng | Kết luận vượt mẫu đo | Chưa sửa; thu hẹp về quan sát một lớp/đầu như lưu ý PDF trang 18 |
-| REVIEW-003 | GPU đo tổng peak tensor còn sống, CPU chỉ tính `dummy_scores`; phần phương pháp ghi 20 lần nhưng CPU thực tế 10 | Hai đường bộ nhớ không cùng phạm vi; lời mô tả chưa khớp code | Workflow ghi đúng; notebook ngoài phạm vi còn cần đồng bộ |
-| REVIEW-004 | Chưa có `plot_attention`; `pick_head` nhận từ, trả `(best,top3)` khác kế hoạch | Không thể gọi API theo chữ ký trong kế hoạch | Ghi rõ API thật; chưa refactor/thay kế hoạch gốc |
-| REVIEW-005 | AGENTS và spec/plan gốc còn RTX 4080/cu126; README chỉ ghi GPU laptop chung | Khó xác định máy nghiệm thu | Người dùng đã duyệt RTX 5060/cu128; workflow ghi quyết định, nguồn ngoài phạm vi còn lệch |
-| REVIEW-006 | `x`, `w_qkv`, `b_qkv` được cấp phát ngoài `try` | OOM tại đây chưa được bắt | Chưa sửa; phép thử OOM hiện tại chỉ bao phủ lời gọi attention bên trong `try` |
-| REVIEW-007 | PDF trang 19 dùng 10,8×; lượt offline kiểm tra mới có số ms khác | Dễ trộn số liệu slide và runtime mới | Workflow tách hai lượt, không chỉnh PDF hoặc ảnh slide |
-
-## Mức độ và hướng giải quyết
-
-REVIEW-001–003 ảnh hưởng trực tiếp phần nhận xét chấm bài, cần xử lý trước khi xác nhận sản phẩm hoàn thành. REVIEW-005 ảnh hưởng hướng dẫn chạy/bàn giao. REVIEW-006 là giới hạn xử lý lỗi cần công khai. REVIEW-004 có thể xử lý bằng sửa API hoặc ghi nhận quyết định phù hợp thiết kế, không cần refactor toàn notebook. REVIEW-007 đã được phân biệt trong hồ sơ nhưng slide chưa được sửa.
-
-Chỉ đóng phát hiện sau khi có thay đổi và kiểm tra liên quan. Mẫu tái hiện/cách kiểm tra ở [DEBUG](../09-debug/DEBUG.md); kết luận sản phẩm ở [ACCEPTANCE](../14-definition-of-done/ACCEPTANCE.md).
+Không huấn luyện/benchmark CNN hay RNN; chỉ so sánh lý thuyết theo nguồn gốc. Chưa cố gây OOM thật. Người dùng dừng Computer Use và yêu cầu tiếp tục không dùng nó, nên chưa xác nhận Restart/Run All trong VS Code bằng UI; kết quả CLI không được nhận là kết quả UI. Slide/PDF và ảnh nền tối cũ không tự tái tạo theo lượt mới.

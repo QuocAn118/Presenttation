@@ -1,45 +1,34 @@
-# 14 - Nghiệm thu hồ sơ và sản phẩm
+# 14 - Nghiệm thu demo và hồ sơ
 
 **Mã hồ sơ: ACCEPTANCE. Cập nhật: 14/11/2026.**
 
-## Phạm vi hồ sơ được giao
+## Phạm vi đã được giao
 
-Đọc PDF lý thuyết, viết nội dung bài vào từng thư mục bước 01–14, bỏ GUIDE và kiểm soát từng file. Đây là nhiệm vụ tài liệu; không mặc nhiên mở phạm vi sửa notebook/slide. Hồ sơ phải phản ánh cả kết quả đạt và điểm còn mở của sản phẩm.
+Lượt đầu hoàn thiện workflow theo PDF. Lượt mới mở phạm vi sửa demo cho khớp, thêm Implementation và so sánh Transformer/CNN/RNN, code/giải thích ngắn. Giữ GPT-2, câu mẫu và phép đo GPU/CPU đã chốt; chuyển phần đo/kiểm tra ra phụ lục. Không huấn luyện lại hay sửa PDF/slide.
 
-## Tiêu chí hoàn tất bộ workflow
+## Tiêu chí đã kiểm chứng
 
-| Tiêu chí | Kết quả nội dung / cách xác nhận |
+| Tiêu chí | Kết quả |
 | --- | --- |
-| Đọc PDF và nêu nguồn | THEORY ghi hash/20 trang, đối chiếu sơ đồ ảnh và các trang 17–19 |
-| Nội dung cụ thể cho từng bước | Mỗi thư mục có artifact của bài, không còn prompt mẫu/GUIDE |
-| Không tồn tại hai bộ hồ sơ mâu thuẫn | Nội dung `workflow/docs/` chuyển về vị trí chịu trách nhiệm; liên kết cũ được cập nhật |
-| Lý thuyết khớp phạm vi GPT-2 | Phân biệt √64, mask cộng, decoder-only/pre-LN/không cross-attention và đầu ra trước `c_proj` |
-| Số liệu có nguồn | Bảng TEST_RESULTS và measurements đối chiếu log cùng lượt; số 10,8× trên PDF là lượt khác |
-| Kiểm soát thay đổi | Manifest định danh/hash/mục bắt buộc/nguồn; checker và regression tests |
-| Không bịa trạng thái sản phẩm | Review, UI và OOM chưa bao phủ giữ trạng thái mở |
-| Giữ đúng phạm vi Git | Chỉ thay workflow, không stage việc xóa PDF cũ hoặc PDF mới của người dùng |
+| Implementation từng phép tính, giải thích đơn giản | Có trong mục 1; không gọi attention dựng sẵn |
+| So sánh lý thuyết Transformer/CNN/RNN | Có bảng ngắn ở mục 4 và COMPARISON có nguồn gốc |
+| Ma trận khớp GPT-2, tổng hàng/mask đúng cả 12 lớp | Đạt, sai số không nới ngưỡng 1e-4 |
+| Nhận xét đúng output | Sinh trực tiếp từ kết quả, không giữ số tĩnh |
+| API chọn đầu/vẽ, phương pháp và máy khớp tài liệu | Đã đồng bộ; REVIEW-001–005 được xử lý |
+| OOM tại cấp phát/attention và toàn bộ row | Đạt mô phỏng; tiếp tục, có bảng/hình/giải thích hợp lệ; REVIEW-006 được xử lý |
+| Toàn notebook offline và nhánh CPU | Đạt CLI, exit 0, không ô lỗi; có log cùng mã nguồn |
+| PNG và JSON | 4 hình gốc đã xem, JSON giữ số/phương pháp thật |
+| Manifest/file/link/nguồn/bảng số | Được kiểm bằng checker và regression tests trước bàn giao |
 
-File đầy đủ chưa đủ để nhận kiểm tra tự động đạt. Lệnh test/check phải chạy thành công sau nội dung cuối; hash được cập nhật cho đúng những file đã rà soát và diff chỉ gồm phạm vi đã giao. Kết quả lệnh và hash commit được báo ở bàn giao sau khi có thực tế.
+## Các điều chưa nhận là hoàn thành
 
-## Trạng thái toàn bộ bài
+- Chưa xác nhận Restart/Run All trong VS Code: người dùng đã yêu cầu không dùng Computer Use. Không thay chứng cứ UI bằng CLI.
+- Không benchmark chất lượng hoặc huấn luyện CNN/RNN; bảng so sánh là lý thuyết theo yêu cầu được hiểu và thông báo.
+- Không cố gây OOM thật; chỉ mô phỏng các điểm cấp phát/attention và luồng báo OOM.
+- PDF và ảnh slide/nền tối cũ giữ số của lượt lịch sử, không tự cập nhật. Để trình bày số mới, dùng PNG gốc và JSON của notebook.
 
-| Tiêu chí sản phẩm | Trạng thái |
-| --- | --- |
-| Hàm attention tự viết và đối chiếu GPT-2 12 lớp | Đạt trên source đã kiểm tra |
-| Causal mask đúng thuộc tính số; xuất đủ hình | Đạt kiểm tra số/file |
-| Offline từ kernel mới và CPU giả lập không GPU | Đạt theo log |
-| Mọi nhận xét khớp số của cùng lượt | Còn REVIEW-001 |
-| Kết luận heatmap ở mức bằng chứng hỗ trợ | Còn REVIEW-002 |
-| Mô tả phương pháp/số lần lặp và API khớp triển khai | Còn REVIEW-003–004 |
-| Tài liệu ngoài workflow thống nhất máy mới | Còn REVIEW-005 |
-| OOM được bao phủ ở mọi cấp phát | Còn REVIEW-006 |
-| PDF/slide đã cập nhật theo lượt benchmark mới | Chưa thực hiện; REVIEW-007 phân biệt hai lượt |
-| Restart/Run All và nhìn mọi hình trong VS Code | Chưa xác nhận; người dùng dừng Computer Use |
+**Kết luận:** bản demo ngắn và các kiểm tra dòng lệnh đã đạt; còn bước người trình bày tự xác nhận thao tác/hiển thị trong VS Code. Không gán bước này đã đạt.
 
-**Kết luận sản phẩm:** đã triển khai và có bằng chứng CLI, chưa nghiệm thu đầy đủ. Hoàn tất workflow không đổi kết luận này.
+## Bàn giao và kiểm soát thay đổi
 
-## Bàn giao và điều kiện đóng các mục mở
-
-Mục lục có ở [README](../README.md); nguồn chính từng loại thông tin ở [CONTROL](../CONTROL.md). Khi code hoặc nguồn thay đổi, phải xem lại hash nguồn, chạy kiểm tra liên quan, lưu log mới và review các kết luận chịu ảnh hưởng trước khi cập nhật trạng thái. Không chỉ sửa manifest để làm checker xanh khi bằng chứng chưa được cập nhật.
-
-Repo được giao push main; chỉ báo đã push khi ref remote được xác nhận. Hash cuối nằm ở thông báo bàn giao, không điền hash dự kiến vào chính tài liệu đang commit. Giữ nguyên thay đổi ngoài phạm vi đang có của người dùng.
+TEST_RESULTS chứa nguồn/log của lượt mới; CONTROL quy định một nơi chính cho từng thông tin. Manifest khóa snapshot gồm notebook, JSON, hình và nguồn hướng dẫn. Run All sau này có thể đổi timing/output nên cần review/cập nhật log/hash tương ứng, không đặt số bằng lượt cũ. Chỉ stage thay đổi được giao; giữ nguyên PDF mới và việc xóa PDF cũ của người dùng. Chỉ báo push main sau khi xác nhận ref remote.
