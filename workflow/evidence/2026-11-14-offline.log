@@ -1,0 +1,78 @@
+Date: 2026-11-14 (Asia/Bangkok)
+Mode: offline
+Source: unchanged self_attention_demo.ipynb copied to scratch/wf-offline/
+HF_HUB_OFFLINE=1
+Command: .venv/Scripts/python.exe -m jupyter nbconvert --to notebook --execute --inplace scratch/wf-offline/self_attention_demo.ipynb
+[NbConvertApp] Converting notebook C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\wf-offline\self_attention_demo.ipynb to notebook
+C:\Users\Legion\AppData\Roaming\Python\Python312\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 264694 bytes to C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\scratch\wf-offline\self_attention_demo.ipynb
+
+Exit code: 0
+Elapsed seconds: 13.41
+Notebook errors: 0
+Four PNG files: PASS
+
+Notebook text outputs:
+C:\Users\Legion\Desktop\TÀI LIỆU HỌC\Presenttation\.venv\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+
+W1114 07:29:08.065000 28148 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+PyTorch version: 2.9.1+cu128
+Device: cuda
+GPU: NVIDIA GeForce RTX 5060 Laptop GPU
+CPU: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+
+Đang tải mô hình GPT-2...
+
+
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+
+Loading weights:   6%|▌         | 9/148 [00:00<00:01, 89.22it/s]
+
+Loading weights: 100%|██████████| 148/148 [00:00<00:00, 1298.14it/s]
+
+
+Đã tải xong mô hình GPT-2 thành công.
+
+Danh sách tokens: ['The', 'animal', 'didn', "'t", 'cross', 'the', 'street', 'because', 'it', 'was', 'too', 'tired']
+
+✓ Hàm tự viết khớp GPT-2 gốc ở cả 12 lớp!
+✓ Sai số lớn nhất: 1.76e-06 (ngưỡng cho phép: < 1.00e-04)
+✓ Tổng hàng ma trận chú ý = 1.0; Tam giác trên sau causal mask = 0.0
+
+=== KẾT QUẢ QUÉT 144 HEADS TỰ ĐỘNG ===
+
+Top 1: Lớp 4, Đầu 3 -> Trọng số chú ý 'it' -> 'animal' = 0.8461 (84.61%)
+Top 2: Lớp 5, Đầu 10 -> Trọng số chú ý 'it' -> 'animal' = 0.4135 (41.35%)
+Top 3: Lớp 6, Đầu 0 -> Trọng số chú ý 'it' -> 'animal' = 0.3952 (39.52%)
+
+=> Chọn Lớp 4, Đầu 3 để vẽ Heatmap chính thức.
+
+
+✓ Đã lưu thành công 3 ảnh PNG chất lượng cao vào figures/:
+  - figures/heatmap_compare.png
+  - figures/heatmap_no_mask.png
+  - figures/heatmap_causal_mask.png
+
+✓ Hàm benchmark hoạt động chính xác và đạt kiểm thử O(n^2)!
+
+1. Đang đo lường trên CPU...
+
+2. Đang đo lường trên GPU (NVIDIA GeForce RTX 5060 Laptop GPU)...
+
+
+========================================================================
+Độ dài (N)   | GPU (ms)     | CPU (ms)     | GPU (MB)     | CPU (MB)
+========================================================================
+128          | 0.29         | 1.10         | 497.95       | 0.75
+256          | 0.29         | 1.89         | 506.49       | 3.00
+512          | 0.52         | 5.41         | 540.93       | 12.00
+1024         | 2.32         | 20.03        | 658.18       | 48.00
+2048         | 8.04         | 92.88        | 1114.18      | 192.00
+========================================================================
+
+
+✓ Đã lưu biểu đồ đo chi phí vào figures/cost_gpu_cpu.png
